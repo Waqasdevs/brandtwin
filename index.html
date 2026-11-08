@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrandTwin Studio | Infinite 3D/AI Studio & Ad Engine for Packaging Brands</title>
+  <title>BrandTwin Studio | Infinite Studio & Ad Engine for Packaging Brands</title>
   <meta name="description" content="Your Product Packaging, Cloned Into an Infinite Studio & Ad Engine. We train a private AI Brand Twin on your exact bottles, boxes, and labels—and deliver 20 conversion-ready static and motion ads weekly.">
 
   <!-- OpenGraph -->
-  <meta property="og:title" content="BrandTwin Studio | Infinite Packaging Studio & Ad Engine">
-  <meta property="og:description" content="Your Product Packaging, Cloned Into an Infinite Studio & Ad Engine. 20 conversion-ready ads weekly without photoshoots.">
+  <meta property="og:title" content="BrandTwin Studio | Infinite Studio & Ad Engine">
+  <meta property="og:description" content="Your Product Packaging, Cloned Into an Infinite Studio & Ad Engine. Zero photoshoots. Zero warped labels.">
   <meta property="og:image" content="./sauce_studio.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080400'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23DF0B21'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23AAD5E7'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D0F0C'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23DF0B21'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts: Inter (Neue Haas / Lumora style) & Space Grotesk (Retrofuturistic Tech) -->
+  <!-- Fonts: Inter & Plus Jakarta Sans (Editorial Swiss Grotesque like Lumóra) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Local -->
   <script src="./tailwindcss.min.js"></script>
@@ -26,30 +26,23 @@
       theme: {
         extend: {
           colors: {
-            raven: {
-              DEFAULT: '#080400',
-              deep: '#040200',
-              surface: '#0E0906',
-              card: '#140E0A',
-              border: 'rgba(255, 255, 255, 0.08)'
+            studio: {
+              bg: '#0D0F0C',        /* Matte deep studio charcoal / Raven Black */
+              dark: '#080907',
+              surface: '#151814',
+              card: '#1A1D18',
+              border: '#242823',
+              borderLight: '#323730',
+              muted: '#7A8078',
+              subtle: '#9CA39A',
             },
-            powder: {
-              DEFAULT: '#AAD5E7',
-              light: '#BCE1F1',
-              dim: 'rgba(170, 213, 231, 0.15)',
-              glow: 'rgba(170, 213, 231, 0.4)'
-            },
-            poppy: {
-              DEFAULT: '#DF0B21',
-              bright: '#E70103',
-              dim: 'rgba(223, 11, 33, 0.15)',
-              glow: 'rgba(223, 11, 33, 0.5)'
+            accent: {
+              red: '#DF0B21',       /* Poppy Red editorial ink */
+              blue: '#AAD5E7',      /* Powder Blue editorial ink */
             }
           },
           fontFamily: {
             sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'sans-serif'],
-            mono: ['"Space Grotesk"', 'monospace'],
-            tech: ['"Space Grotesk"', 'monospace'],
           }
         }
       }
@@ -57,7 +50,7 @@
   </script>
 
   <style>
-    /* Critical Dimension & Layout Safeguards */
+    /* Dimension Safeguards */
     .sr-only {
       position: absolute !important;
       width: 1px !important;
@@ -70,1003 +63,853 @@
       border: 0 !important;
     }
     nav svg, .icon-svg {
-      width: 1.25rem !important;
-      height: 1.25rem !important;
-      max-width: 1.25rem !important;
-      max-height: 1.25rem !important;
+      width: 1.15rem !important;
+      height: 1.15rem !important;
     }
     .w-4 { width: 1rem !important; height: 1rem !important; }
     .w-5 { width: 1.25rem !important; height: 1.25rem !important; }
-    .w-6 { width: 1.5rem !important; height: 1.5rem !important; }
     .w-8 { width: 2rem !important; height: 2rem !important; }
     .w-10 { width: 2.5rem !important; height: 2.5rem !important; }
 
-    /* Base Styling: Raven Black & Modern Swiss Grotesque */
+    /* Base Styling: Matte, Architectural, Zero Glows */
     body {
-      background-color: #080400;
+      background-color: #0D0F0C;
       color: #FFFFFF;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      letter-spacing: -0.015em;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Lumora Style Tight Headlines */
-    h1, h2, h3, .lumora-heading {
-      letter-spacing: -0.035em;
+    /* Lumóra Editorial Typography Hierarchy */
+    .editorial-heading {
+      letter-spacing: -0.03em;
+      font-weight: 500;
+    }
+    .editorial-subheading {
+      letter-spacing: -0.015em;
+      line-height: 1.6;
     }
 
-    /* Retrofuturism Glass & Airbrush Glows */
-    .retro-glass {
-      background: rgba(14, 9, 6, 0.72);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Clean Studio Borders & Flat Surfaces */
+    .studio-panel {
+      background-color: #151814;
+      border: 1px solid #242823;
     }
-    .retro-glass-glow {
-      background: rgba(14, 9, 6, 0.82);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(170, 213, 231, 0.25);
-      box-shadow: 0 0 35px -5px rgba(170, 213, 231, 0.15), 0 0 20px -2px rgba(223, 11, 33, 0.2);
-    }
-
-    /* Technical grid pattern */
-    .retro-grid-bg {
-      background-image: radial-gradient(rgba(170, 213, 231, 0.12) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-
-    /* Scanline pulse */
-    @keyframes scanline {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(1000%); }
-    }
-    .animate-scanline {
-      animation: scanline 8s linear infinite;
+    .studio-panel-hover:hover {
+      border-color: #383E36;
     }
 
     /* Custom subtle scrollbar */
     ::-webkit-scrollbar {
-      width: 6px;
+      width: 5px;
     }
     ::-webkit-scrollbar-track {
-      background: #080400;
+      background: #0D0F0C;
     }
     ::-webkit-scrollbar-thumb {
-      background: #2A1D15;
-      border-radius: 3px;
+      background: #242823;
+      border-radius: 2px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #DF0B21;
+      background: #3A4138;
     }
   </style>
 </head>
-<body class="bg-[#080400] text-white selection:bg-[#DF0B21] selection:text-white min-h-screen relative overflow-x-hidden">
-
-  <!-- Retrofuturistic Ambient Airbrush Glows (Floating) -->
-  <div class="fixed top-0 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-[#DF0B21] rounded-full filter blur-[180px] opacity-15 pointer-events-none -z-10"></div>
-  <div class="fixed top-1/3 right-0 translate-x-1/3 w-[500px] h-[500px] bg-[#AAD5E7] rounded-full filter blur-[170px] opacity-10 pointer-events-none -z-10"></div>
-  <div class="fixed bottom-10 left-1/3 w-[550px] h-[550px] bg-[#DF0B21] rounded-full filter blur-[190px] opacity-10 pointer-events-none -z-10"></div>
+<body class="bg-[#0D0F0C] text-white selection:bg-[#DF0B21] selection:text-white min-h-screen relative overflow-x-hidden">
 
   <!-- ========================================== -->
-  <!-- 1. NAVIGATION (Lumora + Retrofuturistic Minimalist) -->
+  <!-- 1. NAVIGATION (Lumóra Minimalist Bar) -->
   <!-- ========================================== -->
-  <header class="fixed top-4 inset-x-0 z-50 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto">
-      <nav class="retro-glass rounded-full px-5 py-3 flex items-center justify-between border border-white/10 shadow-2xl">
-        <!-- Logo -->
-        <a href="#" class="flex items-center space-x-3 group">
-          <div class="w-8 h-8 rounded-lg bg-[#DF0B21] flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(223,11,33,0.6)] group-hover:scale-105 transition-transform">
-            <span class="font-mono text-sm">BT</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-white font-bold text-base tracking-tight group-hover:text-[#AAD5E7] transition-colors">
-              BrandTwin<sup class="text-[10px] text-[#AAD5E7] ml-0.5">®</sup>
-            </span>
-          </div>
-        </a>
+  <header class="w-full border-b border-[#242823]/60 bg-[#0D0F0C]/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center space-x-2 group">
+        <span class="text-xl font-medium tracking-tight text-white group-hover:text-neutral-300 transition-colors">
+          BrandTwin<sup class="text-xs font-normal text-neutral-400 ml-0.5">®</sup>
+        </span>
+      </a>
 
-        <!-- Swiss Navigation Links with '+' separators (Lumora Style) -->
-        <div class="hidden md:flex items-center space-x-3 text-xs tracking-wide text-neutral-400 font-mono">
-          <a href="#moat" class="hover:text-white transition-colors">About</a>
-          <span class="text-neutral-600">+</span>
-          <a href="#system" class="hover:text-white transition-colors">Technology</a>
-          <span class="text-neutral-600">+</span>
-          <a href="#showcase" class="hover:text-white transition-colors">Case Studies</a>
-          <span class="text-neutral-600">+</span>
-          <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-          <span class="text-neutral-600">+</span>
-          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-        </div>
-
-        <!-- Right Side: Badge & Primary CTA -->
-        <div class="flex items-center space-x-3">
-          <div class="hidden lg:flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-[11px] font-mono text-neutral-400">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#AAD5E7] animate-pulse"></span>
-            <span>[2026° ACTIVE]</span>
-          </div>
-          <button onclick="openLeadModal()" class="px-5 py-2 rounded-full bg-[#DF0B21] hover:bg-[#E70103] text-white text-xs font-semibold tracking-wide shadow-[0_0_20px_rgba(223,11,33,0.5)] hover:shadow-[0_0_30px_rgba(223,11,33,0.8)] transition-all hover:scale-105">
-            Claim 3 Free Ads →
-          </button>
-        </div>
+      <!-- Minimal Editorial Links with '+' (Lumóra style) -->
+      <nav class="hidden md:flex items-center space-x-4 text-xs font-normal text-[#9CA39A] tracking-normal">
+        <a href="#moat" class="hover:text-white transition-colors">About</a>
+        <span class="text-[#3A4138]">+</span>
+        <a href="#system" class="hover:text-white transition-colors">Services</a>
+        <span class="text-[#3A4138]">+</span>
+        <a href="#showcase" class="hover:text-white transition-colors">Projects</a>
+        <span class="text-[#3A4138]">+</span>
+        <a href="#process" class="hover:text-white transition-colors">Process</a>
+        <span class="text-[#3A4138]">+</span>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
       </nav>
+
+      <!-- Right Action Button -->
+      <div class="flex items-center space-x-4">
+        <button onclick="openLeadModal()" class="px-5 py-2.5 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium tracking-tight transition-all">
+          Get Free Custom Ads
+        </button>
+      </div>
+
     </div>
   </header>
 
   <!-- ========================================== -->
-  <!-- 2. HERO SECTION WITH BLURRED VIDEO & WHITE OVERLAY -->
+  <!-- 2. HERO SECTION (Lumóra Gallery Layout) -->
   <!-- ========================================== -->
-  <section class="relative pt-36 pb-20 flex flex-col justify-center items-center px-4 sm:px-6 overflow-hidden">
+  <section class="pt-16 pb-20 px-6 max-w-7xl mx-auto">
     
-    <!-- Background Looping Split-Screen Video (Blurred as requested) -->
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <video autoplay muted loop playsinline class="w-full h-full object-cover filter blur-[2.5px] scale-105 opacity-30 brightness-90">
-        <source src="./hero_split_screen.mp4" type="video/mp4">
-      </video>
-      <!-- Cinematic Vignette & Radial Darkening -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#080400] via-[#080400]/60 to-[#080400]/80"></div>
-      <div class="absolute inset-0 retro-grid-bg opacity-30"></div>
-      <!-- Subtle top horizontal scanline -->
-      <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#AAD5E7]/40 to-transparent"></div>
-    </div>
-
-    <!-- Foreground Content (Crisp Pure White Overlay Typography) -->
-    <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+    <!-- Top Editorial Header Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-14">
       
-      <!-- Top Tag (Lumora & Veritas style) -->
-      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-md mb-8">
-        <span class="w-2 h-2 rounded-full bg-[#DF0B21] animate-ping"></span>
-        <span class="text-xs font-mono tracking-wider uppercase text-[#AAD5E7]">[01] The Infinite Packaging Engine</span>
-        <span class="text-neutral-500">//</span>
-        <span class="text-xs font-mono text-neutral-400">Zero Photoshoots</span>
+      <!-- Left: Refined Medium-Weight Headline -->
+      <div class="lg:col-span-8">
+        <h1 class="text-4xl sm:text-6xl lg:text-[68px] font-medium text-white tracking-[-0.035em] leading-[1.08]">
+          Your Product Packaging, <br>
+          <span class="text-[#A2A19F]">Cloned Into an Infinite</span> <br>
+          Studio & Ad Engine.
+        </h1>
       </div>
 
-      <!-- Exact User Headline (Crisp White with High-Impact Hierarchy) -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-[-0.035em] leading-[1.08] max-w-4xl">
-        Your Product Packaging, <br class="hidden sm:inline">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#EDEDED] to-[#AAD5E7]">
-          Cloned Into an Infinite Studio & Ad Engine.
-        </span>
-      </h1>
-
-      <!-- Exact User Subheadline -->
-      <p class="mt-6 text-base sm:text-xl text-neutral-300 max-w-3xl leading-relaxed font-normal">
-        We train a private AI Brand Twin on your exact bottles, boxes, and labels—and our senior art directors deliver 20 conversion-ready static and motion ads to your inbox every week. Zero photoshoots. Zero warped labels.
-      </p>
-
-      <!-- Primary CTA & Guarantee -->
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-        <button onclick="openLeadModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#DF0B21] hover:bg-[#E70103] text-white font-semibold text-sm sm:text-base tracking-tight shadow-[0_0_35px_rgba(223,11,33,0.55)] hover:shadow-[0_0_50px_rgba(223,11,33,0.85)] transition-all duration-300 hover:scale-[1.02] flex items-center justify-center space-x-2">
-          <span>Get 3 Free Custom Studio Ads of Your Product</span>
-          <span class="text-lg">→</span>
-        </button>
-        <a href="#moat" class="w-full sm:w-auto px-6 py-4 rounded-full retro-glass hover:bg-white/[0.08] text-neutral-300 hover:text-white font-medium text-sm tracking-tight transition-all duration-200 border border-white/10 flex items-center justify-center space-x-2">
-          <span>Inspect The AI Moat</span>
-          <span class="text-neutral-500">↓</span>
-        </a>
-      </div>
-
-      <!-- Retrofuturistic Feature Pill Indicators (Veritas Style) -->
-      <div class="mt-14 flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-neutral-300">
-        <div class="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md flex items-center space-x-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#DF0B21]"></span>
-          <span>Zero Photoshoots</span>
-        </div>
-        <div class="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md flex items-center space-x-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#AAD5E7]"></span>
-          <span>100% Vector Packaging Twin</span>
-        </div>
-        <div class="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md flex items-center space-x-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#DF0B21]"></span>
-          <span>20 Weekly Ad Drops</span>
-        </div>
-        <div class="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md flex items-center space-x-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#AAD5E7]"></span>
-          <span>Senior Art Director Polish</span>
-        </div>
-      </div>
-
-      <!-- Live Split-Screen Video Interactive Preview Card -->
-      <div class="mt-14 w-full max-w-4xl retro-glass-glow rounded-2xl p-2 sm:p-3 relative overflow-hidden group">
-        <div class="flex items-center justify-between px-3 py-2 border-b border-white/10 text-xs font-mono text-neutral-400 mb-2">
-          <div class="flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-[#DF0B21] animate-pulse"></span>
-            <span class="text-white font-medium">LIVE SPLIT-SCREEN REEL</span>
-            <span class="text-neutral-600">//</span>
-            <span class="text-[#AAD5E7]">FLAT DIELINE TO 4K META AD</span>
+      <!-- Right: Lumóra [BUILT TO SCALE] Badge + Subcopy -->
+      <div class="lg:col-span-4 flex flex-col justify-end space-y-4 pb-2">
+        
+        <!-- Founder Avatars & Minimal Tag -->
+        <div class="flex items-center space-x-3">
+          <div class="flex -space-x-2">
+            <div class="w-8 h-8 rounded-full border border-[#0D0F0C] bg-neutral-700 flex items-center justify-center text-[10px] text-white font-medium">AD</div>
+            <div class="w-8 h-8 rounded-full border border-[#0D0F0C] bg-neutral-600 flex items-center justify-center text-[10px] text-white font-medium">CD</div>
           </div>
-          <div class="text-[11px] text-neutral-400">
-            ENGINE: 3D-NEURAL-RENDER
-          </div>
+          <span class="text-neutral-600">—</span>
+          <span class="text-xs text-[#9CA39A] uppercase tracking-wider font-mono">[BUILT TO ENDURE]</span>
         </div>
-        <div class="relative rounded-xl overflow-hidden aspect-[16/9] bg-black">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
-            <source src="./hero_split_screen.mp4" type="video/mp4">
-          </video>
-          <!-- Corner Badges -->
-          <div class="absolute bottom-3 left-3 px-3 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-[11px] font-mono text-white">
-            <span class="text-[#DF0B21]">◀ LEFT:</span> RAW 2D DIELINE INPUT
-          </div>
-          <div class="absolute bottom-3 right-3 px-3 py-1 rounded-md bg-black/80 backdrop-blur-md border border-[#AAD5E7]/30 text-[11px] font-mono text-white">
-            <span class="text-[#AAD5E7]">RIGHT:</span> 4K STUDIO SCENES & ADS ▶
-          </div>
+
+        <!-- Exact Subheadline in Understated Editorial Tone -->
+        <p class="text-sm text-[#9CA39A] leading-relaxed font-normal">
+          We train a private AI Brand Twin on your exact bottles, boxes, and labels—and our senior art directors deliver 20 conversion-ready static and motion ads to your inbox every week. Zero photoshoots. Zero warped labels.
+        </p>
+
+        <!-- CTA Link -->
+        <div class="pt-2">
+          <button onclick="openLeadModal()" class="inline-flex items-center space-x-2 text-xs font-medium text-white hover:text-neutral-300 transition-colors border-b border-white pb-0.5">
+            <span>Get 3 Free Custom Studio Ads of Your Product</span>
+            <span>↗</span>
+          </button>
         </div>
+
       </div>
 
     </div>
+
+    <!-- Architectural Studio Gallery Frame (Crystal Clear Video, Zero Blur) -->
+    <div class="w-full rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#242823] bg-[#151814] relative">
+      
+      <!-- Full Frame Video Window -->
+      <div class="relative aspect-[16/9] w-full bg-black overflow-hidden">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <source src="./hero_split_screen.mp4" type="video/mp4">
+        </video>
+
+        <!-- Minimal Lumóra Overlay Badges Inside The Artwork -->
+        <div class="absolute bottom-6 left-6 hidden sm:block max-w-sm">
+          <p class="text-xs text-white/90 font-normal leading-relaxed drop-shadow-sm">
+            Trusted by 100+ packaging and CPG brands turning flat CAD dielines into commercial studio ads.
+          </p>
+          <!-- Minimal Partner Marks -->
+          <div class="flex items-center space-x-4 mt-3 text-[11px] text-white/60 font-mono">
+            <span>CloudWatch</span>
+            <span>·</span>
+            <span>Boltshift</span>
+            <span>·</span>
+            <span>Interlock</span>
+            <span>·</span>
+            <span>Epicurious</span>
+          </div>
+        </div>
+
+        <!-- Floating Gallery Tag on Bottom Right (Lumóra "Noxen House" Style) -->
+        <div class="absolute bottom-6 right-6 p-4 rounded-2xl bg-[#0D0F0C]/90 backdrop-blur-md border border-[#242823] text-left max-w-xs shadow-xl hidden sm:block">
+          <div class="flex items-center justify-between text-xs text-white font-medium mb-1">
+            <span>Kaizen Firebrand®</span>
+            <span class="text-neutral-400">↗</span>
+          </div>
+          <div class="text-[11px] text-[#9CA39A] font-mono">
+            3D Studio Twin · 2026°
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <!-- ========================================== -->
-  <!-- 3. STUDIO PHILOSOPHY & STATS (image_2.png Inspiration) -->
+  <!-- 3. STUDIO PHILOSOPHY & METRICS (image_2.png Layout) -->
   <!-- ========================================== -->
-  <section class="py-20 px-4 sm:px-6 border-y border-white/5 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Section Tag & Editorial Statement (image_2.png style) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-        <div class="lg:col-span-3">
-          <span class="text-xs font-mono text-[#AAD5E7] tracking-wider uppercase">[01] ABOUT STUDIO</span>
+  <section class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
+    
+    <!-- Editorial Headline Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div class="lg:col-span-3">
+        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[01] ABOUT STUDIO</span>
+      </div>
+      <div class="lg:col-span-9">
+        <p class="text-2xl sm:text-4xl lg:text-[40px] font-normal text-white leading-[1.3] tracking-[-0.025em]">
+          We believe the most memorable brands are <br class="hidden sm:inline">
+          not built through decoration, but <span class="text-[#7A8078]">/ through atmosphere</span> — <br class="hidden sm:inline">
+          quietly captures attention, and leaves a lasting impression after the experience ends.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 Clean Lumóra Grid Cards (image_2.png) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <!-- Card 1: Global Collaborations with Avatars -->
+      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors">
+        <div class="flex -space-x-2">
+          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-700 flex items-center justify-center text-[10px] text-white">MK</div>
+          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-600 flex items-center justify-center text-[10px] text-white">SL</div>
+          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-500 flex items-center justify-center text-[10px] text-white">RT</div>
+          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-800 flex items-center justify-center text-[10px] text-neutral-300 font-mono">+8</div>
         </div>
-        <div class="lg:col-span-9">
-          <p class="text-2xl sm:text-4xl font-normal text-white leading-snug tracking-[-0.03em]">
-            We believe the most memorable brands are not built through generic AI hallucination, but <span class="text-neutral-400">/ through atmospheric precision</span> — capturing consumer attention and scaling ad performance without the friction of physical photoshoots.
-          </p>
+        <div>
+          <div class="text-xs text-[#9CA39A] mb-1">Global Collaborations</div>
+          <div class="text-4xl font-normal text-white tracking-tight">48+</div>
         </div>
       </div>
 
-      <!-- 4 Retrofuturistic Grid Cards (image_2.png Layout) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        
-        <!-- Card 1: Collaborations & Avatars -->
-        <div class="retro-glass rounded-2xl p-6 flex flex-col justify-between h-56 border border-white/10 hover:border-[#AAD5E7]/40 transition-colors">
-          <div class="flex -space-x-2">
-            <div class="w-10 h-10 rounded-full border-2 border-[#080400] bg-neutral-800 overflow-hidden flex items-center justify-center font-bold text-xs text-white">CD</div>
-            <div class="w-10 h-10 rounded-full border-2 border-[#080400] bg-neutral-700 overflow-hidden flex items-center justify-center font-bold text-xs text-white">AD</div>
-            <div class="w-10 h-10 rounded-full border-2 border-[#080400] bg-neutral-600 overflow-hidden flex items-center justify-center font-bold text-xs text-white">3D</div>
-            <div class="w-10 h-10 rounded-full border-2 border-[#080400] bg-[#DF0B21] text-white flex items-center justify-center text-xs font-mono font-bold">+5</div>
-          </div>
-          <div>
-            <div class="text-xs font-mono text-neutral-400 mb-1">Global CPG Brands</div>
-            <div class="text-4xl font-extrabold text-white tracking-tight">48+</div>
+      <!-- Card 2: Industry Awards with Minimal Circular Badge -->
+      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="text-xs text-[#9CA39A]">Industry Awards</div>
+          <!-- Minimalist circular laurel stamp -->
+          <div class="w-9 h-9 rounded-full border border-[#323730] flex items-center justify-center text-xs text-[#9CA39A] font-mono">
+            ★
           </div>
         </div>
-
-        <!-- Card 2: 100% Accuracy Laurel Wreath Badge -->
-        <div class="retro-glass rounded-2xl p-6 flex flex-col justify-between h-56 border border-white/10 hover:border-[#DF0B21]/40 transition-colors bg-gradient-to-b from-white/[0.02] to-transparent">
-          <div class="flex items-center justify-between">
-            <div class="text-xs font-mono text-neutral-400">Label Integrity</div>
-            <div class="w-10 h-10 rounded-full border border-[#DF0B21]/50 bg-[#DF0B21]/10 flex items-center justify-center text-[#DF0B21] text-xs font-mono">
-              ★
-            </div>
-          </div>
-          <div>
-            <div class="text-xs font-mono text-neutral-400 mb-1">Zero Warped Text</div>
-            <div class="text-4xl font-extrabold text-white tracking-tight">100%</div>
-            <div class="text-[11px] text-neutral-400 mt-1 font-mono">Pixel-accurate label clone</div>
+        <div>
+          <div class="text-4xl font-normal text-white tracking-tight mb-2">12+</div>
+          <div class="text-xs text-[#7A8078] leading-relaxed">
+            Featured and celebrated for packaging accuracy and storytelling.
           </div>
         </div>
+      </div>
 
-        <!-- Card 3: Weekly Output -->
-        <div class="retro-glass rounded-2xl p-6 flex flex-col justify-between h-56 border border-white/10 hover:border-[#AAD5E7]/40 transition-colors">
-          <div class="flex items-center justify-between">
-            <div class="text-xs font-mono text-neutral-400">Weekly Output</div>
-            <span class="w-2 h-2 rounded-full bg-[#AAD5E7] animate-ping"></span>
-          </div>
-          <div>
-            <div class="text-xs font-mono text-neutral-400 mb-1">Fresh Static & Motion</div>
-            <div class="text-4xl font-extrabold text-white tracking-tight">20 <span class="text-lg font-normal text-neutral-400">/wk</span></div>
-            <div class="text-[11px] text-neutral-400 mt-1 font-mono">Delivered to dashboard</div>
+      <!-- Card 3: Projects Delivered -->
+      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors">
+        <div class="text-xs text-[#7A8078] leading-relaxed">
+          From emerging DTC brands to established CPG lines, each asset is approached as a unique world.
+        </div>
+        <div>
+          <div class="text-xs text-[#9CA39A] mb-1">Commercial Ads Delivered</div>
+          <div class="text-4xl font-normal text-white tracking-tight">150+</div>
+        </div>
+      </div>
+
+      <!-- Card 4: Countries Reached with Calm Photography -->
+      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors relative overflow-hidden group">
+        <div class="absolute inset-0 z-0 opacity-25 group-hover:opacity-35 transition-opacity">
+          <img src="./bakery_studio.jpg" alt="Atmospheric Texture" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 text-xs text-[#9CA39A]">
+          Countries Reached
+        </div>
+        <div class="relative z-10">
+          <div class="text-4xl font-normal text-white tracking-tight mb-1">14+</div>
+          <div class="text-xs text-neutral-300">
+            Collaborating remotely with visionary packaging teams across the globe.
           </div>
         </div>
-
-        <!-- Card 4: Turnaround Speed -->
-        <div class="retro-glass rounded-2xl p-6 flex flex-col justify-between h-56 border border-white/10 hover:border-[#AAD5E7]/40 transition-colors">
-          <div class="flex items-center justify-between">
-            <div class="text-xs font-mono text-neutral-400">Production Speed</div>
-            <span class="text-xs font-mono text-[#AAD5E7]">2026°</span>
-          </div>
-          <div>
-            <div class="text-xs font-mono text-neutral-400 mb-1">Initial Launch Sprint</div>
-            <div class="text-4xl font-extrabold text-white tracking-tight">48h</div>
-            <div class="text-[11px] text-neutral-400 mt-1 font-mono">From dieline to live ad</div>
-          </div>
-        </div>
-
       </div>
 
     </div>
+
   </section>
 
   <!-- ========================================== -->
   <!-- 4. "WHY GENERIC AI FAILS" SECTION (OUR MOAT) -->
   <!-- ========================================== -->
-  <section id="moat" class="py-24 px-4 sm:px-6 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono text-[#DF0B21] mb-4">
-          <span>[02] THE UNFAIR ADVANTAGE</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-[-0.035em]">
-          Why Generic AI Fails — And Why True Packaging Demands a Twin.
+  <section id="moat" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
+    
+    <!-- Section Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div class="lg:col-span-3">
+        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[02] THE MOAT</span>
+      </div>
+      <div class="lg:col-span-9">
+        <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] leading-tight">
+          Why Generic AI Fails — <br class="hidden sm:inline">
+          <span class="text-[#7A8078]">And Why Commercial Packaging Demands a Twin.</span>
         </h2>
-        <p class="mt-4 text-base sm:text-lg text-neutral-300">
-          Self-serve AI tools like Midjourney hallucinate logos, warp barcodes, and produce plastic lighting. Traditional commercial photography costs $8,000+ per shoot. BrandTwin bridges the gap with senior art direction.
+        <p class="mt-4 text-sm sm:text-base text-[#9CA39A] max-w-2xl leading-relaxed">
+          Self-serve prompt generators hallucinate typography and warp barcodes. Traditional photography costs \$8,000 per shoot. BrandTwin builds exact vector twins with senior human art direction.
         </p>
       </div>
+    </div>
 
-      <!-- 3-Column Comparative Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- 3 Gallery Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- Column A: Midjourney / Self-Serve AI -->
-        <div class="retro-glass rounded-2xl p-6 sm:p-8 border border-red-500/20 flex flex-col justify-between relative group hover:border-red-500/40 transition-all">
-          <div class="absolute -top-3 left-6 px-3 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-[11px] font-mono text-red-400 uppercase tracking-wider">
-            Column A // Unusable
+      <!-- Column A: Midjourney / Self-Serve AI -->
+      <div class="studio-panel rounded-2xl p-6 flex flex-col justify-between studio-panel-hover transition-colors">
+        <div>
+          <!-- Photography window -->
+          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black mb-6 border border-[#242823]">
+            <img src="./generic_ai.jpg" alt="Generic AI Warped Bottle" class="w-full h-full object-cover filter grayscale contrast-110 opacity-70">
           </div>
-          <div>
-            <div class="mt-4 aspect-video rounded-xl overflow-hidden bg-black/60 relative mb-6 border border-white/5">
-              <img src="./generic_ai.jpg" alt="Generic AI Warped Bottle" class="w-full h-full object-cover filter grayscale contrast-125 opacity-70 group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-red-950/20 mix-blend-multiply"></div>
-              <div class="absolute bottom-2 left-2 px-2 py-1 bg-black/80 rounded text-[10px] font-mono text-red-400">
-                ⚠ TEXT WARPING DETECTED
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Midjourney / Self-Serve AI</h3>
-            <p class="text-sm text-neutral-400 mb-6 leading-relaxed">
-              Cheap prompt tools that sound great until you see the output.
-            </p>
-            <ul class="space-y-3 text-xs sm:text-sm text-neutral-300 font-mono">
-              <li class="flex items-start space-x-2 text-red-400">
-                <span class="font-bold">✕</span>
-                <span class="text-neutral-300">Warped logo typography & gibberish nutrition facts</span>
-              </li>
-              <li class="flex items-start space-x-2 text-red-400">
-                <span class="font-bold">✕</span>
-                <span class="text-neutral-300">Hallucinated bottle caps & incorrect glass curvatures</span>
-              </li>
-              <li class="flex items-start space-x-2 text-red-400">
-                <span class="font-bold">✕</span>
-                <span class="text-neutral-300">Uncanny plastic-looking textures unsuited for Meta ads</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Result: Brand Damage</span>
-            <span class="text-red-400">0% Ad Compliance</span>
-          </div>
+          
+          <div class="text-xs text-[#7A8078] font-mono mb-1">COLUMN A // UNUSABLE</div>
+          <h3 class="text-lg font-medium text-white mb-2">Midjourney / Self-Serve AI</h3>
+          <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
+            Prompt tools with hallucinated outputs unusable for commercial ad spend.
+          </p>
+
+          <ul class="space-y-2.5 text-xs text-[#9CA39A]">
+            <li class="flex items-start space-x-2">
+              <span class="text-neutral-500">—</span>
+              <span>Warped logo text & unreadable nutrition facts</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-neutral-500">—</span>
+              <span>Hallucinated bottle cap and glass thickness</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-neutral-500">—</span>
+              <span>Uncanny plastic-looking textures</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Column B: Traditional Photoshoot -->
-        <div class="retro-glass rounded-2xl p-6 sm:p-8 border border-white/10 flex flex-col justify-between relative group hover:border-white/20 transition-all">
-          <div class="absolute -top-3 left-6 px-3 py-1 rounded-full bg-neutral-900 border border-white/20 text-[11px] font-mono text-neutral-400 uppercase tracking-wider">
-            Column B // Outdated
+        <div class="mt-8 pt-4 border-t border-[#242823] text-xs font-mono text-[#7A8078] flex justify-between">
+          <span>Result: Brand Damage</span>
+          <span>0% Ad Compliance</span>
+        </div>
+      </div>
+
+      <!-- Column B: Traditional Photoshoot -->
+      <div class="studio-panel rounded-2xl p-6 flex flex-col justify-between studio-panel-hover transition-colors">
+        <div>
+          <!-- Photography window -->
+          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black mb-6 border border-[#242823]">
+            <img src="./studio_shoot.jpg" alt="Traditional Studio Shoot" class="w-full h-full object-cover opacity-70">
           </div>
-          <div>
-            <div class="mt-4 aspect-video rounded-xl overflow-hidden bg-black/60 relative mb-6 border border-white/5">
-              <img src="./studio_shoot.jpg" alt="Traditional Studio Shoot" class="w-full h-full object-cover filter contrast-110 opacity-70 group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-2 left-2 px-2 py-1 bg-black/80 rounded text-[10px] font-mono text-neutral-400">
-                INVOICE: $8,000+ NET 30
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Traditional Photoshoot</h3>
-            <p class="text-sm text-neutral-400 mb-6 leading-relaxed">
-              Studio rentals, photographers, physical shipping, and endless waits.
-            </p>
-            <ul class="space-y-3 text-xs sm:text-sm text-neutral-300 font-mono">
-              <li class="flex items-start space-x-2 text-neutral-400">
-                <span class="font-bold">$</span>
-                <span class="text-neutral-300">$8,000+ average commercial invoice per product</span>
-              </li>
-              <li class="flex items-start space-x-2 text-neutral-400">
-                <span class="font-bold">⏳</span>
-                <span class="text-neutral-300">4-week waiting period for rough retouched proofs</span>
-              </li>
-              <li class="flex items-start space-x-2 text-neutral-400">
-                <span class="font-bold">🚫</span>
-                <span class="text-neutral-300">Zero agile iteration when Meta creative fatigue hits</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Result: Budget Burn</span>
-            <span class="text-neutral-400">4-Week Delay</span>
-          </div>
+          
+          <div class="text-xs text-[#7A8078] font-mono mb-1">COLUMN B // OUTDATED</div>
+          <h3 class="text-lg font-medium text-white mb-2">Traditional Photoshoot</h3>
+          <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
+            Studio rentals, physical shipping, camera crews, and lengthy lead times.
+          </p>
+
+          <ul class="space-y-2.5 text-xs text-[#9CA39A]">
+            <li class="flex items-start space-x-2">
+              <span class="text-neutral-500">—</span>
+              <span>$8,000 average commercial invoice per shoot</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-neutral-500">—</span>
+              <span>4-week wait time for retouched proofs</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-neutral-500">—</span>
+              <span>Zero agility when ad creative fatigue hits</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Column C: Your BrandTwin Studio -->
-        <div class="retro-glass-glow rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative group hover:border-[#AAD5E7] transition-all bg-gradient-to-b from-[#AAD5E7]/[0.04] to-transparent">
-          <div class="absolute -top-3 left-6 px-3 py-1 rounded-full bg-[#DF0B21] border border-white/20 text-[11px] font-mono text-white uppercase tracking-wider shadow-[0_0_15px_rgba(223,11,33,0.6)]">
-            Column C // Your BrandTwin Studio
+        <div class="mt-8 pt-4 border-t border-[#242823] text-xs font-mono text-[#7A8078] flex justify-between">
+          <span>Result: Budget Burn</span>
+          <span>4-Week Delay</span>
+        </div>
+      </div>
+
+      <!-- Column C: Your BrandTwin Studio -->
+      <div class="studio-panel rounded-2xl p-6 flex flex-col justify-between border-[#3A4138] bg-[#181C17] hover:border-white/30 transition-colors">
+        <div>
+          <!-- Photography window -->
+          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black mb-6 border border-[#2E352B]">
+            <img src="./sauce_studio.jpg" alt="BrandTwin Studio 4K Render" class="w-full h-full object-cover">
           </div>
-          <div>
-            <div class="mt-4 aspect-video rounded-xl overflow-hidden bg-black relative mb-6 border border-[#AAD5E7]/40 shadow-[0_0_20px_rgba(170,213,231,0.2)]">
-              <img src="./sauce_studio.jpg" alt="BrandTwin Studio 4K Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-2 left-2 px-2.5 py-1 bg-black/90 rounded text-[10px] font-mono text-[#AAD5E7] border border-[#AAD5E7]/40">
-                ✓ 100% PACKAGING VECTOR MATCH
-              </div>
-            </div>
-            <div class="flex items-center space-x-2 mb-2">
-              <h3 class="text-xl font-bold text-white">Your BrandTwin Studio</h3>
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[#AAD5E7]/20 text-[#AAD5E7] border border-[#AAD5E7]/30">RECOMMENDED</span>
-            </div>
-            <p class="text-sm text-neutral-300 mb-6 leading-relaxed">
-              Exact 3D geometry + proprietary AI diffusion + human art director polish.
-            </p>
-            <ul class="space-y-3 text-xs sm:text-sm text-neutral-200 font-mono">
-              <li class="flex items-start space-x-2 text-[#AAD5E7]">
-                <span class="font-bold">✓</span>
-                <span class="text-white">100% pixel-perfect packaging label typography</span>
-              </li>
-              <li class="flex items-start space-x-2 text-[#AAD5E7]">
-                <span class="font-bold">✓</span>
-                <span class="text-white">Commercial lighting, liquid motion & ingredient drops</span>
-              </li>
-              <li class="flex items-start space-x-2 text-[#AAD5E7]">
-                <span class="font-bold">✓</span>
-                <span class="text-white">Senior human typography polish delivered in 48 hours</span>
-              </li>
-            </ul>
+          
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs text-white font-mono">COLUMN C // BRANDTWIN STUDIO</span>
+            <span class="text-[10px] text-[#AAD5E7] font-mono">EXACT TWIN</span>
           </div>
-          <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
-            <span class="text-[#AAD5E7]">20 Ads / Week</span>
-            <button onclick="openLeadModal('BrandTwin Studio')" class="text-white font-bold hover:text-[#AAD5E7] flex items-center space-x-1">
-              <span>Start Sprint</span>
-              <span>→</span>
-            </button>
-          </div>
+          <h3 class="text-lg font-medium text-white mb-2">Your BrandTwin Studio</h3>
+          <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
+            Exact 3D packaging geometry + AI diffusion + senior human art direction.
+          </p>
+
+          <ul class="space-y-2.5 text-xs text-neutral-200">
+            <li class="flex items-start space-x-2">
+              <span class="text-white">✓</span>
+              <span>100% pixel-perfect packaging label typography</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-white">✓</span>
+              <span>Studio lighting, liquid motion & ingredient drops</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-white">✓</span>
+              <span>Senior human typography polish in 48 hours</span>
+            </li>
+          </ul>
         </div>
 
+        <div class="mt-8 pt-4 border-t border-[#2E352B] flex items-center justify-between text-xs">
+          <span class="text-[#AAD5E7] font-mono">20 Ads / Week</span>
+          <button onclick="openLeadModal('BrandTwin Studio')" class="text-white font-medium hover:underline flex items-center space-x-1">
+            <span>Start Sprint</span>
+            <span>→</span>
+          </button>
+        </div>
       </div>
 
     </div>
+
   </section>
 
   <!-- ========================================== -->
-  <!-- 5. HOW "SERVICE-AS-A-SOFTWARE" WORKS (3 SIMPLE STEPS + FIGMA DASHBOARD) -->
+  <!-- 5. "SERVICE-AS-A-SOFTWARE" (3 SIMPLE STEPS + MINIMAL DASHBOARD) -->
   <!-- ========================================== -->
-  <section id="system" class="py-24 px-4 sm:px-6 bg-[#040200] border-t border-white/5 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Header -->
-      <div class="max-w-3xl mb-16">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono text-[#AAD5E7] mb-4">
-          <span>[03] SERVICE-AS-A-SOFTWARE</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-[-0.035em]">
+  <section id="system" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
+    
+    <!-- Section Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div class="lg:col-span-3">
+        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[03] THE PROCESS</span>
+      </div>
+      <div class="lg:col-span-9">
+        <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] leading-tight">
           How It Works (3 Simple Steps)
         </h2>
-        <p class="mt-4 text-base sm:text-lg text-neutral-300">
-          The speed of software. The taste of a high-end Madison Avenue studio.
+        <p class="mt-4 text-sm sm:text-base text-[#9CA39A] max-w-2xl leading-relaxed">
+          The speed of software. The taste and precision of a senior packaging art director.
         </p>
       </div>
+    </div>
 
-      <!-- 3 Steps Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        
-        <!-- Step 1 -->
-        <div class="retro-glass rounded-2xl p-8 border border-white/10 hover:border-[#DF0B21]/50 transition-colors relative">
-          <div class="text-xs font-mono text-[#DF0B21] mb-4">STEP // 01</div>
-          <h3 class="text-2xl font-bold text-white mb-3">Lock In Your Twin</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed font-normal">
+    <!-- 3 Editorial Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      
+      <!-- Step 1 -->
+      <div class="studio-panel rounded-2xl p-8 flex flex-col justify-between h-64 studio-panel-hover transition-colors">
+        <div class="text-xs font-mono text-[#7A8078]">STEP 01</div>
+        <div>
+          <h3 class="text-xl font-medium text-white mb-2">Lock In Your Twin</h3>
+          <p class="text-xs sm:text-sm text-[#9CA39A] leading-relaxed">
             Send us your dielines or 5 product photos. Our creative director builds your master 3D/AI Brand Twin.
           </p>
-          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neutral-400">
-            CAD Dielines / 5-angle iPhone photos
-          </div>
         </div>
-
-        <!-- Step 2 -->
-        <div class="retro-glass rounded-2xl p-8 border border-white/10 hover:border-[#AAD5E7]/50 transition-colors relative">
-          <div class="text-xs font-mono text-[#AAD5E7] mb-4">STEP // 02</div>
-          <h3 class="text-2xl font-bold text-white mb-3">Weekly Creative Drops</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed font-normal">
-            Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.
-          </p>
-          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neutral-400">
-            20 conversion assets dropped every Friday
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="retro-glass rounded-2xl p-8 border border-white/10 hover:border-[#DF0B21]/50 transition-colors relative">
-          <div class="text-xs font-mono text-[#DF0B21] mb-4">STEP // 03</div>
-          <h3 class="text-2xl font-bold text-white mb-3">Senior Human Polish</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed font-normal">
-            Every asset passes through an experienced packaging & brand designer for typography, color accuracy, and print/ad compliance before you ever see it.
-          </p>
-          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neutral-400">
-            Zero hallucinations · Verified by art directors
-          </div>
-        </div>
-
+        <div class="text-[11px] font-mono text-[#7A8078]">Dieline CAD / 5 product shots</div>
       </div>
 
-      <!-- Figma-Style Client Portal Dashboard Mockup -->
-      <div class="retro-glass rounded-3xl p-4 sm:p-8 border border-white/15 shadow-2xl relative overflow-hidden">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-white/10 gap-4">
-          <div class="flex items-center space-x-4">
-            <div class="flex space-x-2">
-              <div class="w-3 h-3 rounded-full bg-[#DF0B21]"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div class="w-3 h-3 rounded-full bg-[#AAD5E7]"></div>
-            </div>
-            <div class="text-xs font-mono text-neutral-400">
-              <span class="text-white font-medium">brandtwin-portal.internal</span> / client-view / drop-week-42
-            </div>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="px-3 py-1 rounded-md bg-[#DF0B21]/20 border border-[#DF0B21]/40 text-xs font-mono text-[#DF0B21]">
-              ● 20 ASSETS READY FOR REVIEW
-            </div>
-            <button id="dash-download-btn" onclick="mockDownload()" class="px-4 py-1.5 rounded-md bg-[#AAD5E7] hover:bg-white text-[#080400] text-xs font-bold transition-all">
-              Download All (.ZIP)
-            </button>
-          </div>
+      <!-- Step 2 -->
+      <div class="studio-panel rounded-2xl p-8 flex flex-col justify-between h-64 studio-panel-hover transition-colors">
+        <div class="text-xs font-mono text-[#7A8078]">STEP 02</div>
+        <div>
+          <h3 class="text-xl font-medium text-white mb-2">Weekly Creative Drops</h3>
+          <p class="text-xs sm:text-sm text-[#9CA39A] leading-relaxed">
+            Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.
+          </p>
         </div>
+        <div class="text-[11px] font-mono text-[#7A8078]">20 conversion assets dropped every Friday</div>
+      </div>
 
-        <!-- Dashboard Body Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
-          
-          <!-- Left: 3D Twin Viewport -->
-          <div class="lg:col-span-8 bg-black/60 rounded-2xl p-4 border border-white/5 relative flex flex-col justify-between overflow-hidden">
-            <div class="flex items-center justify-between z-10 text-xs font-mono text-neutral-400">
-              <span class="text-[#AAD5E7]">VIEWPORT: MASTER 3D BRAND TWIN</span>
-              <span>RENDER: NEURAL RAY-TRACED</span>
-            </div>
-            <div class="my-6 relative aspect-video flex items-center justify-center">
-              <img src="./sauce_studio.jpg" alt="Active 3D Twin" class="max-h-full rounded-xl object-contain shadow-2xl">
-              <!-- Coordinate HUD overlay -->
-              <div class="absolute top-2 left-2 text-[10px] font-mono text-[#AAD5E7]/70 bg-black/60 px-2 py-1 rounded">
-                ROT: [0, 45, 0] · LIGHT: 5600K KEY + RIM
-              </div>
-              <div class="absolute bottom-2 right-2 text-[10px] font-mono text-white bg-black/80 px-2 py-1 rounded border border-white/10">
-                POLISH: APPROVED BY ART DIRECTOR
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-500 pt-2 border-t border-white/5">
-              <span>ACTIVE ASSET: FIREBRAND HOT SAUCE</span>
-              <span>ASPECT RATIO: 1:1, 9:16, 4:5 INCLUDED</span>
-            </div>
-          </div>
-
-          <!-- Right: Weekly Asset Queue -->
-          <div class="lg:col-span-4 bg-black/40 rounded-2xl p-4 border border-white/5 flex flex-col justify-between">
-            <div>
-              <div class="text-xs font-mono text-neutral-400 mb-3 flex items-center justify-between">
-                <span>WEEKLY QUEUE (DROP #42)</span>
-                <span class="text-[#AAD5E7]">20 / 20</span>
-              </div>
-              <div class="space-y-2">
-                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-between text-xs font-mono">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#DF0B21]"></span>
-                    <span class="text-white">01_meta_story_heat.mp4</span>
-                  </div>
-                  <span class="text-neutral-500">9:16 · Ready</span>
-                </div>
-                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-between text-xs font-mono">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#AAD5E7]"></span>
-                    <span class="text-white">02_feed_editorial_rim.png</span>
-                  </div>
-                  <span class="text-neutral-500">1:1 · Ready</span>
-                </div>
-                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-between text-xs font-mono">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#DF0B21]"></span>
-                    <span class="text-white">03_tiktok_ugc_hook.mp4</span>
-                  </div>
-                  <span class="text-neutral-500">9:16 · Ready</span>
-                </div>
-                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-between text-xs font-mono">
-                  <div class="flex items-center space-x-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#AAD5E7]"></span>
-                    <span class="text-white">04_lifestyle_tabletop.png</span>
-                  </div>
-                  <span class="text-neutral-500">4:5 · Ready</span>
-                </div>
-              </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-white/10 text-center">
-              <span class="text-xs font-mono text-neutral-400">Next drop scheduled: Friday 09:00 EST</span>
-            </div>
-          </div>
-
+      <!-- Step 3 -->
+      <div class="studio-panel rounded-2xl p-8 flex flex-col justify-between h-64 studio-panel-hover transition-colors">
+        <div class="text-xs font-mono text-[#7A8078]">STEP 03</div>
+        <div>
+          <h3 class="text-xl font-medium text-white mb-2">Senior Human Polish</h3>
+          <p class="text-xs sm:text-sm text-[#9CA39A] leading-relaxed">
+            Every asset passes through an experienced packaging designer for typography, color accuracy, and print/ad compliance before you ever see it.
+          </p>
         </div>
+        <div class="text-[11px] font-mono text-[#7A8078]">Art director verified · Zero hallucinations</div>
       </div>
 
     </div>
+
+    <!-- Clean, Flat Studio Client Dashboard (Matte, No Neon) -->
+    <div class="studio-panel rounded-2xl p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#242823] gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-2.5 rounded-full bg-neutral-600"></div>
+          <span class="text-xs font-mono text-neutral-400">client.brandtwin.studio / workspace / drop-42</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-xs font-mono text-[#9CA39A]">20 Assets Approved</span>
+          <button id="dash-download-btn" onclick="mockDownload()" class="px-4 py-2 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium transition-colors">
+            Download Batch (.ZIP)
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+        
+        <!-- Left: 3D Twin Viewport -->
+        <div class="lg:col-span-8 bg-[#0D0F0C] rounded-xl p-4 border border-[#242823] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[11px] font-mono text-[#7A8078]">
+            <span>VIEWPORT: MASTER BRAND TWIN</span>
+            <span>4K COMMERCIAL LIGHTING</span>
+          </div>
+          <div class="my-4 aspect-[16/10] rounded-lg overflow-hidden flex items-center justify-center bg-black">
+            <img src="./sauce_studio.jpg" alt="Active 3D Twin" class="max-h-full object-contain">
+          </div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-[#7A8078]">
+            <span>SKU: FIREBRAND HOT SAUCE</span>
+            <span>ASPECT RATIOS: 1:1, 9:16, 4:5, 16:9</span>
+          </div>
+        </div>
+
+        <!-- Right: Weekly Asset Drop List -->
+        <div class="lg:col-span-4 bg-[#0D0F0C] rounded-xl p-4 border border-[#242823] flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-neutral-400 mb-4 pb-2 border-b border-[#242823] flex justify-between">
+              <span>WEEKLY QUEUE</span>
+              <span>20 / 20 READY</span>
+            </div>
+            <div class="space-y-2">
+              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
+                <span class="text-neutral-200">01_story_ingredient_drop.mp4</span>
+                <span class="text-[#7A8078]">9:16</span>
+              </div>
+              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
+                <span class="text-neutral-200">02_feed_commercial_lighting.png</span>
+                <span class="text-[#7A8078]">1:1</span>
+              </div>
+              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
+                <span class="text-neutral-200">03_reels_lifestyle_tabletop.mp4</span>
+                <span class="text-[#7A8078]">9:16</span>
+              </div>
+              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
+                <span class="text-neutral-200">04_portrait_editorial_ad.png</span>
+                <span class="text-[#7A8078]">4:5</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-[#242823] text-center text-[11px] font-mono text-[#7A8078]">
+            Next weekly creative drop: Friday 09:00 EST
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <!-- ========================================== -->
-  <!-- 6. THE SHOWCASE GRID (NICHE-SPECIFIC CASE STUDIES) -->
+  <!-- 6. THE SHOWCASE GRID (3 NICHE MINIATURE CASE STUDIES) -->
   <!-- ========================================== -->
-  <section id="showcase" class="py-24 px-4 sm:px-6 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Section Header -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
-        <div>
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono text-[#DF0B21] mb-4">
-            <span>[04] PROVEN IN MARKET</span>
+  <section id="showcase" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
+      <div>
+        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[04] SHOWCASE GRID</span>
+        <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] mt-3">
+          Niche-Specific Case Studies
+        </h2>
+        <p class="mt-3 text-sm text-[#9CA39A]">
+          Toggle between the pure studio render and the performance ad overlay with typography.
+        </p>
+      </div>
+      <div class="text-xs font-mono text-[#7A8078]">
+        CLICK TO TOGGLE AD OVERLAY ⇄
+      </div>
+    </div>
+
+    <!-- 3 Case Studies Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Case 1: Craft Sauce -->
+      <div class="studio-panel rounded-2xl overflow-hidden flex flex-col justify-between studio-panel-hover transition-colors">
+        <div class="relative aspect-[4/3] bg-black overflow-hidden">
+          <img id="case-img-0" src="./sauce_studio.jpg" alt="Craft Sauce" class="w-full h-full object-cover">
+          <!-- Clean Ad Overlay -->
+          <div id="showcase-ad-overlay-0" class="absolute inset-0 bg-black/75 p-6 flex flex-col justify-between transition-opacity duration-200">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-white font-medium">META AD // DIRECT RESPONSE</span>
+              <span class="text-[#9CA39A]">4.9 ★★★★★</span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-[#9CA39A] uppercase">SUMMER DROP</span>
+              <h4 class="text-xl font-medium text-white leading-snug mt-1">THE HEAT WAVE DROP.</h4>
+              <p class="text-xs text-[#9CA39A] mt-1 font-mono">Ghost pepper & habanero micro-batch blend.</p>
+              <div class="mt-4 inline-block px-4 py-2 rounded-full bg-white text-[#0D0F0C] text-xs font-medium">
+                Shop Now — 20% Off →
+              </div>
+            </div>
           </div>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-[-0.035em]">
-            The Showcase Grid
-          </h2>
-          <p class="mt-4 text-base sm:text-lg text-neutral-300">
-            Compare the raw studio render against the high-converting ad overlay with 1 click.
-          </p>
         </div>
-        <div class="text-xs font-mono text-neutral-400">
-          CLICK ANY CARD TO TOGGLE AD OVERLAY
+        <div class="p-6">
+          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-2">
+            <span>NICHE: CRAFT SAUCE & BEVERAGE</span>
+            <span>2026°</span>
+          </div>
+          <h3 class="text-lg font-medium text-white mb-1">Firebrand Ghost Pepper Blend</h3>
+          <p class="text-xs text-[#9CA39A] leading-relaxed mb-4">
+            Dieline imported with exact typography and barcode fidelity. Produces 20 high-converting Meta ads weekly.
+          </p>
+          <button onclick="toggleCaseAd(0)" class="w-full py-2.5 rounded-lg border border-[#242823] hover:border-white/40 text-xs font-mono text-neutral-300 hover:text-white transition-colors">
+            Toggle Ad Creative Overlay ⇄
+          </button>
         </div>
       </div>
 
-      <!-- 3 Miniature Case Studies -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-        <!-- Case 1: Craft Beverage / Sauce -->
-        <div class="retro-glass rounded-2xl overflow-hidden border border-white/10 group hover:border-[#DF0B21]/50 transition-all flex flex-col justify-between">
-          <div class="relative aspect-square overflow-hidden bg-black">
-            <img id="case-img-0" src="./sauce_studio.jpg" alt="Craft Sauce" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <!-- Ad Overlay (Toggleable) -->
-            <div id="showcase-ad-overlay-0" class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 p-6 flex flex-col justify-between transition-opacity duration-300">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2.5 py-1 rounded bg-[#DF0B21] text-white font-bold">META DIRECT RESPONSE</span>
-                <span class="text-[#AAD5E7]">4.9 ★★★★★</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-mono text-[#AAD5E7] tracking-wider uppercase">SUMMER CAMPAIGN</span>
-                <h4 class="text-2xl font-black text-white leading-tight mt-1">THE HEAT WAVE DROP.</h4>
-                <p class="text-xs text-neutral-300 mt-2 font-mono">Zero preservatives. Ghost pepper & habanero blend.</p>
-                <div class="mt-4 inline-block px-4 py-2 rounded-full bg-[#DF0B21] text-white text-xs font-bold">
-                  SHOP NOW — 20% OFF →
-                </div>
+      <!-- Case 2: Bakery Box -->
+      <div class="studio-panel rounded-2xl overflow-hidden flex flex-col justify-between studio-panel-hover transition-colors">
+        <div class="relative aspect-[4/3] bg-black overflow-hidden">
+          <img id="case-img-1" src="./bakery_studio.jpg" alt="Artisanal Bakery Box" class="w-full h-full object-cover">
+          <!-- Clean Ad Overlay -->
+          <div id="showcase-ad-overlay-1" class="absolute inset-0 bg-black/75 p-6 flex flex-col justify-between transition-opacity duration-200 opacity-0 pointer-events-none">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-white font-medium">TIKTOK AD // HOOK LAYOUT</span>
+              <span class="text-[#9CA39A]">TOP SELLER</span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-[#9CA39A] uppercase">ARTISANAL HERITAGE</span>
+              <h4 class="text-xl font-medium text-white leading-snug mt-1">HAND-CRAFTED SOURDOUGH.</h4>
+              <p class="text-xs text-[#9CA39A] mt-1 font-mono">Baked daily in small batches. Shipped overnight.</p>
+              <div class="mt-4 inline-block px-4 py-2 rounded-full bg-white text-[#0D0F0C] text-xs font-medium">
+                Reserve Box →
               </div>
             </div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-2">
-              <span class="text-[#AAD5E7]">NICHE: CRAFT BEVERAGE & SAUCE</span>
-              <span>2026°</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Firebrand Ghost Pepper Blend</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed mb-4">
-              Dieline imported with exact nutritional typography. Delivers 20 high-converting Meta carousel ads weekly.
-            </p>
-            <button onclick="toggleCaseAd(0)" class="w-full py-2.5 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.08] text-xs font-mono text-neutral-300 hover:text-white transition-colors">
-              Toggle Ad Creative Overlay ⇄
-            </button>
           </div>
         </div>
-
-        <!-- Case 2: Boutique Bakery Box -->
-        <div class="retro-glass rounded-2xl overflow-hidden border border-white/10 group hover:border-[#AAD5E7]/50 transition-all flex flex-col justify-between">
-          <div class="relative aspect-square overflow-hidden bg-black">
-            <img id="case-img-1" src="./bakery_studio.jpg" alt="Artisanal Bakery Box" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <!-- Ad Overlay (Toggleable) -->
-            <div id="showcase-ad-overlay-1" class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 p-6 flex flex-col justify-between transition-opacity duration-300 opacity-0 pointer-events-none">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2.5 py-1 rounded bg-[#AAD5E7] text-[#080400] font-bold">TIKTOK HOOK AD</span>
-                <span class="text-white">TOP SELLER</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-mono text-[#DF0B21] tracking-wider uppercase">PARISIAN HERITAGE</span>
-                <h4 class="text-2xl font-black text-white leading-tight mt-1">HAND-CRAFTED SOURDOUGH & CRUST.</h4>
-                <p class="text-xs text-neutral-300 mt-2 font-mono">Baked daily in small batches. Shipped overnight.</p>
-                <div class="mt-4 inline-block px-4 py-2 rounded-full bg-[#AAD5E7] text-[#080400] text-xs font-bold">
-                  RESERVE BOX →
-                </div>
-              </div>
-            </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-2">
+            <span>NICHE: BOUTIQUE BAKERY & FOOD</span>
+            <span>2026°</span>
           </div>
-          <div class="p-6">
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-2">
-              <span class="text-[#AAD5E7]">NICHE: BOUTIQUE FOOD & BAKERY</span>
-              <span>2026°</span>
+          <h3 class="text-lg font-medium text-white mb-1">Aura Artisanal Patisserie Box</h3>
+          <p class="text-xs text-[#9CA39A] leading-relaxed mb-4">
+            Embossed gold foil box geometry cloned into seasonal outdoor morning and tabletop dinner scenes.
+          </p>
+          <button onclick="toggleCaseAd(1)" class="w-full py-2.5 rounded-lg border border-[#242823] hover:border-white/40 text-xs font-mono text-neutral-300 hover:text-white transition-colors">
+            Toggle Ad Creative Overlay ⇄
+          </button>
+        </div>
+      </div>
+
+      <!-- Case 3: Botanical Skincare -->
+      <div class="studio-panel rounded-2xl overflow-hidden flex flex-col justify-between studio-panel-hover transition-colors">
+        <div class="relative aspect-[4/3] bg-black overflow-hidden">
+          <img id="case-img-2" src="./cosmetics_studio.jpg" alt="Botanical Skincare" class="w-full h-full object-cover">
+          <!-- Clean Ad Overlay -->
+          <div id="showcase-ad-overlay-2" class="absolute inset-0 bg-black/75 p-6 flex flex-col justify-between transition-opacity duration-200 opacity-0 pointer-events-none">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-white font-medium">INSTAGRAM CAROUSEL // LUXURY</span>
+              <span class="text-[#9CA39A]">CLINICAL</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Aura Artisanal Patisserie Box</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed mb-4">
-              Embossed gold foil box geometry cloned into seasonal outdoor daylight and moody evening tabletop scenes.
-            </p>
-            <button onclick="toggleCaseAd(1)" class="w-full py-2.5 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.08] text-xs font-mono text-neutral-300 hover:text-white transition-colors">
-              Toggle Ad Creative Overlay ⇄
-            </button>
+            <div>
+              <span class="text-[11px] font-mono text-[#9CA39A] uppercase">BOTANICAL SCIENCE</span>
+              <h4 class="text-xl font-medium text-white leading-snug mt-1">CELLULAR REGENERATION.</h4>
+              <p class="text-xs text-[#9CA39A] mt-1 font-mono">Triple peptide complex in frosted luxury glass.</p>
+              <div class="mt-4 inline-block px-4 py-2 rounded-full bg-white text-[#0D0F0C] text-xs font-medium">
+                Unlock Radiance →
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- Case 3: Botanical Skincare Bottle -->
-        <div class="retro-glass rounded-2xl overflow-hidden border border-white/10 group hover:border-[#DF0B21]/50 transition-all flex flex-col justify-between">
-          <div class="relative aspect-square overflow-hidden bg-black">
-            <img id="case-img-2" src="./cosmetics_studio.jpg" alt="Botanical Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <!-- Ad Overlay (Toggleable) -->
-            <div id="showcase-ad-overlay-2" class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 p-6 flex flex-col justify-between transition-opacity duration-300 opacity-0 pointer-events-none">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2.5 py-1 rounded bg-[#DF0B21] text-white font-bold">INSTAGRAM CAROUSEL</span>
-                <span class="text-[#AAD5E7]">DERMATOLOGIST TESTED</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-mono text-[#AAD5E7] tracking-wider uppercase">CLINICAL BOTANICALS</span>
-                <h4 class="text-2xl font-black text-white leading-tight mt-1">CELLULAR REGENERATION CREAM.</h4>
-                <p class="text-xs text-neutral-300 mt-2 font-mono">Triple peptide complex in frosted luxury glass.</p>
-                <div class="mt-4 inline-block px-4 py-2 rounded-full bg-[#DF0B21] text-white text-xs font-bold">
-                  UNLOCK RADIANCE →
-                </div>
-              </div>
-            </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-2">
+            <span>NICHE: SKINCARE & COSMETICS</span>
+            <span>2026°</span>
           </div>
-          <div class="p-6">
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-2">
-              <span class="text-[#AAD5E7]">NICHE: LUXURY SKINCARE & BEAUTY</span>
-              <span>2026°</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Botanica Lumina Rejuvenation</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed mb-4">
-              Frosted glass refraction and liquid droplets modeled with zero hallucination. 100% compliant ad specs.
-            </p>
-            <button onclick="toggleCaseAd(2)" class="w-full py-2.5 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.08] text-xs font-mono text-neutral-300 hover:text-white transition-colors">
-              Toggle Ad Creative Overlay ⇄
-            </button>
-          </div>
+          <h3 class="text-lg font-medium text-white mb-1">Botanica Lumina Rejuvenation</h3>
+          <p class="text-xs text-[#9CA39A] leading-relaxed mb-4">
+            Frosted glass refraction and botanical liquid droplets modeled with zero label warping. 100% compliant ad specs.
+          </p>
+          <button onclick="toggleCaseAd(2)" class="w-full py-2.5 rounded-lg border border-[#242823] hover:border-white/40 text-xs font-mono text-neutral-300 hover:text-white transition-colors">
+            Toggle Ad Creative Overlay ⇄
+          </button>
         </div>
-
       </div>
 
     </div>
+
   </section>
 
   <!-- ========================================== -->
   <!-- 7. PRICING & THE "NO-BRAINER" CTA -->
   <!-- ========================================== -->
-  <section id="pricing" class="py-24 px-4 sm:px-6 bg-[#040200] border-t border-white/5 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16 text-center mx-auto">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono text-[#AAD5E7] mb-4">
-          <span>[05] CLEAR TRANSPARENT PRICING</span>
+  <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
+    
+    <!-- Section Header -->
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[05] INVESTMENT TIERS</span>
+      <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] mt-3">
+        Two Simple Tiers. Zero Retainers.
+      </h2>
+      <p class="mt-3 text-sm sm:text-base text-[#9CA39A]">
+        Filter out broke tire-kickers and scale creative drops on your schedule.
+      </p>
+    </div>
+
+    <!-- 2 Clean Tiers Side-by-Side -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+
+      <!-- Tier 1: One-Time Launch Sprint -->
+      <div class="studio-panel rounded-2xl p-8 sm:p-10 flex flex-col justify-between studio-panel-hover transition-colors">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-4">
+            <span>TIER 01</span>
+            <span>ONE-TIME SPRINT</span>
+          </div>
+          <h3 class="text-2xl font-medium text-white mb-2">One-Time Launch Sprint</h3>
+          <p class="text-xs sm:text-sm text-[#9CA39A] mb-8 leading-relaxed">
+            For packaging brands launching a new SKU or testing BrandTwin before weekly production.
+          </p>
+          <div class="flex items-baseline space-x-2 mb-8">
+            <span class="text-5xl font-normal text-white tracking-tight">$1,500</span>
+            <span class="text-xs font-mono text-[#7A8078]">one-time</span>
+          </div>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-[#9CA39A] mb-8">
+            <li class="flex items-center space-x-3">
+              <span class="text-white">✓</span>
+              <span>1 Master 3D/AI Brand Twin model</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white">✓</span>
+              <span>10 High-res static studio photography scenes</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white">✓</span>
+              <span>2 Motion loop ads (liquid or ingredient)</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white">✓</span>
+              <span>100% vector label fidelity guarantee</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white">✓</span>
+              <span>Delivered in 48 hours</span>
+            </li>
+          </ul>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-[-0.035em]">
-          Two Simple Tiers. Zero Hidden Fees.
-        </h2>
-        <p class="mt-4 text-base sm:text-lg text-neutral-300">
-          Scale your creative output without agency retainers or photoshoot delays.
-        </p>
+        <div>
+          <button onclick="openLeadModal('Launch Sprint ($1,500)')" class="w-full py-3.5 rounded-full border border-[#323730] hover:border-white text-white text-xs font-medium transition-colors">
+            Book Launch Sprint ($1,500)
+          </button>
+        </div>
       </div>
 
-      <!-- 2 Tiers Side by Side -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
-
-        <!-- Tier 1: One-Time Launch Sprint -->
-        <div class="retro-glass rounded-3xl p-8 sm:p-10 border border-white/10 flex flex-col justify-between hover:border-white/20 transition-all">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-4">
-              <span>TIER // 01</span>
-              <span>ONE-TIME SPRINT</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">One-Time Launch Sprint</h3>
-            <p class="text-sm text-neutral-300 mb-6 leading-relaxed">
-              Ideal for brands launching a new SKU or testing BrandTwin before committing to weekly volume.
-            </p>
-            <div class="flex items-baseline space-x-2 mb-8">
-              <span class="text-5xl font-extrabold text-white tracking-tight">$1,500</span>
-              <span class="text-neutral-400 text-sm font-mono">one-time payment</span>
-            </div>
-            <ul class="space-y-4 text-sm text-neutral-200 font-mono mb-8">
-              <li class="flex items-center space-x-3">
-                <span class="text-[#AAD5E7] font-bold">✓</span>
-                <span>1 Master 3D/AI Brand Twin model</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#AAD5E7] font-bold">✓</span>
-                <span>10 High-res static studio photography scenes</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#AAD5E7] font-bold">✓</span>
-                <span>2 Motion loop ads (ingredient or liquid)</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#AAD5E7] font-bold">✓</span>
-                <span>100% vector label fidelity guarantee</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#AAD5E7] font-bold">✓</span>
-                <span>Delivered in 48 hours</span>
-              </li>
-            </ul>
+      <!-- Tier 2: Weekly Growth Engine -->
+      <div class="studio-panel rounded-2xl p-8 sm:p-10 flex flex-col justify-between border-[#3A4138] bg-[#181C17] hover:border-white/30 transition-colors relative">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono mb-4">
+            <span class="text-white">TIER 02 // MOST POPULAR</span>
+            <span class="text-[#AAD5E7]">WEEKLY ENGINE</span>
           </div>
-          <div>
-            <button onclick="openLeadModal('Launch Sprint ($1,500)')" class="w-full py-4 rounded-full border border-white/20 bg-white/[0.04] hover:bg-white/[0.1] text-white font-semibold text-sm transition-all">
-              Book Launch Sprint ($1,500)
-            </button>
-            <div class="text-center text-[11px] font-mono text-neutral-500 mt-3">
-              100% Satisfaction Guarantee · Zero Risk
-            </div>
+          <h3 class="text-2xl font-medium text-white mb-2">Weekly Growth Engine</h3>
+          <p class="text-xs sm:text-sm text-[#9CA39A] mb-8 leading-relaxed">
+            For direct-to-consumer packaging brands scaling aggressive spend on Meta and TikTok.
+          </p>
+          <div class="flex items-baseline space-x-2 mb-8">
+            <span class="text-5xl font-normal text-white tracking-tight">$2,500</span>
+            <span class="text-xs font-mono text-[#7A8078]">/ month</span>
           </div>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-neutral-200 mb-8">
+            <li class="flex items-center space-x-3">
+              <span class="text-white font-bold">✓</span>
+              <span><strong>20 Fresh static & motion ads</strong> delivered weekly (80/mo)</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white font-bold">✓</span>
+              <span>Dedicated Senior Art Director & 3D Specialist</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white font-bold">✓</span>
+              <span>Seasonal campaign concepts pitched weekly</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white font-bold">✓</span>
+              <span>Private Slack channel & 24h revision turnaround</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="text-white font-bold">✓</span>
+              <span>Pause or cancel anytime · No lock-in</span>
+            </li>
+          </ul>
         </div>
-
-        <!-- Tier 2: Weekly Growth Engine -->
-        <div class="retro-glass-glow rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative group hover:border-[#AAD5E7] transition-all bg-gradient-to-b from-[#AAD5E7]/[0.05] via-[#DF0B21]/[0.02] to-transparent">
-          <div class="absolute -top-3.5 right-8 px-4 py-1 rounded-full bg-[#DF0B21] text-white font-mono text-xs font-bold shadow-[0_0_20px_rgba(223,11,33,0.7)]">
-            MOST POPULAR // SCALING BRANDS
-          </div>
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-4">
-              <span class="text-[#AAD5E7]">TIER // 02</span>
-              <span class="text-[#DF0B21]">WEEKLY ENGINE</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Weekly Growth Engine</h3>
-            <p class="text-sm text-neutral-300 mb-6 leading-relaxed">
-              For ambitious direct-to-consumer packaging brands scaling on Meta and TikTok ads.
-            </p>
-            <div class="flex items-baseline space-x-2 mb-8">
-              <span class="text-5xl font-extrabold text-white tracking-tight">$2,500</span>
-              <span class="text-[#AAD5E7] text-sm font-mono">/ month</span>
-            </div>
-            <ul class="space-y-4 text-sm text-white font-mono mb-8">
-              <li class="flex items-center space-x-3">
-                <span class="text-[#DF0B21] font-bold">✓</span>
-                <span><strong class="text-white">20 Fresh static & motion ads</strong> delivered weekly (80/mo)</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#DF0B21] font-bold">✓</span>
-                <span>Dedicated Senior Art Director & 3D Specialist</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#DF0B21] font-bold">✓</span>
-                <span>Seasonal campaign concepts pitched weekly</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#DF0B21] font-bold">✓</span>
-                <span>Private Slack channel & 24h revision turnaround</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-[#DF0B21] font-bold">✓</span>
-                <span>Pause or cancel anytime · No long-term lock-in</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <button onclick="openLeadModal('Weekly Growth Engine ($2,500/mo)')" class="w-full py-4 rounded-full bg-[#DF0B21] hover:bg-[#E70103] text-white font-bold text-sm tracking-wide shadow-[0_0_30px_rgba(223,11,33,0.6)] hover:shadow-[0_0_45px_rgba(223,11,33,0.9)] transition-all hover:scale-[1.02]">
-              Join Weekly Growth Engine ($2,500/mo) →
-            </button>
-            <div class="text-center text-[11px] font-mono text-neutral-400 mt-3">
-              Filtered for serious brands · Limited to 10 brands/month
-            </div>
-          </div>
+        <div>
+          <button onclick="openLeadModal('Weekly Growth Engine ($2,500/mo)')" class="w-full py-3.5 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium transition-colors">
+            Join Weekly Growth Engine ($2,500/mo) →
+          </button>
         </div>
-
-      </div>
-
-      <!-- No-Brainer CTA Banner -->
-      <div class="mt-20 max-w-4xl mx-auto retro-glass rounded-3xl p-8 sm:p-12 text-center border border-white/10 relative overflow-hidden">
-        <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-[#AAD5E7] rounded-full filter blur-[120px] opacity-20 pointer-events-none"></div>
-        <div class="absolute -left-20 -top-20 w-64 h-64 bg-[#DF0B21] rounded-full filter blur-[120px] opacity-20 pointer-events-none"></div>
-        
-        <span class="text-xs font-mono text-[#DF0B21] tracking-wider uppercase">[LIMITED TRIAL OFFER]</span>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 tracking-[-0.03em]">
-          Test BrandTwin With Your Exact Product Packaging
-        </h3>
-        <p class="text-neutral-300 max-w-2xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-          Send us your store URL. Our art director will clone your packaging and deliver 3 commercial ad creatives to your inbox for free.
-        </p>
-        <button onclick="openLeadModal('Free 3 Custom Ads')" class="px-8 py-4 rounded-full bg-[#DF0B21] hover:bg-[#E70103] text-white font-bold text-sm sm:text-base shadow-[0_0_30px_rgba(223,11,33,0.6)] hover:shadow-[0_0_50px_rgba(223,11,33,0.9)] transition-all hover:scale-105">
-          Get 3 Free Custom Studio Ads of Your Product →
-        </button>
       </div>
 
     </div>
-  </section>
 
-  <!-- ========================================== -->
-  <!-- 8. FREQUENTLY ASKED QUESTIONS -->
-  <!-- ========================================== -->
-  <section id="faq" class="py-20 px-4 sm:px-6 relative">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono text-[#AAD5E7] mb-4">
-          <span>[06] COMMON QUESTIONS</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-[-0.035em]">
-          Frequently Asked Questions
-        </h2>
-      </div>
-
-      <div class="space-y-4">
-        
-        <div class="retro-glass rounded-xl p-6 border border-white/10">
-          <h3 class="text-base font-bold text-white mb-2">How do you guarantee labels won't warp like Midjourney?</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed">
-            We don't rely on self-serve prompt generation alone. We extract your vector dieline or packaging CAD file, map it accurately onto a 3D UV mesh, and control the scene lighting and camera coordinates before applying diffusion shaders and human typography polish.
-          </p>
-        </div>
-
-        <div class="retro-glass rounded-xl p-6 border border-white/10">
-          <h3 class="text-base font-bold text-white mb-2">What do you need from us to begin?</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed">
-            Just your 2D packaging dielines (AI, PDF, or vector) or 5 clear iPhone photos of your existing product from various angles. Our team handles 100% of the 3D twin construction.
-          </p>
-        </div>
-
-        <div class="retro-glass rounded-xl p-6 border border-white/10">
-          <h3 class="text-base font-bold text-white mb-2">What formats and resolutions are delivered?</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed">
-            All assets are delivered in 4K resolution across standard advertising ratios: 1:1 (Square Feed), 9:16 (Instagram Reels & TikTok), 4:5 (Meta Portrait), and 16:9 (Display/Web). Both raw renders and layered ad creatives are provided.
-          </p>
-        </div>
-
-        <div class="retro-glass rounded-xl p-6 border border-white/10">
-          <h3 class="text-base font-bold text-white mb-2">Can we request revisions?</h3>
-          <p class="text-sm text-neutral-300 leading-relaxed">
-            Yes. Growth Engine subscribers receive unlimited revisions with direct communication in a private Slack channel.
-          </p>
-        </div>
-
-      </div>
+    <!-- The "No-Brainer" CTA Banner -->
+    <div class="mt-20 max-w-4xl mx-auto studio-panel rounded-2xl p-8 sm:p-12 text-center">
+      <span class="text-xs font-mono text-[#7A8078] uppercase tracking-wider">[ZERO-RISK INITIATIVE]</span>
+      <h3 class="text-2xl sm:text-3xl font-medium text-white mt-2 mb-3 tracking-[-0.025em]">
+        Get 3 Free Custom Studio Ads of Your Product
+      </h3>
+      <p class="text-sm text-[#9CA39A] max-w-xl mx-auto mb-8 leading-relaxed">
+        Send us your packaging or store URL. Our art director will build a sample Brand Twin and deliver 3 commercial ad creatives to your inbox for free.
+      </p>
+      <button onclick="openLeadModal('Free 3 Custom Ads')" class="px-8 py-3.5 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] font-medium text-xs tracking-tight transition-all">
+        Get 3 Free Custom Studio Ads of Your Product →
+      </button>
     </div>
+
   </section>
 
   <!-- ========================================== -->
-  <!-- 9. FOOTER -->
+  <!-- 8. FOOTER -->
   <!-- ========================================== -->
-  <footer class="py-12 px-4 sm:px-6 border-t border-white/10 bg-[#040200] text-xs font-mono text-neutral-500">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center space-x-3">
-        <div class="w-6 h-6 rounded bg-[#DF0B21] flex items-center justify-center text-white font-bold text-xs">
-          BT
-        </div>
-        <span class="text-white font-bold tracking-tight">BrandTwin Studio</span>
-        <span>© 2026. All rights reserved.</span>
-      </div>
-      <div class="flex items-center space-x-6 text-neutral-400">
-        <a href="#moat" class="hover:text-white transition-colors">About</a>
-        <a href="#system" class="hover:text-white transition-colors">Technology</a>
-        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-        <a href="https://github.com/Waqasdevs/brandtwin" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-      </div>
-      <div class="text-neutral-500">
-        Engineered for CPG Packaging Brands · 2026°
-      </div>
+  <footer class="py-12 px-6 max-w-7xl mx-auto border-t border-[#242823]/60 text-xs font-mono text-[#7A8078] flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center space-x-2 text-white">
+      <span class="font-medium">BrandTwin Studio</span>
+      <span class="text-[#7A8078]">© 2026. All rights reserved.</span>
+    </div>
+    <div class="flex items-center space-x-6 text-[#9CA39A]">
+      <a href="#moat" class="hover:text-white transition-colors">About</a>
+      <a href="#system" class="hover:text-white transition-colors">Services</a>
+      <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+      <a href="https://github.com/Waqasdevs/brandtwin" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+    </div>
+    <div>
+      Designed for CPG Packaging Brands · 2026°
     </div>
   </footer>
 
   <!-- ========================================== -->
-  <!-- 10. LEAD CAPTURE MODAL -->
+  <!-- 9. LEAD CAPTURE MODAL -->
   <!-- ========================================== -->
-  <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl hidden">
-    <div class="retro-glass-glow rounded-3xl p-6 sm:p-10 max-w-lg w-full relative border border-white/20 shadow-2xl">
-      <!-- Close Button -->
-      <button onclick="closeLeadModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-neutral-400 hover:text-white transition-colors font-mono">
+  <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+    <div class="studio-panel rounded-2xl p-6 sm:p-8 max-w-md w-full relative">
+      <button onclick="closeLeadModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white transition-colors text-sm font-mono">
         ✕
       </button>
 
       <div id="modal-form">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono text-[#DF0B21] mb-4">
-          <span>ZERO-RISK OFFER</span>
-        </div>
-        <h3 class="text-2xl font-bold text-white mb-2">Claim 3 Free Custom Studio Ads</h3>
-        <p class="text-sm text-neutral-300 mb-6">
-          Paste your website or product URL. Our creative director will inspect your packaging and deliver 3 custom static/motion ad concepts within 24 hours.
+        <span class="text-xs font-mono text-[#7A8078] uppercase">[NO-COMMITMENT TRIAL]</span>
+        <h3 class="text-xl font-medium text-white mt-1 mb-2">Claim 3 Free Custom Studio Ads</h3>
+        <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
+          Paste your website or product URL. Our creative director will clone your packaging and deliver 3 custom static/motion ad concepts in 24 hours.
         </p>
 
         <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
           <div>
-            <label class="block text-xs font-mono text-neutral-400 mb-1" for="lead-name">Your Name</label>
-            <input type="text" id="lead-name" required placeholder="Alex Miller" class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/15 text-white placeholder-neutral-500 focus:outline-none focus:border-[#AAD5E7] text-sm">
+            <label class="block text-xs font-mono text-[#7A8078] mb-1" for="lead-name">Your Name</label>
+            <input type="text" id="lead-name" required placeholder="Alex Miller" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white placeholder-[#7A8078] focus:outline-none focus:border-white text-xs">
           </div>
           <div>
-            <label class="block text-xs font-mono text-neutral-400 mb-1" for="lead-email">Work Email</label>
-            <input type="email" id="lead-email" required placeholder="alex@brand.com" class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/15 text-white placeholder-neutral-500 focus:outline-none focus:border-[#AAD5E7] text-sm">
+            <label class="block text-xs font-mono text-[#7A8078] mb-1" for="lead-email">Work Email</label>
+            <input type="email" id="lead-email" required placeholder="alex@brand.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white placeholder-[#7A8078] focus:outline-none focus:border-white text-xs">
           </div>
           <div>
-            <label class="block text-xs font-mono text-neutral-400 mb-1" for="lead-url">Store / Product URL</label>
-            <input type="url" id="lead-url" required placeholder="https://yourbrand.com" class="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/15 text-white placeholder-neutral-500 focus:outline-none focus:border-[#AAD5E7] text-sm">
+            <label class="block text-xs font-mono text-[#7A8078] mb-1" for="lead-url">Store / Product URL</label>
+            <input type="url" id="lead-url" required placeholder="https://yourbrand.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white placeholder-[#7A8078] focus:outline-none focus:border-white text-xs">
           </div>
           <div>
-            <label class="block text-xs font-mono text-neutral-400 mb-1">Product Niche</label>
-            <select id="lead-niche" class="w-full px-4 py-3 rounded-xl bg-[#0E0906] border border-white/15 text-white text-sm focus:outline-none focus:border-[#AAD5E7]">
+            <label class="block text-xs font-mono text-[#7A8078] mb-1">Product Niche</label>
+            <select id="lead-niche" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white text-xs focus:outline-none focus:border-white">
               <option value="beverage">Craft Beverage / Hot Sauce / Wine</option>
               <option value="bakery">Boutique Bakery / Confectionery / Food Box</option>
               <option value="skincare">Skincare / Cosmetics / Fragrance</option>
@@ -1074,25 +917,25 @@
               <option value="other">Other Packaging Brand</option>
             </select>
           </div>
-          <button type="submit" id="lead-submit-btn" class="w-full py-4 rounded-xl bg-[#DF0B21] hover:bg-[#E70103] text-white font-bold text-sm tracking-wide shadow-[0_0_25px_rgba(223,11,33,0.6)] hover:shadow-[0_0_40px_rgba(223,11,33,0.85)] transition-all mt-4">
+          <button type="submit" id="lead-submit-btn" class="w-full py-3 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium transition-colors mt-4">
             Deliver My 3 Free Custom Ads →
           </button>
-          <div class="text-center text-[10px] font-mono text-neutral-400">
-            No credit card required · Delivered to your inbox in 24 hours
+          <div class="text-center text-[10px] font-mono text-[#7A8078]">
+            No credit card required · Delivered in 24 hours
           </div>
         </form>
       </div>
 
       <!-- Success Confirmation View -->
-      <div id="modal-success" class="hidden text-center py-8">
-        <div class="w-16 h-16 rounded-full bg-[#AAD5E7]/20 border border-[#AAD5E7] text-[#AAD5E7] flex items-center justify-center text-2xl mx-auto mb-4">
+      <div id="modal-success" class="hidden text-center py-6">
+        <div class="w-12 h-12 rounded-full border border-white text-white flex items-center justify-center text-lg mx-auto mb-3 font-mono">
           ✓
         </div>
-        <h4 class="text-2xl font-bold text-white mb-2">Your Brand Twin is Queued!</h4>
-        <p id="modal-success-text" class="text-sm text-neutral-300 leading-relaxed mb-6 font-mono">
-          We received your URL. Your senior art director is generating 3 custom commercial ad concepts now.
+        <h4 class="text-lg font-medium text-white mb-2">Packaging Queued for Ingestion</h4>
+        <p id="modal-success-text" class="text-xs text-[#9CA39A] leading-relaxed mb-6">
+          We received your URL. Your senior art director is preparing 3 custom commercial ad concepts now.
         </p>
-        <button onclick="closeLeadModal()" class="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-colors">
+        <button onclick="closeLeadModal()" class="px-5 py-2 rounded-full border border-[#242823] hover:border-white text-white text-xs font-mono transition-colors">
           Back to Website
         </button>
       </div>
@@ -1102,7 +945,6 @@
 
   <!-- JavaScript Interactions -->
   <script>
-    // Showcase Ad Overlays Toggle
     function toggleCaseAd(index) {
       const overlay = document.getElementById('showcase-ad-overlay-' + index);
       if (overlay) {
@@ -1111,7 +953,6 @@
       }
     }
 
-    // Modal Control
     function openLeadModal(tierName) {
       document.getElementById('lead-modal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -1134,7 +975,7 @@
       const url = document.getElementById('lead-url').value.trim();
       
       const submitBtn = document.getElementById('lead-submit-btn');
-      submitBtn.innerText = 'Queuing your Brand Twin...';
+      submitBtn.innerText = 'Queuing your packaging...';
       submitBtn.disabled = true;
 
       setTimeout(() => {
@@ -1144,16 +985,14 @@
           'Thanks ' + name + '! We have queued your brand URL (' + url + '). Your 3 custom commercial ad creatives will be delivered to ' + email + ' within 24 hours.';
         submitBtn.innerText = 'Deliver My 3 Free Custom Ads →';
         submitBtn.disabled = false;
-      }, 700);
+      }, 600);
     }
 
     function mockDownload() {
       const btn = document.getElementById('dash-download-btn');
       btn.innerText = 'Downloaded 20 Assets (.ZIP)';
-      btn.classList.add('bg-emerald-600', 'text-white');
       setTimeout(() => {
-        btn.innerText = 'Download All (.ZIP)';
-        btn.classList.remove('bg-emerald-600', 'text-white');
+        btn.innerText = 'Download Batch (.ZIP)';
       }, 3000);
     }
   </script>
