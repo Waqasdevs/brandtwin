@@ -7,7 +7,7 @@
 <meta name="description" content="A private AI Brand Twin trained on your packaging, polished by senior art directors. 20 conversion-ready ads every week.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F2F0EB;--ink:#1D1D1F;--mute:#8A8883;--line:rgba(29,29,31,.12);--card:#FAF9F6;--accent:#CC5500;--r:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -146,6 +146,48 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 .dash{grid-template-columns:1fr}.dash aside{display:none}.dg,.dm{grid-template-columns:1fr 1fr}.tier .amt{font-size:60px}
 .fb{flex-direction:column;gap:8px}summary{font-size:20px}
 }
+
+.ser{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.03em;color:var(--ink)}
+h2 em .ser,h1 em .ser{color:inherit}
+.hero{position:relative;overflow:hidden;padding:120px 0 0;background:#E9E6DF}
+.hero-bg{position:absolute;left:0;right:0;top:-8%;height:116%;background:url(hero_landscape.jpg) center bottom/cover no-repeat;will-change:transform}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(242,240,235,.55),rgba(242,240,235,0) 45%,rgba(242,240,235,0) 80%,var(--bg))}
+.hero .wrap{position:relative}
+.vt{position:absolute;top:140px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);writing-mode:vertical-rl;opacity:.7;z-index:2}
+.vt.l{left:14px}.vt.r{right:14px;transform:rotate(180deg)}
+.stage{position:relative;margin-top:30px;padding-bottom:120px}
+.stage .frame{aspect-ratio:16/9;width:78%;margin-left:auto}
+.stage .mini{position:absolute;left:0;bottom:60px;width:28%;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;transform:rotate(-3deg);border:8px solid var(--bg)}
+.stage .mini img{width:100%;height:100%;object-fit:cover}
+.note{position:absolute;left:24%;top:-30px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--ink);transform:rotate(-4deg);white-space:nowrap;z-index:2}
+.note svg{display:block;margin:2px 0 0 40px}
+.hero-row{margin-bottom:0}
+.cases{align-items:start}
+.case:nth-child(2){margin-top:90px}
+.case:nth-child(3){margin-top:30px}
+.case:nth-child(2) .frame{aspect-ratio:3/4}
+.case .num{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:28px;color:var(--ink)}
+.case .ph{align-items:baseline;gap:12px}
+.idx{margin-top:90px;border-top:1px solid var(--ink)}
+.idx a{display:grid;grid-template-columns:80px 1fr 1fr 40px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);font-size:clamp(24px,3vw,44px);letter-spacing:-.04em;transition:padding .35s,color .35s}
+.idx a span{font-size:14px;color:var(--mute);letter-spacing:0}
+.idx a:hover{padding-left:20px;color:var(--accent)}
+.sheet{margin:0 0 110px;background:#E8E5DE;border-radius:var(--r);padding:56px 48px 40px}
+.sheet-row{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.cs{position:relative;padding:14px}
+.cs::before,.cs::after,.cs i::before,.cs i::after{content:"";position:absolute;width:12px;height:12px;border:0 solid var(--ink)}
+.cs::before{left:0;top:0;border-width:1px 0 0 1px}.cs::after{right:0;top:0;border-width:1px 1px 0 0}
+.cs i::before{left:0;bottom:0;border-width:0 0 1px 1px}.cs i::after{right:0;bottom:0;border-width:0 1px 1px 0}
+.cs img{aspect-ratio:1;object-fit:cover;width:100%;border-radius:4px}
+.cs figcaption{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:10px}
+.sheet-top{display:flex;justify-content:space-between;margin-bottom:28px}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:110px;align-items:start}
+.team .quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(30px,3.6vw,52px);line-height:1.08;letter-spacing:-.03em}
+.ppl{border-top:1px solid var(--ink)}
+.ppl div{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line);font-size:19px;letter-spacing:-.02em}
+.ppl span{color:var(--mute);font-size:14px}
+@media(max-width:900px){.vt{display:none}.stage .frame{width:100%}.stage .mini{position:relative;bottom:auto;width:50%;margin-top:-60px;margin-left:10px}.stage{padding-bottom:60px}.note{display:none}
+.case:nth-child(n){margin-top:0}.idx a{grid-template-columns:40px 1fr}.idx a span:nth-of-type(2),.idx a span:last-child{display:none}.sheet-row{grid-template-columns:1fr 1fr}.sheet{padding:28px 16px}.team{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -155,22 +197,26 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 <button class="btn sm" data-open>Get free ads</button>
 </div></nav>
 
-<header class="hero" id="top"><div class="wrap">
+<header class="hero" id="top"><div class="hero-bg" id="hbg"></div><span class="vt l">Studio for packaged goods</span><span class="vt r">Est. 2026 — Worldwide</span><div class="wrap">
 <div class="cap rv">[ <b>Studio for packaged goods</b> ]</div>
-<h1 class="rv">Your Product Packaging, Cloned Into an Infinite <em>Studio &amp; Ad Engine.</em></h1>
+<h1 class="rv">Your Product Packaging, Cloned Into an <span class="ser">Infinite</span> <em>Studio &amp; Ad Engine.</em></h1>
 <div class="hero-row rv">
 <p>We train a private AI Brand Twin on your exact bottles, boxes, and labels—and our senior art directors deliver 20 conversion-ready static and motion ads to your inbox every week. Zero photoshoots. Zero warped labels.</p>
 <div class="hero-act"><button class="btn" data-open>Get 3 Free Custom Studio Ads of Your Product →</button></div>
 </div>
-<div class="frame rv">
+<div class="stage rv">
+<div class="note">dieline in, studio out<svg width="60" height="30" viewBox="0 0 60 30" fill="none" stroke="#1D1D1F" stroke-width="1.2"><path d="M2 4C20 4 38 10 52 24M52 24l-9-1M52 24l-2-9"/></svg></div>
+<div class="frame">
 <video autoplay muted loop playsinline poster="sauce_studio.jpg"><source src="hero_split_screen.mp4" type="video/mp4"></video>
 <span class="tag">[ Dieline → Studio → Ad ]</span><span class="ct">// 01–04</span>
+</div>
+<div class="mini"><img src="sauce_studio.jpg" alt="Finished studio shot"></div>
 </div>
 </div></header>
 
 <section id="proof"><div class="wrap">
 <div class="cap rv">[ 01 ] <b>Social proof</b></div>
-<h2 class="rv" style="margin-top:28px;max-width:1100px">Packaged-goods brands ship campaigns <em>without ever booking a studio.</em></h2>
+<h2 class="rv" style="margin-top:28px;max-width:1100px">Packaged-goods brands ship campaigns <em>without ever booking a <span class="ser">studio.</span></em></h2>
 <div class="stats rv">
 <div class="stat"><span class="cap">Brands</span><div><strong>48+</strong><p>Food, beverage and skincare brands on a weekly drop.</p></div></div>
 <div class="stat dark"><span class="cap">Delivered</span><div><strong>150+</strong><p>Studio ads shipped and live on Meta and TikTok.</p></div></div>
@@ -179,9 +225,14 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 </div>
 <div class="brands rv"><span>Ember &amp; Oak</span><span>Maison Crumb</span><span>Dewlight</span><span>Fieldhand</span><span>Saltwork</span></div>
 <div class="cases rv">
-<div class="case"><div class="frame"><img src="sauce_studio.jpg" alt="Craft sauce studio shot"></div><div class="ph">Craft sauce <span>Static + Meta ad</span></div></div>
-<div class="case"><div class="frame"><img src="bakery_studio.jpg" alt="Bakery box studio shot"></div><div class="ph">Boutique bakery <span>Static + Meta ad</span></div></div>
-<div class="case"><div class="frame"><img src="cosmetics_studio.jpg" alt="Skincare jar studio shot"></div><div class="ph">Skincare jar <span>Static + Meta ad</span></div></div>
+<div class="case"><div class="frame"><img src="sauce_studio.jpg" alt="Craft sauce studio shot"></div><div class="ph"><b class="num">01</b><b style="font-weight:400;margin-right:auto">Craft sauce</b><span>Static + Meta ad</span></div></div>
+<div class="case"><div class="frame"><img src="bakery_studio.jpg" alt="Bakery box studio shot"></div><div class="ph"><b class="num">02</b><b style="font-weight:400;margin-right:auto">Boutique bakery</b><span>Static + Meta ad</span></div></div>
+<div class="case"><div class="frame"><img src="cosmetics_studio.jpg" alt="Skincare jar studio shot"></div><div class="ph"><b class="num">03</b><b style="font-weight:400;margin-right:auto">Skincare jar</b><span>Static + Meta ad</span></div></div>
+</div>
+<div class="idx rv">
+<a href="#proof"><span>01</span>Kaizen Hot Sauce<span>Craft beverage &amp; sauce</span><span>↗</span></a>
+<a href="#proof"><span>02</span>Maison Crumb<span>Boutique bakery</span><span>↗</span></a>
+<a href="#proof"><span>03</span>Dewlight<span>Skincare</span><span>↗</span></a>
 </div>
 </div></section>
 
@@ -201,13 +252,15 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 
 <section id="solution"><div class="wrap">
 <div class="cap rv">[ 03 ] <b>The solution</b></div>
-<h2 class="rv" style="margin-top:28px;max-width:1100px">A studio trained on your pack. <em>Finished by people who care about type.</em></h2>
+<h2 class="rv" style="margin-top:28px;max-width:1100px">A studio trained on your pack. <em>Finished by people who care about <span class="ser">type.</span></em></h2>
 <div class="sol-grid rv">
 <div class="sol"><span class="cap">01</span><div><h3>100% pixel-perfect labels</h3><p>Built from your dielines, so every logo, claim and cap is exact.</p></div></div>
 <div class="sol"><span class="cap">02</span><div><h3>Real studio lighting</h3><p>Glass, foil and board render with believable depth—not plastic.</p></div></div>
 <div class="sol"><span class="cap">03</span><div><h3>Senior human polish, in 48 hours</h3><p>A packaging designer signs off on every asset before it reaches you.</p></div></div>
 </div>
-<div class="cap rv" style="margin:100px 0 24px">[ Pricing ] <b>Two ways to start</b></div>
+<div class="team rv"><div class="quote">“The machine does the heavy lifting. A person always has the last look.”</div>
+<div class="ppl"><div>Amira Hale<span>Creative Director</span></div><div>Jonas Weber<span>Packaging Designer</span></div><div>Priya Nair<span>Senior Art Director</span></div></div></div>
+<div class="cap rv" style="margin:110px 0 24px">[ Pricing ] <b>Two ways to start</b></div>
 <div class="price rv">
 <div class="tier"><span class="cap">One-time</span><div class="amt">$1,500</div><div><h3 style="font-size:26px;letter-spacing:-.03em">Launch Sprint</h3></div>
 <ul><li>Your master Brand Twin</li><li>Launch pack of studio statics</li><li>Senior designer review</li></ul><button class="btn ghost" data-open>Start with a sprint</button></div>
@@ -218,12 +271,20 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 
 <section id="how"><div class="wrap">
 <div class="cap rv">[ 04 ] <b>How it works</b></div>
-<h2 class="rv" style="margin-top:28px">Service-as-a-software, <em>in three steps.</em></h2>
+<h2 class="rv" style="margin-top:28px">Service-as-a-software, <em>in three <span class="ser">steps.</span></em></h2>
 <div class="steps rv">
 <div class="step"><span class="cap">Step 01</span><h3>Lock in your Twin</h3><p>Send us your dielines or 5 product photos. Our creative director builds your master 3D/AI Brand Twin.</p></div>
 <div class="step"><span class="cap">Step 02</span><h3>Weekly creative drops</h3><p>Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.</p></div>
 <div class="step"><span class="cap">Step 03</span><h3>Senior human polish</h3><p>Every asset passes through an experienced packaging &amp; brand designer for typography, color accuracy and print/ad compliance.</p></div>
 </div>
+<div class="sheet rv">
+<div class="sheet-top"><span class="cap">[ Contact sheet ] <b>One pack, four outputs</b></span><span class="cap">Roll 12 / Frames 01–04</span></div>
+<div class="sheet-row">
+<figure class="cs"><i></i><img src="sauce_dieline.jpg" alt="Dieline"><figcaption><span>01 Dieline</span><span>Input</span></figcaption></figure>
+<figure class="cs"><i></i><img src="sauce_studio.jpg" alt="Studio"><figcaption><span>02 Studio</span><span>Twin</span></figcaption></figure>
+<figure class="cs"><i></i><img src="studio_shoot.jpg" alt="Scene"><figcaption><span>03 Scene</span><span>Motion</span></figcaption></figure>
+<figure class="cs"><i></i><img src="cosmetics_studio.jpg" alt="Ad"><figcaption><span>04 Ad</span><span>Meta</span></figcaption></figure>
+</div></div>
 <div class="dash rv">
 <aside><div class="logo">BrandTwin®</div><span class="on">Drops</span><span>Brand Twin</span><span>Requests</span><span>Library</span><span>Billing</span></aside>
 <main>
@@ -250,7 +311,7 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 
 <section class="cta"><div class="wrap">
 <div class="cap rv">[ 06 ] <b>Start</b></div>
-<h2 class="rv">See your product in the studio <em>this week.</em></h2>
+<h2 class="rv">See your product in the studio <em>this <span class="ser">week.</span></em></h2>
 <div class="row rv"><button class="btn lg" data-open>Get 3 Free Custom Studio Ads of Your Product →</button><span>Paste your store URL. No card needed.</span></div>
 </div></section>
 
@@ -279,6 +340,8 @@ document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',e
 document.getElementById('cl').onclick=()=>md.classList.remove('on');
 md.addEventListener('click',e=>{if(e.target===md)md.classList.remove('on')});
 document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();document.getElementById('fb').innerHTML='<h3>Thank you.</h3><p style="color:#58585a">We\'ll send your 3 free studio ads within 48 hours.</p>'});
+const hb=document.getElementById('hbg');
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',()=>{const y=scrollY;if(y<1400)hb.style.transform='translate3d(0,'+(y*.22)+'px,0)'},{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
