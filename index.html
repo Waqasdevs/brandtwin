@@ -1,1000 +1,286 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrandTwin Studio | Infinite Studio & Ad Engine for Packaging Brands</title>
-  <meta name="description" content="Your Product Packaging, Cloned Into an Infinite Studio & Ad Engine. We train a private AI Brand Twin on your exact bottles, boxes, and labels—and deliver 20 conversion-ready static and motion ads weekly.">
-
-  <!-- OpenGraph -->
-  <meta property="og:title" content="BrandTwin Studio | Infinite Studio & Ad Engine">
-  <meta property="og:description" content="Your Product Packaging, Cloned Into an Infinite Studio & Ad Engine. Zero photoshoots. Zero warped labels.">
-  <meta property="og:image" content="./sauce_studio.jpg">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D0F0C'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23DF0B21'/%3E%3C/svg%3E">
-
-  <!-- Fonts: Inter & Plus Jakarta Sans (Editorial Swiss Grotesque like Lumóra) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS Local -->
-  <script src="./tailwindcss.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            studio: {
-              bg: '#0D0F0C',        /* Matte deep studio charcoal / Raven Black */
-              dark: '#080907',
-              surface: '#151814',
-              card: '#1A1D18',
-              border: '#242823',
-              borderLight: '#323730',
-              muted: '#7A8078',
-              subtle: '#9CA39A',
-            },
-            accent: {
-              red: '#DF0B21',       /* Poppy Red editorial ink */
-              blue: '#AAD5E7',      /* Powder Blue editorial ink */
-            }
-          },
-          fontFamily: {
-            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    /* Dimension Safeguards */
-    .sr-only {
-      position: absolute !important;
-      width: 1px !important;
-      height: 1px !important;
-      padding: 0 !important;
-      margin: -1px !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-      white-space: nowrap !important;
-      border: 0 !important;
-    }
-    nav svg, .icon-svg {
-      width: 1.15rem !important;
-      height: 1.15rem !important;
-    }
-    .w-4 { width: 1rem !important; height: 1rem !important; }
-    .w-5 { width: 1.25rem !important; height: 1.25rem !important; }
-    .w-8 { width: 2rem !important; height: 2rem !important; }
-    .w-10 { width: 2.5rem !important; height: 2.5rem !important; }
-
-    /* Base Styling: Matte, Architectural, Zero Glows */
-    body {
-      background-color: #0D0F0C;
-      color: #FFFFFF;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Lumóra Editorial Typography Hierarchy */
-    .editorial-heading {
-      letter-spacing: -0.03em;
-      font-weight: 500;
-    }
-    .editorial-subheading {
-      letter-spacing: -0.015em;
-      line-height: 1.6;
-    }
-
-    /* Clean Studio Borders & Flat Surfaces */
-    .studio-panel {
-      background-color: #151814;
-      border: 1px solid #242823;
-    }
-    .studio-panel-hover:hover {
-      border-color: #383E36;
-    }
-
-    /* Custom subtle scrollbar */
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0D0F0C;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #242823;
-      border-radius: 2px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #3A4138;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrandTwin — Your Product Packaging, Cloned Into an Infinite Studio & Ad Engine</title>
+<meta name="description" content="A private AI Brand Twin trained on your packaging, polished by senior art directors. 20 conversion-ready ads every week.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F0EB;--ink:#1D1D1F;--mute:#8A8883;--line:rgba(29,29,31,.12);--card:#FAF9F6;--accent:#CC5500;--r:28px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',-apple-system,'Helvetica Neue',Arial,sans-serif;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:400}
+.cap b{font-weight:400;color:var(--ink)}
+h1,h2,h3{font-weight:400;letter-spacing:-.04em;line-height:1.02}
+h2{font-size:clamp(36px,5.2vw,76px)}
+h2 em,h1 em{font-style:normal;color:var(--mute)}
+section{padding:140px 0;border-top:1px solid var(--line)}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(242,240,235,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:20px;letter-spacing:-.04em;font-weight:500}
+.links{display:flex;gap:14px;font-size:14px;color:var(--mute)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:12px;background:var(--ink);color:var(--bg);font:500 15px 'Inter Tight',sans-serif;border:0;cursor:pointer;transition:background .25s}
+.btn:hover{background:var(--accent)}
+.btn.sm{height:40px;padding:0 18px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+/* hero */
+.hero{padding:120px 0 80px;border:0}
+.hero h1{font-size:clamp(44px,7.4vw,118px);letter-spacing:-.05em;max-width:1200px;margin:28px 0 36px}
+.hero-row{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-bottom:56px}
+.hero-row p{font-size:19px;line-height:1.45;color:#4a4a4c;max-width:560px}
+.hero-act{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.hero-act span{font-size:13px;color:var(--mute)}
+.frame{position:relative;border-radius:var(--r);overflow:hidden;background:#ddd;aspect-ratio:16/8}
+.frame video,.frame img{width:100%;height:100%;object-fit:cover}
+.frame .tag{position:absolute;left:28px;bottom:24px;color:#fff;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.frame .ct{position:absolute;right:28px;bottom:24px;color:#fff;font-size:12px;letter-spacing:.06em}
+/* proof */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:80px}
+.stat{border-radius:var(--r);background:var(--card);border:1px solid var(--line);padding:32px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
+.stat strong{font-weight:400;font-size:72px;letter-spacing:-.05em;line-height:1}
+.stat p{font-size:15px;color:var(--mute);max-width:200px}
+.stat.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.stat.dark p{color:#9b9a96}
+.brands{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-top:64px;padding-top:28px;border-top:1px solid var(--line);font-size:22px;letter-spacing:-.03em;color:#9a9893}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.case .frame{aspect-ratio:4/5;border-radius:var(--r)}
+.case .ph{display:flex;justify-content:space-between;padding:16px 2px;font-size:15px}
+.case .ph span{color:var(--mute)}
+.case .frame img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.case:hover .frame img{transform:scale(1.04)}
+/* problem */
+.prob-top{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+.cost{display:grid;grid-template-columns:repeat(3,1fr);margin-top:90px;border-top:1px solid var(--ink)}
+.cost>div{padding:32px 32px 0 0}
+.cost>div+div{padding-left:32px;border-left:1px solid var(--line)}
+.cost h3{font-size:22px;letter-spacing:-.02em;margin:14px 0 12px}
+.cost .big{font-size:64px;letter-spacing:-.05em;line-height:1}
+.cost p{color:#58585a;font-size:16px;max-width:340px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px}
+.pair .frame{aspect-ratio:4/3}
+.pair .frame .tag{color:#fff}
+/* solution */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px}
+.sol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.sol h3{font-size:26px;letter-spacing:-.03em;margin-bottom:12px;line-height:1.1}
+.sol p{color:#58585a;font-size:15.5px}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.tier{border-radius:var(--r);padding:40px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;gap:28px;min-height:380px}
+.tier.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tier .amt{font-size:84px;letter-spacing:-.05em;line-height:1}
+.tier .amt small{font-size:20px;color:var(--mute);letter-spacing:-.02em}
+.tier ul{list-style:none;margin-top:auto;font-size:15.5px}
+.tier li{padding:12px 0;border-top:1px solid var(--line)}
+.tier.dark li{border-color:rgba(255,255,255,.14)}
+.tier.dark .btn{background:var(--bg);color:var(--ink)}
+.tier.dark .btn:hover{background:var(--accent);color:#fff}
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:80px 0}
+.step{border-top:1px solid var(--ink);padding-top:20px}
+.step h3{font-size:30px;letter-spacing:-.03em;margin:44px 0 14px}
+.step p{color:#58585a;max-width:360px}
+.dash{border-radius:var(--r);background:var(--card);border:1px solid var(--line);overflow:hidden;display:grid;grid-template-columns:220px 1fr;min-height:520px}
+.dash aside{border-right:1px solid var(--line);padding:28px 24px;font-size:14px;display:flex;flex-direction:column;gap:14px;color:var(--mute)}
+.dash aside .logo{color:var(--ink);margin-bottom:24px;font-size:17px}
+.dash aside .on{color:var(--ink)}
+.dash main{padding:28px 32px}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.dh h4{font-weight:400;font-size:24px;letter-spacing:-.03em}
+.dg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.dg img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%}
+.dg .it{font-size:12px;color:var(--mute);display:flex;justify-content:space-between;margin-top:8px}
+.dm{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.dm div{border:1px solid var(--line);border-radius:14px;padding:16px}
+.dm strong{display:block;font-weight:400;font-size:30px;letter-spacing:-.04em}
+.dm span{font-size:12px;color:var(--mute)}
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+details{border-top:1px solid var(--line);padding:26px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;font-size:24px;letter-spacing:-.03em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--mute);font-size:28px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:16px;color:#58585a;max-width:620px;font-size:16.5px}
+/* cta */
+.cta{text-align:left}
+.cta h2{font-size:clamp(44px,8vw,128px);letter-spacing:-.05em;margin:28px 0 48px;max-width:1100px}
+.cta .row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.cta .row span{color:var(--mute);font-size:14px}
+.btn.lg{height:60px;padding:0 32px;font-size:17px;border-radius:14px}
+/* footer */
+footer{background:var(--ink);color:var(--bg);padding:90px 0 36px;border-radius:var(--r) var(--r) 0 0}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.fl{font-size:clamp(60px,12vw,190px);letter-spacing:-.06em;line-height:.9;margin-top:90px;font-weight:400}
+footer h5{font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#85847f;margin-bottom:18px}
+footer ul{list-style:none;display:grid;gap:10px;font-size:15px}
+footer a:hover{color:var(--accent)}
+footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.25}
+.fb{display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#85847f}
+/* modal */
+.md{position:fixed;inset:0;background:rgba(20,20,20,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.md.on{display:flex}
+.box{background:var(--bg);border-radius:var(--r);padding:40px;width:100%;max-width:480px}
+.box h3{font-size:32px;letter-spacing:-.04em;margin:12px 0 24px}
+.box input{width:100%;height:52px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:0 16px;font:400 16px 'Inter Tight',sans-serif;margin-bottom:12px;color:var(--ink)}
+.box input:focus{outline:2px solid var(--ink);outline-offset:1px}
+.box .x{float:right;background:none;border:0;font-size:14px;color:var(--mute);cursor:pointer}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:0;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(max-width:900px){
+.wrap{padding:0 20px}section{padding:80px 0}.links{display:none}
+.hero-row,.prob-top,.faq-grid,.pair,.price,.sol-grid,.cases,.steps,.cost,.fg{grid-template-columns:1fr}
+.hero-act{justify-content:flex-start}.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:48px}.stat{min-height:200px;padding:22px}
+.frame{aspect-ratio:4/3}.cost>div+div{padding-left:0;border-left:0}.cost>div{padding-right:0}
+.dash{grid-template-columns:1fr}.dash aside{display:none}.dg,.dm{grid-template-columns:1fr 1fr}.tier .amt{font-size:60px}
+.fb{flex-direction:column;gap:8px}summary{font-size:20px}
+}
+</style>
 </head>
-<body class="bg-[#0D0F0C] text-white selection:bg-[#DF0B21] selection:text-white min-h-screen relative overflow-x-hidden">
-
-  <!-- ========================================== -->
-  <!-- 1. NAVIGATION (Lumóra Minimalist Bar) -->
-  <!-- ========================================== -->
-  <header class="w-full border-b border-[#242823]/60 bg-[#0D0F0C]/90 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center space-x-2 group">
-        <span class="text-xl font-medium tracking-tight text-white group-hover:text-neutral-300 transition-colors">
-          BrandTwin<sup class="text-xs font-normal text-neutral-400 ml-0.5">®</sup>
-        </span>
-      </a>
-
-      <!-- Minimal Editorial Links with '+' (Lumóra style) -->
-      <nav class="hidden md:flex items-center space-x-4 text-xs font-normal text-[#9CA39A] tracking-normal">
-        <a href="#moat" class="hover:text-white transition-colors">About</a>
-        <span class="text-[#3A4138]">+</span>
-        <a href="#system" class="hover:text-white transition-colors">Services</a>
-        <span class="text-[#3A4138]">+</span>
-        <a href="#showcase" class="hover:text-white transition-colors">Projects</a>
-        <span class="text-[#3A4138]">+</span>
-        <a href="#process" class="hover:text-white transition-colors">Process</a>
-        <span class="text-[#3A4138]">+</span>
-        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-      </nav>
-
-      <!-- Right Action Button -->
-      <div class="flex items-center space-x-4">
-        <button onclick="openLeadModal()" class="px-5 py-2.5 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium tracking-tight transition-all">
-          Get Free Custom Ads
-        </button>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- ========================================== -->
-  <!-- 2. HERO SECTION (Lumóra Gallery Layout) -->
-  <!-- ========================================== -->
-  <section class="pt-16 pb-20 px-6 max-w-7xl mx-auto">
-    
-    <!-- Top Editorial Header Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-14">
-      
-      <!-- Left: Refined Medium-Weight Headline -->
-      <div class="lg:col-span-8">
-        <h1 class="text-4xl sm:text-6xl lg:text-[68px] font-medium text-white tracking-[-0.035em] leading-[1.08]">
-          Your Product Packaging, <br>
-          <span class="text-[#A2A19F]">Cloned Into an Infinite</span> <br>
-          Studio & Ad Engine.
-        </h1>
-      </div>
-
-      <!-- Right: Lumóra [BUILT TO SCALE] Badge + Subcopy -->
-      <div class="lg:col-span-4 flex flex-col justify-end space-y-4 pb-2">
-        
-        <!-- Founder Avatars & Minimal Tag -->
-        <div class="flex items-center space-x-3">
-          <div class="flex -space-x-2">
-            <div class="w-8 h-8 rounded-full border border-[#0D0F0C] bg-neutral-700 flex items-center justify-center text-[10px] text-white font-medium">AD</div>
-            <div class="w-8 h-8 rounded-full border border-[#0D0F0C] bg-neutral-600 flex items-center justify-center text-[10px] text-white font-medium">CD</div>
-          </div>
-          <span class="text-neutral-600">—</span>
-          <span class="text-xs text-[#9CA39A] uppercase tracking-wider font-mono">[BUILT TO ENDURE]</span>
-        </div>
-
-        <!-- Exact Subheadline in Understated Editorial Tone -->
-        <p class="text-sm text-[#9CA39A] leading-relaxed font-normal">
-          We train a private AI Brand Twin on your exact bottles, boxes, and labels—and our senior art directors deliver 20 conversion-ready static and motion ads to your inbox every week. Zero photoshoots. Zero warped labels.
-        </p>
-
-        <!-- CTA Link -->
-        <div class="pt-2">
-          <button onclick="openLeadModal()" class="inline-flex items-center space-x-2 text-xs font-medium text-white hover:text-neutral-300 transition-colors border-b border-white pb-0.5">
-            <span>Get 3 Free Custom Studio Ads of Your Product</span>
-            <span>↗</span>
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- Architectural Studio Gallery Frame (Crystal Clear Video, Zero Blur) -->
-    <div class="w-full rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#242823] bg-[#151814] relative">
-      
-      <!-- Full Frame Video Window -->
-      <div class="relative aspect-[16/9] w-full bg-black overflow-hidden">
-        <video autoplay muted loop playsinline class="w-full h-full object-cover">
-          <source src="./hero_split_screen.mp4" type="video/mp4">
-        </video>
-
-        <!-- Minimal Lumóra Overlay Badges Inside The Artwork -->
-        <div class="absolute bottom-6 left-6 hidden sm:block max-w-sm">
-          <p class="text-xs text-white/90 font-normal leading-relaxed drop-shadow-sm">
-            Trusted by 100+ packaging and CPG brands turning flat CAD dielines into commercial studio ads.
-          </p>
-          <!-- Minimal Partner Marks -->
-          <div class="flex items-center space-x-4 mt-3 text-[11px] text-white/60 font-mono">
-            <span>CloudWatch</span>
-            <span>·</span>
-            <span>Boltshift</span>
-            <span>·</span>
-            <span>Interlock</span>
-            <span>·</span>
-            <span>Epicurious</span>
-          </div>
-        </div>
-
-        <!-- Floating Gallery Tag on Bottom Right (Lumóra "Noxen House" Style) -->
-        <div class="absolute bottom-6 right-6 p-4 rounded-2xl bg-[#0D0F0C]/90 backdrop-blur-md border border-[#242823] text-left max-w-xs shadow-xl hidden sm:block">
-          <div class="flex items-center justify-between text-xs text-white font-medium mb-1">
-            <span>Kaizen Firebrand®</span>
-            <span class="text-neutral-400">↗</span>
-          </div>
-          <div class="text-[11px] text-[#9CA39A] font-mono">
-            3D Studio Twin · 2026°
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 3. STUDIO PHILOSOPHY & METRICS (image_2.png Layout) -->
-  <!-- ========================================== -->
-  <section class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
-    
-    <!-- Editorial Headline Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-      <div class="lg:col-span-3">
-        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[01] ABOUT STUDIO</span>
-      </div>
-      <div class="lg:col-span-9">
-        <p class="text-2xl sm:text-4xl lg:text-[40px] font-normal text-white leading-[1.3] tracking-[-0.025em]">
-          We believe the most memorable brands are <br class="hidden sm:inline">
-          not built through decoration, but <span class="text-[#7A8078]">/ through atmosphere</span> — <br class="hidden sm:inline">
-          quietly captures attention, and leaves a lasting impression after the experience ends.
-        </p>
-      </div>
-    </div>
-
-    <!-- 4 Clean Lumóra Grid Cards (image_2.png) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-      <!-- Card 1: Global Collaborations with Avatars -->
-      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors">
-        <div class="flex -space-x-2">
-          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-700 flex items-center justify-center text-[10px] text-white">MK</div>
-          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-600 flex items-center justify-center text-[10px] text-white">SL</div>
-          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-500 flex items-center justify-center text-[10px] text-white">RT</div>
-          <div class="w-9 h-9 rounded-full border border-[#151814] bg-neutral-800 flex items-center justify-center text-[10px] text-neutral-300 font-mono">+8</div>
-        </div>
-        <div>
-          <div class="text-xs text-[#9CA39A] mb-1">Global Collaborations</div>
-          <div class="text-4xl font-normal text-white tracking-tight">48+</div>
-        </div>
-      </div>
-
-      <!-- Card 2: Industry Awards with Minimal Circular Badge -->
-      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors">
-        <div class="flex items-center justify-between">
-          <div class="text-xs text-[#9CA39A]">Industry Awards</div>
-          <!-- Minimalist circular laurel stamp -->
-          <div class="w-9 h-9 rounded-full border border-[#323730] flex items-center justify-center text-xs text-[#9CA39A] font-mono">
-            ★
-          </div>
-        </div>
-        <div>
-          <div class="text-4xl font-normal text-white tracking-tight mb-2">12+</div>
-          <div class="text-xs text-[#7A8078] leading-relaxed">
-            Featured and celebrated for packaging accuracy and storytelling.
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Projects Delivered -->
-      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors">
-        <div class="text-xs text-[#7A8078] leading-relaxed">
-          From emerging DTC brands to established CPG lines, each asset is approached as a unique world.
-        </div>
-        <div>
-          <div class="text-xs text-[#9CA39A] mb-1">Commercial Ads Delivered</div>
-          <div class="text-4xl font-normal text-white tracking-tight">150+</div>
-        </div>
-      </div>
-
-      <!-- Card 4: Countries Reached with Calm Photography -->
-      <div class="studio-panel rounded-2xl p-7 flex flex-col justify-between h-60 studio-panel-hover transition-colors relative overflow-hidden group">
-        <div class="absolute inset-0 z-0 opacity-25 group-hover:opacity-35 transition-opacity">
-          <img src="./bakery_studio.jpg" alt="Atmospheric Texture" class="w-full h-full object-cover">
-        </div>
-        <div class="relative z-10 text-xs text-[#9CA39A]">
-          Countries Reached
-        </div>
-        <div class="relative z-10">
-          <div class="text-4xl font-normal text-white tracking-tight mb-1">14+</div>
-          <div class="text-xs text-neutral-300">
-            Collaborating remotely with visionary packaging teams across the globe.
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 4. "WHY GENERIC AI FAILS" SECTION (OUR MOAT) -->
-  <!-- ========================================== -->
-  <section id="moat" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
-    
-    <!-- Section Header -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-      <div class="lg:col-span-3">
-        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[02] THE MOAT</span>
-      </div>
-      <div class="lg:col-span-9">
-        <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] leading-tight">
-          Why Generic AI Fails — <br class="hidden sm:inline">
-          <span class="text-[#7A8078]">And Why Commercial Packaging Demands a Twin.</span>
-        </h2>
-        <p class="mt-4 text-sm sm:text-base text-[#9CA39A] max-w-2xl leading-relaxed">
-          Self-serve prompt generators hallucinate typography and warp barcodes. Traditional photography costs \$8,000 per shoot. BrandTwin builds exact vector twins with senior human art direction.
-        </p>
-      </div>
-    </div>
-
-    <!-- 3 Gallery Columns -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- Column A: Midjourney / Self-Serve AI -->
-      <div class="studio-panel rounded-2xl p-6 flex flex-col justify-between studio-panel-hover transition-colors">
-        <div>
-          <!-- Photography window -->
-          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black mb-6 border border-[#242823]">
-            <img src="./generic_ai.jpg" alt="Generic AI Warped Bottle" class="w-full h-full object-cover filter grayscale contrast-110 opacity-70">
-          </div>
-          
-          <div class="text-xs text-[#7A8078] font-mono mb-1">COLUMN A // UNUSABLE</div>
-          <h3 class="text-lg font-medium text-white mb-2">Midjourney / Self-Serve AI</h3>
-          <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
-            Prompt tools with hallucinated outputs unusable for commercial ad spend.
-          </p>
-
-          <ul class="space-y-2.5 text-xs text-[#9CA39A]">
-            <li class="flex items-start space-x-2">
-              <span class="text-neutral-500">—</span>
-              <span>Warped logo text & unreadable nutrition facts</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-neutral-500">—</span>
-              <span>Hallucinated bottle cap and glass thickness</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-neutral-500">—</span>
-              <span>Uncanny plastic-looking textures</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mt-8 pt-4 border-t border-[#242823] text-xs font-mono text-[#7A8078] flex justify-between">
-          <span>Result: Brand Damage</span>
-          <span>0% Ad Compliance</span>
-        </div>
-      </div>
-
-      <!-- Column B: Traditional Photoshoot -->
-      <div class="studio-panel rounded-2xl p-6 flex flex-col justify-between studio-panel-hover transition-colors">
-        <div>
-          <!-- Photography window -->
-          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black mb-6 border border-[#242823]">
-            <img src="./studio_shoot.jpg" alt="Traditional Studio Shoot" class="w-full h-full object-cover opacity-70">
-          </div>
-          
-          <div class="text-xs text-[#7A8078] font-mono mb-1">COLUMN B // OUTDATED</div>
-          <h3 class="text-lg font-medium text-white mb-2">Traditional Photoshoot</h3>
-          <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
-            Studio rentals, physical shipping, camera crews, and lengthy lead times.
-          </p>
-
-          <ul class="space-y-2.5 text-xs text-[#9CA39A]">
-            <li class="flex items-start space-x-2">
-              <span class="text-neutral-500">—</span>
-              <span>$8,000 average commercial invoice per shoot</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-neutral-500">—</span>
-              <span>4-week wait time for retouched proofs</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-neutral-500">—</span>
-              <span>Zero agility when ad creative fatigue hits</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mt-8 pt-4 border-t border-[#242823] text-xs font-mono text-[#7A8078] flex justify-between">
-          <span>Result: Budget Burn</span>
-          <span>4-Week Delay</span>
-        </div>
-      </div>
-
-      <!-- Column C: Your BrandTwin Studio -->
-      <div class="studio-panel rounded-2xl p-6 flex flex-col justify-between border-[#3A4138] bg-[#181C17] hover:border-white/30 transition-colors">
-        <div>
-          <!-- Photography window -->
-          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black mb-6 border border-[#2E352B]">
-            <img src="./sauce_studio.jpg" alt="BrandTwin Studio 4K Render" class="w-full h-full object-cover">
-          </div>
-          
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs text-white font-mono">COLUMN C // BRANDTWIN STUDIO</span>
-            <span class="text-[10px] text-[#AAD5E7] font-mono">EXACT TWIN</span>
-          </div>
-          <h3 class="text-lg font-medium text-white mb-2">Your BrandTwin Studio</h3>
-          <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
-            Exact 3D packaging geometry + AI diffusion + senior human art direction.
-          </p>
-
-          <ul class="space-y-2.5 text-xs text-neutral-200">
-            <li class="flex items-start space-x-2">
-              <span class="text-white">✓</span>
-              <span>100% pixel-perfect packaging label typography</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-white">✓</span>
-              <span>Studio lighting, liquid motion & ingredient drops</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-white">✓</span>
-              <span>Senior human typography polish in 48 hours</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mt-8 pt-4 border-t border-[#2E352B] flex items-center justify-between text-xs">
-          <span class="text-[#AAD5E7] font-mono">20 Ads / Week</span>
-          <button onclick="openLeadModal('BrandTwin Studio')" class="text-white font-medium hover:underline flex items-center space-x-1">
-            <span>Start Sprint</span>
-            <span>→</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 5. "SERVICE-AS-A-SOFTWARE" (3 SIMPLE STEPS + MINIMAL DASHBOARD) -->
-  <!-- ========================================== -->
-  <section id="system" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
-    
-    <!-- Section Header -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-      <div class="lg:col-span-3">
-        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[03] THE PROCESS</span>
-      </div>
-      <div class="lg:col-span-9">
-        <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] leading-tight">
-          How It Works (3 Simple Steps)
-        </h2>
-        <p class="mt-4 text-sm sm:text-base text-[#9CA39A] max-w-2xl leading-relaxed">
-          The speed of software. The taste and precision of a senior packaging art director.
-        </p>
-      </div>
-    </div>
-
-    <!-- 3 Editorial Steps -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-      
-      <!-- Step 1 -->
-      <div class="studio-panel rounded-2xl p-8 flex flex-col justify-between h-64 studio-panel-hover transition-colors">
-        <div class="text-xs font-mono text-[#7A8078]">STEP 01</div>
-        <div>
-          <h3 class="text-xl font-medium text-white mb-2">Lock In Your Twin</h3>
-          <p class="text-xs sm:text-sm text-[#9CA39A] leading-relaxed">
-            Send us your dielines or 5 product photos. Our creative director builds your master 3D/AI Brand Twin.
-          </p>
-        </div>
-        <div class="text-[11px] font-mono text-[#7A8078]">Dieline CAD / 5 product shots</div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="studio-panel rounded-2xl p-8 flex flex-col justify-between h-64 studio-panel-hover transition-colors">
-        <div class="text-xs font-mono text-[#7A8078]">STEP 02</div>
-        <div>
-          <h3 class="text-xl font-medium text-white mb-2">Weekly Creative Drops</h3>
-          <p class="text-xs sm:text-sm text-[#9CA39A] leading-relaxed">
-            Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.
-          </p>
-        </div>
-        <div class="text-[11px] font-mono text-[#7A8078]">20 conversion assets dropped every Friday</div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="studio-panel rounded-2xl p-8 flex flex-col justify-between h-64 studio-panel-hover transition-colors">
-        <div class="text-xs font-mono text-[#7A8078]">STEP 03</div>
-        <div>
-          <h3 class="text-xl font-medium text-white mb-2">Senior Human Polish</h3>
-          <p class="text-xs sm:text-sm text-[#9CA39A] leading-relaxed">
-            Every asset passes through an experienced packaging designer for typography, color accuracy, and print/ad compliance before you ever see it.
-          </p>
-        </div>
-        <div class="text-[11px] font-mono text-[#7A8078]">Art director verified · Zero hallucinations</div>
-      </div>
-
-    </div>
-
-    <!-- Clean, Flat Studio Client Dashboard (Matte, No Neon) -->
-    <div class="studio-panel rounded-2xl p-6 sm:p-8">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#242823] gap-4">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-2.5 rounded-full bg-neutral-600"></div>
-          <span class="text-xs font-mono text-neutral-400">client.brandtwin.studio / workspace / drop-42</span>
-        </div>
-        <div class="flex items-center space-x-3">
-          <span class="text-xs font-mono text-[#9CA39A]">20 Assets Approved</span>
-          <button id="dash-download-btn" onclick="mockDownload()" class="px-4 py-2 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium transition-colors">
-            Download Batch (.ZIP)
-          </button>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
-        
-        <!-- Left: 3D Twin Viewport -->
-        <div class="lg:col-span-8 bg-[#0D0F0C] rounded-xl p-4 border border-[#242823] flex flex-col justify-between">
-          <div class="flex items-center justify-between text-[11px] font-mono text-[#7A8078]">
-            <span>VIEWPORT: MASTER BRAND TWIN</span>
-            <span>4K COMMERCIAL LIGHTING</span>
-          </div>
-          <div class="my-4 aspect-[16/10] rounded-lg overflow-hidden flex items-center justify-center bg-black">
-            <img src="./sauce_studio.jpg" alt="Active 3D Twin" class="max-h-full object-contain">
-          </div>
-          <div class="flex items-center justify-between text-[11px] font-mono text-[#7A8078]">
-            <span>SKU: FIREBRAND HOT SAUCE</span>
-            <span>ASPECT RATIOS: 1:1, 9:16, 4:5, 16:9</span>
-          </div>
-        </div>
-
-        <!-- Right: Weekly Asset Drop List -->
-        <div class="lg:col-span-4 bg-[#0D0F0C] rounded-xl p-4 border border-[#242823] flex flex-col justify-between">
-          <div>
-            <div class="text-xs font-mono text-neutral-400 mb-4 pb-2 border-b border-[#242823] flex justify-between">
-              <span>WEEKLY QUEUE</span>
-              <span>20 / 20 READY</span>
-            </div>
-            <div class="space-y-2">
-              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
-                <span class="text-neutral-200">01_story_ingredient_drop.mp4</span>
-                <span class="text-[#7A8078]">9:16</span>
-              </div>
-              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
-                <span class="text-neutral-200">02_feed_commercial_lighting.png</span>
-                <span class="text-[#7A8078]">1:1</span>
-              </div>
-              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
-                <span class="text-neutral-200">03_reels_lifestyle_tabletop.mp4</span>
-                <span class="text-[#7A8078]">9:16</span>
-              </div>
-              <div class="p-2.5 rounded border border-[#242823] bg-[#151814] flex items-center justify-between text-xs font-mono">
-                <span class="text-neutral-200">04_portrait_editorial_ad.png</span>
-                <span class="text-[#7A8078]">4:5</span>
-              </div>
-            </div>
-          </div>
-          <div class="pt-4 border-t border-[#242823] text-center text-[11px] font-mono text-[#7A8078]">
-            Next weekly creative drop: Friday 09:00 EST
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 6. THE SHOWCASE GRID (3 NICHE MINIATURE CASE STUDIES) -->
-  <!-- ========================================== -->
-  <section id="showcase" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
-    
-    <!-- Section Header -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
-      <div>
-        <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[04] SHOWCASE GRID</span>
-        <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] mt-3">
-          Niche-Specific Case Studies
-        </h2>
-        <p class="mt-3 text-sm text-[#9CA39A]">
-          Toggle between the pure studio render and the performance ad overlay with typography.
-        </p>
-      </div>
-      <div class="text-xs font-mono text-[#7A8078]">
-        CLICK TO TOGGLE AD OVERLAY ⇄
-      </div>
-    </div>
-
-    <!-- 3 Case Studies Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-      <!-- Case 1: Craft Sauce -->
-      <div class="studio-panel rounded-2xl overflow-hidden flex flex-col justify-between studio-panel-hover transition-colors">
-        <div class="relative aspect-[4/3] bg-black overflow-hidden">
-          <img id="case-img-0" src="./sauce_studio.jpg" alt="Craft Sauce" class="w-full h-full object-cover">
-          <!-- Clean Ad Overlay -->
-          <div id="showcase-ad-overlay-0" class="absolute inset-0 bg-black/75 p-6 flex flex-col justify-between transition-opacity duration-200">
-            <div class="flex items-center justify-between text-xs font-mono">
-              <span class="text-white font-medium">META AD // DIRECT RESPONSE</span>
-              <span class="text-[#9CA39A]">4.9 ★★★★★</span>
-            </div>
-            <div>
-              <span class="text-[11px] font-mono text-[#9CA39A] uppercase">SUMMER DROP</span>
-              <h4 class="text-xl font-medium text-white leading-snug mt-1">THE HEAT WAVE DROP.</h4>
-              <p class="text-xs text-[#9CA39A] mt-1 font-mono">Ghost pepper & habanero micro-batch blend.</p>
-              <div class="mt-4 inline-block px-4 py-2 rounded-full bg-white text-[#0D0F0C] text-xs font-medium">
-                Shop Now — 20% Off →
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-2">
-            <span>NICHE: CRAFT SAUCE & BEVERAGE</span>
-            <span>2026°</span>
-          </div>
-          <h3 class="text-lg font-medium text-white mb-1">Firebrand Ghost Pepper Blend</h3>
-          <p class="text-xs text-[#9CA39A] leading-relaxed mb-4">
-            Dieline imported with exact typography and barcode fidelity. Produces 20 high-converting Meta ads weekly.
-          </p>
-          <button onclick="toggleCaseAd(0)" class="w-full py-2.5 rounded-lg border border-[#242823] hover:border-white/40 text-xs font-mono text-neutral-300 hover:text-white transition-colors">
-            Toggle Ad Creative Overlay ⇄
-          </button>
-        </div>
-      </div>
-
-      <!-- Case 2: Bakery Box -->
-      <div class="studio-panel rounded-2xl overflow-hidden flex flex-col justify-between studio-panel-hover transition-colors">
-        <div class="relative aspect-[4/3] bg-black overflow-hidden">
-          <img id="case-img-1" src="./bakery_studio.jpg" alt="Artisanal Bakery Box" class="w-full h-full object-cover">
-          <!-- Clean Ad Overlay -->
-          <div id="showcase-ad-overlay-1" class="absolute inset-0 bg-black/75 p-6 flex flex-col justify-between transition-opacity duration-200 opacity-0 pointer-events-none">
-            <div class="flex items-center justify-between text-xs font-mono">
-              <span class="text-white font-medium">TIKTOK AD // HOOK LAYOUT</span>
-              <span class="text-[#9CA39A]">TOP SELLER</span>
-            </div>
-            <div>
-              <span class="text-[11px] font-mono text-[#9CA39A] uppercase">ARTISANAL HERITAGE</span>
-              <h4 class="text-xl font-medium text-white leading-snug mt-1">HAND-CRAFTED SOURDOUGH.</h4>
-              <p class="text-xs text-[#9CA39A] mt-1 font-mono">Baked daily in small batches. Shipped overnight.</p>
-              <div class="mt-4 inline-block px-4 py-2 rounded-full bg-white text-[#0D0F0C] text-xs font-medium">
-                Reserve Box →
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-2">
-            <span>NICHE: BOUTIQUE BAKERY & FOOD</span>
-            <span>2026°</span>
-          </div>
-          <h3 class="text-lg font-medium text-white mb-1">Aura Artisanal Patisserie Box</h3>
-          <p class="text-xs text-[#9CA39A] leading-relaxed mb-4">
-            Embossed gold foil box geometry cloned into seasonal outdoor morning and tabletop dinner scenes.
-          </p>
-          <button onclick="toggleCaseAd(1)" class="w-full py-2.5 rounded-lg border border-[#242823] hover:border-white/40 text-xs font-mono text-neutral-300 hover:text-white transition-colors">
-            Toggle Ad Creative Overlay ⇄
-          </button>
-        </div>
-      </div>
-
-      <!-- Case 3: Botanical Skincare -->
-      <div class="studio-panel rounded-2xl overflow-hidden flex flex-col justify-between studio-panel-hover transition-colors">
-        <div class="relative aspect-[4/3] bg-black overflow-hidden">
-          <img id="case-img-2" src="./cosmetics_studio.jpg" alt="Botanical Skincare" class="w-full h-full object-cover">
-          <!-- Clean Ad Overlay -->
-          <div id="showcase-ad-overlay-2" class="absolute inset-0 bg-black/75 p-6 flex flex-col justify-between transition-opacity duration-200 opacity-0 pointer-events-none">
-            <div class="flex items-center justify-between text-xs font-mono">
-              <span class="text-white font-medium">INSTAGRAM CAROUSEL // LUXURY</span>
-              <span class="text-[#9CA39A]">CLINICAL</span>
-            </div>
-            <div>
-              <span class="text-[11px] font-mono text-[#9CA39A] uppercase">BOTANICAL SCIENCE</span>
-              <h4 class="text-xl font-medium text-white leading-snug mt-1">CELLULAR REGENERATION.</h4>
-              <p class="text-xs text-[#9CA39A] mt-1 font-mono">Triple peptide complex in frosted luxury glass.</p>
-              <div class="mt-4 inline-block px-4 py-2 rounded-full bg-white text-[#0D0F0C] text-xs font-medium">
-                Unlock Radiance →
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-2">
-            <span>NICHE: SKINCARE & COSMETICS</span>
-            <span>2026°</span>
-          </div>
-          <h3 class="text-lg font-medium text-white mb-1">Botanica Lumina Rejuvenation</h3>
-          <p class="text-xs text-[#9CA39A] leading-relaxed mb-4">
-            Frosted glass refraction and botanical liquid droplets modeled with zero label warping. 100% compliant ad specs.
-          </p>
-          <button onclick="toggleCaseAd(2)" class="w-full py-2.5 rounded-lg border border-[#242823] hover:border-white/40 text-xs font-mono text-neutral-300 hover:text-white transition-colors">
-            Toggle Ad Creative Overlay ⇄
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 7. PRICING & THE "NO-BRAINER" CTA -->
-  <!-- ========================================== -->
-  <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto border-t border-[#242823]/60">
-    
-    <!-- Section Header -->
-    <div class="max-w-2xl mx-auto text-center mb-16">
-      <span class="text-xs text-[#9CA39A] font-mono uppercase tracking-wider">[05] INVESTMENT TIERS</span>
-      <h2 class="text-3xl sm:text-5xl font-medium text-white tracking-[-0.03em] mt-3">
-        Two Simple Tiers. Zero Retainers.
-      </h2>
-      <p class="mt-3 text-sm sm:text-base text-[#9CA39A]">
-        Filter out broke tire-kickers and scale creative drops on your schedule.
-      </p>
-    </div>
-
-    <!-- 2 Clean Tiers Side-by-Side -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
-
-      <!-- Tier 1: One-Time Launch Sprint -->
-      <div class="studio-panel rounded-2xl p-8 sm:p-10 flex flex-col justify-between studio-panel-hover transition-colors">
-        <div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#7A8078] mb-4">
-            <span>TIER 01</span>
-            <span>ONE-TIME SPRINT</span>
-          </div>
-          <h3 class="text-2xl font-medium text-white mb-2">One-Time Launch Sprint</h3>
-          <p class="text-xs sm:text-sm text-[#9CA39A] mb-8 leading-relaxed">
-            For packaging brands launching a new SKU or testing BrandTwin before weekly production.
-          </p>
-          <div class="flex items-baseline space-x-2 mb-8">
-            <span class="text-5xl font-normal text-white tracking-tight">$1,500</span>
-            <span class="text-xs font-mono text-[#7A8078]">one-time</span>
-          </div>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-[#9CA39A] mb-8">
-            <li class="flex items-center space-x-3">
-              <span class="text-white">✓</span>
-              <span>1 Master 3D/AI Brand Twin model</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white">✓</span>
-              <span>10 High-res static studio photography scenes</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white">✓</span>
-              <span>2 Motion loop ads (liquid or ingredient)</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white">✓</span>
-              <span>100% vector label fidelity guarantee</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white">✓</span>
-              <span>Delivered in 48 hours</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <button onclick="openLeadModal('Launch Sprint ($1,500)')" class="w-full py-3.5 rounded-full border border-[#323730] hover:border-white text-white text-xs font-medium transition-colors">
-            Book Launch Sprint ($1,500)
-          </button>
-        </div>
-      </div>
-
-      <!-- Tier 2: Weekly Growth Engine -->
-      <div class="studio-panel rounded-2xl p-8 sm:p-10 flex flex-col justify-between border-[#3A4138] bg-[#181C17] hover:border-white/30 transition-colors relative">
-        <div>
-          <div class="flex items-center justify-between text-xs font-mono mb-4">
-            <span class="text-white">TIER 02 // MOST POPULAR</span>
-            <span class="text-[#AAD5E7]">WEEKLY ENGINE</span>
-          </div>
-          <h3 class="text-2xl font-medium text-white mb-2">Weekly Growth Engine</h3>
-          <p class="text-xs sm:text-sm text-[#9CA39A] mb-8 leading-relaxed">
-            For direct-to-consumer packaging brands scaling aggressive spend on Meta and TikTok.
-          </p>
-          <div class="flex items-baseline space-x-2 mb-8">
-            <span class="text-5xl font-normal text-white tracking-tight">$2,500</span>
-            <span class="text-xs font-mono text-[#7A8078]">/ month</span>
-          </div>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-neutral-200 mb-8">
-            <li class="flex items-center space-x-3">
-              <span class="text-white font-bold">✓</span>
-              <span><strong>20 Fresh static & motion ads</strong> delivered weekly (80/mo)</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white font-bold">✓</span>
-              <span>Dedicated Senior Art Director & 3D Specialist</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white font-bold">✓</span>
-              <span>Seasonal campaign concepts pitched weekly</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white font-bold">✓</span>
-              <span>Private Slack channel & 24h revision turnaround</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <span class="text-white font-bold">✓</span>
-              <span>Pause or cancel anytime · No lock-in</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <button onclick="openLeadModal('Weekly Growth Engine ($2,500/mo)')" class="w-full py-3.5 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium transition-colors">
-            Join Weekly Growth Engine ($2,500/mo) →
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- The "No-Brainer" CTA Banner -->
-    <div class="mt-20 max-w-4xl mx-auto studio-panel rounded-2xl p-8 sm:p-12 text-center">
-      <span class="text-xs font-mono text-[#7A8078] uppercase tracking-wider">[ZERO-RISK INITIATIVE]</span>
-      <h3 class="text-2xl sm:text-3xl font-medium text-white mt-2 mb-3 tracking-[-0.025em]">
-        Get 3 Free Custom Studio Ads of Your Product
-      </h3>
-      <p class="text-sm text-[#9CA39A] max-w-xl mx-auto mb-8 leading-relaxed">
-        Send us your packaging or store URL. Our art director will build a sample Brand Twin and deliver 3 commercial ad creatives to your inbox for free.
-      </p>
-      <button onclick="openLeadModal('Free 3 Custom Ads')" class="px-8 py-3.5 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] font-medium text-xs tracking-tight transition-all">
-        Get 3 Free Custom Studio Ads of Your Product →
-      </button>
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 8. FOOTER -->
-  <!-- ========================================== -->
-  <footer class="py-12 px-6 max-w-7xl mx-auto border-t border-[#242823]/60 text-xs font-mono text-[#7A8078] flex flex-col sm:flex-row items-center justify-between gap-4">
-    <div class="flex items-center space-x-2 text-white">
-      <span class="font-medium">BrandTwin Studio</span>
-      <span class="text-[#7A8078]">© 2026. All rights reserved.</span>
-    </div>
-    <div class="flex items-center space-x-6 text-[#9CA39A]">
-      <a href="#moat" class="hover:text-white transition-colors">About</a>
-      <a href="#system" class="hover:text-white transition-colors">Services</a>
-      <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-      <a href="https://github.com/Waqasdevs/brandtwin" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-    </div>
-    <div>
-      Designed for CPG Packaging Brands · 2026°
-    </div>
-  </footer>
-
-  <!-- ========================================== -->
-  <!-- 9. LEAD CAPTURE MODAL -->
-  <!-- ========================================== -->
-  <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
-    <div class="studio-panel rounded-2xl p-6 sm:p-8 max-w-md w-full relative">
-      <button onclick="closeLeadModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white transition-colors text-sm font-mono">
-        ✕
-      </button>
-
-      <div id="modal-form">
-        <span class="text-xs font-mono text-[#7A8078] uppercase">[NO-COMMITMENT TRIAL]</span>
-        <h3 class="text-xl font-medium text-white mt-1 mb-2">Claim 3 Free Custom Studio Ads</h3>
-        <p class="text-xs text-[#9CA39A] mb-6 leading-relaxed">
-          Paste your website or product URL. Our creative director will clone your packaging and deliver 3 custom static/motion ad concepts in 24 hours.
-        </p>
-
-        <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
-          <div>
-            <label class="block text-xs font-mono text-[#7A8078] mb-1" for="lead-name">Your Name</label>
-            <input type="text" id="lead-name" required placeholder="Alex Miller" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white placeholder-[#7A8078] focus:outline-none focus:border-white text-xs">
-          </div>
-          <div>
-            <label class="block text-xs font-mono text-[#7A8078] mb-1" for="lead-email">Work Email</label>
-            <input type="email" id="lead-email" required placeholder="alex@brand.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white placeholder-[#7A8078] focus:outline-none focus:border-white text-xs">
-          </div>
-          <div>
-            <label class="block text-xs font-mono text-[#7A8078] mb-1" for="lead-url">Store / Product URL</label>
-            <input type="url" id="lead-url" required placeholder="https://yourbrand.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white placeholder-[#7A8078] focus:outline-none focus:border-white text-xs">
-          </div>
-          <div>
-            <label class="block text-xs font-mono text-[#7A8078] mb-1">Product Niche</label>
-            <select id="lead-niche" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0D0F0C] border border-[#242823] text-white text-xs focus:outline-none focus:border-white">
-              <option value="beverage">Craft Beverage / Hot Sauce / Wine</option>
-              <option value="bakery">Boutique Bakery / Confectionery / Food Box</option>
-              <option value="skincare">Skincare / Cosmetics / Fragrance</option>
-              <option value="supplements">Supplements / Wellness / CPG</option>
-              <option value="other">Other Packaging Brand</option>
-            </select>
-          </div>
-          <button type="submit" id="lead-submit-btn" class="w-full py-3 rounded-full bg-white hover:bg-neutral-200 text-[#0D0F0C] text-xs font-medium transition-colors mt-4">
-            Deliver My 3 Free Custom Ads →
-          </button>
-          <div class="text-center text-[10px] font-mono text-[#7A8078]">
-            No credit card required · Delivered in 24 hours
-          </div>
-        </form>
-      </div>
-
-      <!-- Success Confirmation View -->
-      <div id="modal-success" class="hidden text-center py-6">
-        <div class="w-12 h-12 rounded-full border border-white text-white flex items-center justify-center text-lg mx-auto mb-3 font-mono">
-          ✓
-        </div>
-        <h4 class="text-lg font-medium text-white mb-2">Packaging Queued for Ingestion</h4>
-        <p id="modal-success-text" class="text-xs text-[#9CA39A] leading-relaxed mb-6">
-          We received your URL. Your senior art director is preparing 3 custom commercial ad concepts now.
-        </p>
-        <button onclick="closeLeadModal()" class="px-5 py-2 rounded-full border border-[#242823] hover:border-white text-white text-xs font-mono transition-colors">
-          Back to Website
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- JavaScript Interactions -->
-  <script>
-    function toggleCaseAd(index) {
-      const overlay = document.getElementById('showcase-ad-overlay-' + index);
-      if (overlay) {
-        overlay.classList.toggle('opacity-0');
-        overlay.classList.toggle('pointer-events-none');
-      }
-    }
-
-    function openLeadModal(tierName) {
-      document.getElementById('lead-modal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('modal-form').classList.remove('hidden');
-      document.getElementById('modal-success').classList.add('hidden');
-      if (tierName) {
-        document.getElementById('lead-name').focus();
-      }
-    }
-
-    function closeLeadModal() {
-      document.getElementById('lead-modal').classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    function handleLeadSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('lead-name').value.trim();
-      const email = document.getElementById('lead-email').value.trim();
-      const url = document.getElementById('lead-url').value.trim();
-      
-      const submitBtn = document.getElementById('lead-submit-btn');
-      submitBtn.innerText = 'Queuing your packaging...';
-      submitBtn.disabled = true;
-
-      setTimeout(() => {
-        document.getElementById('modal-form').classList.add('hidden');
-        document.getElementById('modal-success').classList.remove('hidden');
-        document.getElementById('modal-success-text').innerText = 
-          'Thanks ' + name + '! We have queued your brand URL (' + url + '). Your 3 custom commercial ad creatives will be delivered to ' + email + ' within 24 hours.';
-        submitBtn.innerText = 'Deliver My 3 Free Custom Ads →';
-        submitBtn.disabled = false;
-      }, 600);
-    }
-
-    function mockDownload() {
-      const btn = document.getElementById('dash-download-btn');
-      btn.innerText = 'Downloaded 20 Assets (.ZIP)';
-      setTimeout(() => {
-        btn.innerText = 'Download Batch (.ZIP)';
-      }, 3000);
-    }
-  </script>
+<body>
+<nav><div class="wrap">
+<a href="#top" class="logo">BrandTwin®</a>
+<div class="links"><a href="#proof">Work</a>+<a href="#problem">Problem</a>+<a href="#solution">Solution</a>+<a href="#how">How it works</a>+<a href="#faq">FAQ</a></div>
+<button class="btn sm" data-open>Get free ads</button>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div class="cap rv">[ <b>Studio for packaged goods</b> ]</div>
+<h1 class="rv">Your Product Packaging, Cloned Into an Infinite <em>Studio &amp; Ad Engine.</em></h1>
+<div class="hero-row rv">
+<p>We train a private AI Brand Twin on your exact bottles, boxes, and labels—and our senior art directors deliver 20 conversion-ready static and motion ads to your inbox every week. Zero photoshoots. Zero warped labels.</p>
+<div class="hero-act"><button class="btn" data-open>Get 3 Free Custom Studio Ads of Your Product →</button></div>
+</div>
+<div class="frame rv">
+<video autoplay muted loop playsinline poster="sauce_studio.jpg"><source src="hero_split_screen.mp4" type="video/mp4"></video>
+<span class="tag">[ Dieline → Studio → Ad ]</span><span class="ct">// 01–04</span>
+</div>
+</div></header>
+
+<section id="proof"><div class="wrap">
+<div class="cap rv">[ 01 ] <b>Social proof</b></div>
+<h2 class="rv" style="margin-top:28px;max-width:1100px">Packaged-goods brands ship campaigns <em>without ever booking a studio.</em></h2>
+<div class="stats rv">
+<div class="stat"><span class="cap">Brands</span><div><strong>48+</strong><p>Food, beverage and skincare brands on a weekly drop.</p></div></div>
+<div class="stat dark"><span class="cap">Delivered</span><div><strong>150+</strong><p>Studio ads shipped and live on Meta and TikTok.</p></div></div>
+<div class="stat"><span class="cap">Turnaround</span><div><strong>48h</strong><p>From request to polished, approved asset.</p></div></div>
+<div class="stat"><span class="cap">Every week</span><div><strong>20</strong><p>Static and motion ads, in your inbox.</p></div></div>
+</div>
+<div class="brands rv"><span>Ember &amp; Oak</span><span>Maison Crumb</span><span>Dewlight</span><span>Fieldhand</span><span>Saltwork</span></div>
+<div class="cases rv">
+<div class="case"><div class="frame"><img src="sauce_studio.jpg" alt="Craft sauce studio shot"></div><div class="ph">Craft sauce <span>Static + Meta ad</span></div></div>
+<div class="case"><div class="frame"><img src="bakery_studio.jpg" alt="Bakery box studio shot"></div><div class="ph">Boutique bakery <span>Static + Meta ad</span></div></div>
+<div class="case"><div class="frame"><img src="cosmetics_studio.jpg" alt="Skincare jar studio shot"></div><div class="ph">Skincare jar <span>Static + Meta ad</span></div></div>
+</div>
+</div></section>
+
+<section id="problem"><div class="wrap">
+<div class="prob-top"><div class="cap rv">[ 02 ] <b>The problem</b></div>
+<h2 class="rv">Your product is great. <em>Your ads are held hostage by bad options.</em></h2></div>
+<div class="pair rv">
+<div class="frame"><img src="generic_ai.jpg" alt="Generic AI output with warped label"><span class="tag">[ Self-serve AI ]</span></div>
+<div class="frame"><img src="studio_shoot.jpg" alt="Traditional photoshoot"><span class="tag">[ Traditional shoot ]</span></div>
+</div>
+<div class="cost rv">
+<div><span class="cap">Self-serve AI</span><h3>Your label, but wrong.</h3><p>Warped logo text, hallucinated bottle caps and plastic-looking textures. Customers notice, trust drops, and you can't legally run it.</p></div>
+<div><span class="cap">Photoshoot</span><div class="big" style="margin-top:14px">$8,000</div><h3>For one round of shots.</h3><p>A four-week wait for a handful of images—by then the season, the trend and the budget have moved.</p></div>
+<div><span class="cap">Creative fatigue</span><div class="big" style="margin-top:14px">7 days</div><h3>Until your ads go stale.</h3><p>Paid social burns through creative fast. Without a weekly supply, your cost per purchase quietly climbs.</p></div>
+</div>
+</div></section>
+
+<section id="solution"><div class="wrap">
+<div class="cap rv">[ 03 ] <b>The solution</b></div>
+<h2 class="rv" style="margin-top:28px;max-width:1100px">A studio trained on your pack. <em>Finished by people who care about type.</em></h2>
+<div class="sol-grid rv">
+<div class="sol"><span class="cap">01</span><div><h3>100% pixel-perfect labels</h3><p>Built from your dielines, so every logo, claim and cap is exact.</p></div></div>
+<div class="sol"><span class="cap">02</span><div><h3>Real studio lighting</h3><p>Glass, foil and board render with believable depth—not plastic.</p></div></div>
+<div class="sol"><span class="cap">03</span><div><h3>Senior human polish, in 48 hours</h3><p>A packaging designer signs off on every asset before it reaches you.</p></div></div>
+</div>
+<div class="cap rv" style="margin:100px 0 24px">[ Pricing ] <b>Two ways to start</b></div>
+<div class="price rv">
+<div class="tier"><span class="cap">One-time</span><div class="amt">$1,500</div><div><h3 style="font-size:26px;letter-spacing:-.03em">Launch Sprint</h3></div>
+<ul><li>Your master Brand Twin</li><li>Launch pack of studio statics</li><li>Senior designer review</li></ul><button class="btn ghost" data-open>Start with a sprint</button></div>
+<div class="tier dark"><span class="cap">Monthly</span><div class="amt">$2,500<small>/mo</small></div><div><h3 style="font-size:26px;letter-spacing:-.03em">Weekly Growth Engine</h3></div>
+<ul><li>20 static &amp; motion ads every week</li><li>Meta &amp; TikTok formats</li><li>Dashboard &amp; seasonal campaigns</li></ul><button class="btn" data-open>Start the engine</button></div>
+</div>
+</div></section>
+
+<section id="how"><div class="wrap">
+<div class="cap rv">[ 04 ] <b>How it works</b></div>
+<h2 class="rv" style="margin-top:28px">Service-as-a-software, <em>in three steps.</em></h2>
+<div class="steps rv">
+<div class="step"><span class="cap">Step 01</span><h3>Lock in your Twin</h3><p>Send us your dielines or 5 product photos. Our creative director builds your master 3D/AI Brand Twin.</p></div>
+<div class="step"><span class="cap">Step 02</span><h3>Weekly creative drops</h3><p>Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.</p></div>
+<div class="step"><span class="cap">Step 03</span><h3>Senior human polish</h3><p>Every asset passes through an experienced packaging &amp; brand designer for typography, color accuracy and print/ad compliance.</p></div>
+</div>
+<div class="dash rv">
+<aside><div class="logo">BrandTwin®</div><span class="on">Drops</span><span>Brand Twin</span><span>Requests</span><span>Library</span><span>Billing</span></aside>
+<main>
+<div class="dh"><h4>Week 12 drop</h4><span class="btn sm">Request campaign</span></div>
+<div class="dm"><div><strong>20</strong><span>Assets delivered</span></div><div><strong>48h</strong><span>Avg. turnaround</span></div><div><strong>100%</strong><span>Label accuracy</span></div></div>
+<div class="dg">
+<div><img src="sauce_studio.jpg" alt=""><div class="it"><span>Sauce_01</span><span>Approved</span></div></div>
+<div><img src="bakery_studio.jpg" alt=""><div class="it"><span>Box_02</span><span>Approved</span></div></div>
+<div><img src="cosmetics_studio.jpg" alt=""><div class="it"><span>Jar_03</span><span>In polish</span></div></div>
+<div><img src="studio_shoot.jpg" alt=""><div class="it"><span>Motion_04</span><span>Approved</span></div></div>
+</div></main></div>
+</div></section>
+
+<section id="faq"><div class="wrap faq-grid">
+<div><div class="cap rv">[ 05 ] <b>FAQ</b></div><h2 class="rv" style="margin-top:28px;font-size:clamp(36px,4.4vw,64px)">Questions, <em>answered.</em></h2></div>
+<div class="rv">
+<details><summary>Will my label and logo be exact?</summary><p>Yes. We build from your dielines and vector artwork, and a senior designer checks every asset against them before delivery.</p></details>
+<details><summary>What do I need to send?</summary><p>Your dielines, or five clear product photos. That's enough for us to build your master Brand Twin.</p></details>
+<details><summary>What formats do I get?</summary><p>Static and motion ads sized for Meta and TikTok, plus clean studio shots for your store.</p></details>
+<details><summary>How fast do I get assets?</summary><p>Requests are delivered within 48 hours, and your weekly pack of 20 lands in your inbox automatically.</p></details>
+<details><summary>Can I cancel the monthly plan?</summary><p>Yes, anytime. The Brand Twin built for you stays yours.</p></details>
+<details><summary>Who is behind the work?</summary><p>AI does the heavy lifting; senior art directors and packaging designers direct and finish every piece.</p></details>
+</div></div></section>
+
+<section class="cta"><div class="wrap">
+<div class="cap rv">[ 06 ] <b>Start</b></div>
+<h2 class="rv">See your product in the studio <em>this week.</em></h2>
+<div class="row rv"><button class="btn lg" data-open>Get 3 Free Custom Studio Ads of Your Product →</button><span>Paste your store URL. No card needed.</span></div>
+</div></section>
+
+<footer><div class="wrap">
+<div class="fg">
+<div class="lead">Studio-quality packaging ads, every week.</div>
+<div><h5>Product</h5><ul><li><a href="#proof">Work</a></li><li><a href="#solution">Pricing</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+<div><h5>Company</h5><ul><li><a href="#top">About</a></li><li><a href="mailto:hello@brandtwin.com">Contact</a></li><li><a href="#" data-open>Book a call</a></li></ul></div>
+<div><h5>Follow</h5><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">X / Twitter</a></li><li><a href="https://github.com/Waqasdevs/brandtwin">GitHub</a></li></ul></div>
+</div>
+<div class="fl">BrandTwin®</div>
+<div class="fb"><span>© 2026 BrandTwin. All rights reserved.</span><span><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span></div>
+</div></footer>
+
+<div class="md" id="md"><form class="box" id="f">
+<button type="button" class="x" id="cl">Close</button>
+<div class="cap">[ Free offer ]</div>
+<div id="fb"><h3>Get 3 free studio ads</h3>
+<input name="n" placeholder="Your name" required><input type="email" name="e" placeholder="Email" required><input type="url" name="u" placeholder="Store URL — https://" required>
+<button class="btn" style="width:100%;justify-content:center">Send my 3 free ads</button></div>
+</form></div>
+
+<script>
+const md=document.getElementById('md');
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();md.classList.add('on')}));
+document.getElementById('cl').onclick=()=>md.classList.remove('on');
+md.addEventListener('click',e=>{if(e.target===md)md.classList.remove('on')});
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();document.getElementById('fb').innerHTML='<h3>Thank you.</h3><p style="color:#58585a">We\'ll send your 3 free studio ads within 48 hours.</p>'});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
