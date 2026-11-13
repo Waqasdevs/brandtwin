@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="floating-navbar.css">
 <style>
 :root{--bg:#F2F0EB;--ink:#1D1D1F;--mute:#8A8883;--line:rgba(29,29,31,.12);--card:#FAF9F6;--accent:#CC5500;--r:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -22,12 +23,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.04em;line-height:1.02}
 h2{font-size:clamp(36px,5.2vw,76px)}
 h2 em,h1 em{font-style:normal;color:var(--mute)}
 section{padding:140px 0;border-top:1px solid var(--line)}
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(242,240,235,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font-size:20px;letter-spacing:-.04em;font-weight:500}
-.links{display:flex;gap:14px;font-size:14px;color:var(--mute)}
-.links a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:12px;background:var(--ink);color:var(--bg);font:500 15px 'Inter Tight',sans-serif;border:0;cursor:pointer;transition:background .25s}
 .btn:hover{background:var(--accent)}
 .btn.sm{height:40px;padding:0 18px;font-size:14px}
@@ -213,11 +209,34 @@ h2 em .ser,h1 em .ser{color:inherit}
 </style>
 </head>
 <body>
-<nav><div class="wrap">
-<a href="#top" class="logo">BrandTwin®</a>
-<div class="links"><a href="#proof">Work</a>+<a href="#problem">Problem</a>+<a href="#solution">Solution</a>+<a href="#how">How it works</a>+<a href="#faq">FAQ</a></div>
-<button class="btn sm" data-open>Get free ads</button>
-</div></nav>
+<header
+  class="fnb_wrap"
+  data-anm-floating-navbar
+  data-anm-dock-threshold="80"
+  data-anm-dock-duration="0.42"
+  data-anm-dock-ease="annnimate"
+  data-anm-dock-mode="toggle"
+  data-anm-dock-offset="12"
+  data-anm-dock-mark="B"
+>
+  <div class="fnb_bg" data-anm-fnb-bg aria-hidden="true"></div>
+
+  <nav class="fnb_nav" data-anm-fnb-nav aria-label="Main">
+    <a class="fnb_logo" data-anm-fnb-logo href="#top" aria-label="BrandTwin">
+      <span class="fnb_logo_text" data-anm-fnb-logo-text>BrandTwin®</span>
+    </a>
+
+    <ul class="fnb_links">
+      <li class="fnb_links_item"><a class="fnb_link" data-anm-fnb-link href="#proof">Work</a></li>
+      <li class="fnb_links_item"><a class="fnb_link" data-anm-fnb-link href="#problem">Problem</a></li>
+      <li class="fnb_links_item"><a class="fnb_link" data-anm-fnb-link href="#solution">Solution</a></li>
+      <li class="fnb_links_item"><a class="fnb_link" data-anm-fnb-link href="#how">How it works</a></li>
+      <li class="fnb_links_item"><a class="fnb_link" data-anm-fnb-link href="#faq">FAQ</a></li>
+    </ul>
+
+    <a class="fnb_cta" data-anm-fnb-cta href="#cta" data-open>Get free ads</a>
+  </nav>
+</header>
 
 <header class="hero" id="top"><div class="hero-bg" id="hbg"></div><span class="vt l">Studio for packaged goods</span><span class="vt r">Est. 2026 — Worldwide</span><div class="wrap">
 <div class="cap rv">[ <b>Studio for packaged goods</b> ]</div>
@@ -359,5 +378,9 @@ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();do
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script src="CustomEase.min.js"></script>
+<script src="floating-navbar.js"></script>
 </body>
 </html>
