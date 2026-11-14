@@ -98,10 +98,23 @@
     // swap, never painted), and turns the difference into transform deltas
     // plus the pill's clip geometry. Ratios of the real DOM, no typed px.
     function measure() {
-      gsap.set(items.concat([nav]), { x: 0, y: 0 });
       const width = header.getBoundingClientRect().width;
       const barH  = header.offsetHeight;
       const bgH   = bg.offsetHeight;
+      const restB = Math.max(0, bgH - barH);
+
+      gsap.set(items.concat([nav]), { x: 0, y: 0 });
+      if (tailInner) gsap.set(tailInner, { xPercent: 0, opacity: 1 });
+      gsap.set(bg, {
+        '--fnb-ct': '0px',
+        '--fnb-cx': '0px',
+        '--fnb-cb': restB + 'px',
+        '--fnb-cr': '0px',
+        '--fnb-fill': 0,
+        '--fnb-blur': '0px',
+        '--fnb-sat': 1,
+      });
+
       const tops  = items.map(function (el) { return el.getBoundingClientRect().left; });
 
       header.classList.add(MEASURE_CLASS);
@@ -122,7 +135,7 @@
         clipX: pillX,
         clipTop: offset,
         clipBottom: Math.max(0, bgH - offset - pillH),
-        restBottom: Math.max(0, bgH - barH),
+        restBottom: restB,
         radius: pillH / 2,
       };
     }
@@ -187,10 +200,7 @@
 
     // --- 6. Animation routines ---
 
-    // easeReverse re-eases the way back with the same curve from wherever the
-    // tween is, so undocking keeps the forward feel instead of an .in curve.
-    // Scrub mode stays plain: there the position must follow the scroll 1:1.
-    function addSpec(timeline, spec, at, back, reversible) {
+    function addSpec(timeline, spec, at, back) {
       const vars = Object.assign({}, back ? spec.from : spec.to, {
         duration: spec.dur,
         ease: ease,
@@ -198,7 +208,6 @@
         immediateRender: false,
         data: { label: back ? spec.back : spec.label },
       });
-      if (reversible) vars.easeReverse = true;
       timeline.fromTo(spec.target, back ? spec.to : spec.from, vars, at);
     }
 
@@ -207,7 +216,7 @@
     function buildTimelines() {
       const specs = dockSpecs();
       tl = gsap.timeline({ paused: true });
-      specs.forEach(function (s) { addSpec(tl, s, s.at, false, !scrubbing); });
+      specs.forEach(function (s) { addSpec(tl, s, s.at, false); });
 
       const len = tl.duration();
       const backStart = len + DEMO_HOLD;
@@ -263,17 +272,21 @@
       return window.pageYOffset || document.documentElement.scrollTop || 0;
     }
 
-    // Renders a fresh timeline to a progress without playing it (1 first so
-    // every child, delayed ones included, has rendered once).
+    // Renders a fresh timeline to a progress without playing it (1 then 0 first
+    // so every child, delayed ones included, has initialized from its clean
+    // undocked state before jumping to p).
     function setProgress(p) {
       tl.progress(1, true);
-      if (p < 1) tl.progress(p, true);
+      tl.progress(0, true);
+      if (p > 0) tl.progress(p, true);
     }
 
     // Measure -> build -> wire -> apply the state that matches the current
     // scroll instantly. Runs at init, on font load, on width changes and
     // when the motion preference flips.
+    let isSettingUp = false;
     function setup() {
+      isSettingUp = true;
       if (trigger) trigger.kill(false, true);
       trigger = null;
       if (tl) tl.kill();
@@ -295,25 +308,29 @@
       }
       header.classList.toggle(DOCKED_CLASS, isDocked);
       wireScroll();
+      isSettingUp = false;
     }
 
     // --- 7. Event listeners ---
 
     // Toggle mode: one passive trigger watches the scroll and flips state
     // with hysteresis, so jitter around the threshold never flickers it.
-    function handleToggleScroll(self) {
-      const y = self.scroll();
+    function handleToggleScroll() {
+      if (isSettingUp) return;
+      const y = currentScroll();
       if (!isDocked && y >= threshold) dock();
       else if (isDocked && y < RELEASE_AT) undock();
     }
 
     function handleScrubUpdate(self) {
+      if (isSettingUp) return;
       isDocked = self.progress >= 0.5;
       header.classList.toggle(DOCKED_CLASS, isDocked);
     }
 
     // The scroll source is rebuilt with the geometry, so it lives with setup.
     function wireScroll() {
+      window.removeEventListener('scroll', handleToggleScroll);
       if (scrubbing) {
         trigger = ScrollTrigger.create({
           start: 0,
@@ -323,6 +340,7 @@
           onUpdate: handleScrubUpdate,
         });
       } else {
+        window.addEventListener('scroll', handleToggleScroll, { passive: true });
         trigger = ScrollTrigger.create({
           start: 0,
           end: 'max',
@@ -334,6 +352,7 @@
     // Past the hide-start section the header hides on scroll down and comes
     // back on scroll up; the CSS class owns the slide.
     function handleHideScroll(self) {
+      if (isSettingUp) return;
       header.classList.toggle(HIDDEN_CLASS, self.direction === 1);
     }
 
@@ -368,7 +387,9 @@
     // the browser can restore a scrolled position after init - re-apply the
     // matching state instantly rather than animating into it
     if (document.readyState !== 'complete') {
-      window.addEventListener('load', function () { if (isReady) setup(); }, { once: true });
+      window.addEventListener('load', function () {
+        if (isReady && (!tl || !tl.isActive())) setup();
+      }, { once: true });
     }
 
     // --- 8. Initial DOM state ---
@@ -383,15 +404,19 @@
       reduce: '(prefers-reduced-motion: reduce)',
       motion: '(prefers-reduced-motion: no-preference)',
     }, function (ctx) {
-      reducedMotion = !!ctx.conditions.reduce;
-      if (isReady) requestAnimationFrame(setup);
+      const nextReduced = !!ctx.conditions.reduce;
+      const changed = nextReduced !== reducedMotion;
+      reducedMotion = nextReduced;
+      if (isReady && changed) requestAnimationFrame(setup);
     });
 
     // first build once the motion preference is known
     setup();
     isReady = true;
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () { setup(); });
+      document.fonts.ready.then(function () {
+        if (!tl || !tl.isActive()) setup();
+      });
     }
 
     // --- 10. Public API ---
@@ -408,6 +433,7 @@
         return demoTl;
       },
       kill: function () {
+        window.removeEventListener('scroll', handleToggleScroll);
         window.removeEventListener('resize', handleResize);
         document.removeEventListener('visibilitychange', handleVisibility);
         clearTimeout(resizeTimer);
