@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="floating-navbar.css">
+<link rel="stylesheet" href="elastic-divider.css">
 <style>
 :root{--bg:#F2F0EB;--ink:#1D1D1F;--mute:#8A8883;--line:rgba(29,29,31,.12);--card:#FAF9F6;--accent:#CC5500;--r:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -22,7 +23,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-weight:400;letter-spacing:-.04em;line-height:1.02}
 h2{font-size:clamp(36px,5.2vw,76px)}
 h2 em,h1 em{font-style:normal;color:var(--mute)}
-section{padding:140px 0;border-top:1px solid var(--line)}
+section{padding:80px 0}
 .logo{font-size:20px;letter-spacing:-.04em;font-weight:500}
 .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:12px;background:var(--ink);color:var(--bg);font:500 15px 'Inter Tight',sans-serif;border:0;cursor:pointer;transition:background .25s}
 .btn:hover{background:var(--accent)}
@@ -133,9 +134,11 @@ footer .lead{font-size:22px;letter-spacing:-.03em;max-width:340px;line-height:1.
 .box .x{float:right;background:none;border:0;font-size:14px;color:var(--mute);cursor:pointer}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
+section{padding:56px 0}
+section.cta{padding-bottom:120px}
 @media(prefers-reduced-motion:reduce){.rv{opacity:0;transform:none;transition:none}html{scroll-behavior:auto}}
 @media(max-width:900px){
-.wrap{padding:0 20px}section{padding:80px 0}.links{display:none}
+.wrap{padding:0 20px}section{padding:36px 0}section.cta{padding-bottom:80px}.links{display:none}
 .hero-row,.prob-top,.faq-grid,.pair,.price,.sol-grid,.cases,.steps,.cost,.fg{grid-template-columns:1fr}
 .hero-act{justify-content:flex-start}.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:48px}.stat{min-height:200px;padding:22px}
 .frame{aspect-ratio:4/3}.cost>div+div{padding-left:0;border-left:0}.cost>div{padding-right:0}
@@ -249,7 +252,9 @@ h2 em .ser,h1 em .ser{color:inherit}
 </div>
 </div></header>
 
-<section id="proof" data-anm-fnb-hide-start><div class="wrap">
+<div class="wrap" data-anm-fnb-hide-start><div class="eldv_divider" data-anm-elastic-divider data-anm-color="rgba(29, 29, 31, 0.22)" data-anm-weight="1" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div></div>
+
+<section id="proof"><div class="wrap">
 <div class="cap rv">[ 01 ] <b>Social proof</b></div>
 <h2 class="rv" style="margin-top:28px;max-width:1100px">Packaged-goods brands ship campaigns <em>without ever booking a <span class="ser">studio.</span></em></h2>
 <div class="stats rv">
@@ -271,6 +276,8 @@ h2 em .ser,h1 em .ser{color:inherit}
 </div>
 </div></section>
 
+<div class="wrap"><div class="eldv_divider" data-anm-elastic-divider data-anm-color="rgba(29, 29, 31, 0.22)" data-anm-weight="1" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div></div>
+
 <section id="problem"><div class="wrap">
 <div class="prob-top"><div class="cap rv">[ 02 ] <b>The problem</b></div>
 <h2 class="rv">Your product is great. <em>Your ads are held hostage by bad options.</em></h2></div>
@@ -284,6 +291,8 @@ h2 em .ser,h1 em .ser{color:inherit}
 <div><span class="cap">Creative fatigue</span><div class="big" style="margin-top:14px">7 days</div><h3>Until your ads go stale.</h3><p>Paid social burns through creative fast. Without a weekly supply, your cost per purchase quietly climbs.</p></div>
 </div>
 </div></section>
+
+<div class="wrap"><div class="eldv_divider" data-anm-elastic-divider data-anm-color="rgba(29, 29, 31, 0.22)" data-anm-weight="1" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div></div>
 
 <section id="solution"><div class="wrap">
 <div class="cap rv">[ 03 ] <b>The solution</b></div>
@@ -303,6 +312,8 @@ h2 em .ser,h1 em .ser{color:inherit}
 <ul><li>20 static &amp; motion ads every week</li><li>Meta &amp; TikTok formats</li><li>Dashboard &amp; seasonal campaigns</li></ul><button class="btn" data-open>Start the engine</button></div>
 </div>
 </div></section>
+
+<div class="wrap"><div class="eldv_divider" data-anm-elastic-divider data-anm-color="rgba(29, 29, 31, 0.22)" data-anm-weight="1" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div></div>
 
 <section id="how"><div class="wrap">
 <div class="cap rv">[ 04 ] <b>How it works</b></div>
@@ -333,6 +344,8 @@ h2 em .ser,h1 em .ser{color:inherit}
 </div></main></div>
 </div></section>
 
+<div class="wrap"><div class="eldv_divider" data-anm-elastic-divider data-anm-color="rgba(29, 29, 31, 0.22)" data-anm-weight="1" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div></div>
+
 <section id="faq"><div class="wrap faq-grid">
 <div><div class="cap rv">[ 05 ] <b>FAQ</b></div><h2 class="rv" style="margin-top:28px;font-size:clamp(36px,4.4vw,64px)">Questions, <em>answered.</em></h2></div>
 <div class="rv">
@@ -344,7 +357,9 @@ h2 em .ser,h1 em .ser{color:inherit}
 <details><summary>Who is behind the work?</summary><p>AI does the heavy lifting; senior art directors and packaging designers direct and finish every piece.</p></details>
 </div></div></section>
 
-<section class="cta"><div class="wrap">
+<div class="wrap"><div class="eldv_divider" data-anm-elastic-divider data-anm-color="rgba(29, 29, 31, 0.22)" data-anm-weight="1" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div></div>
+
+<section class="cta" id="cta"><div class="wrap">
 <div class="cap rv">[ 06 ] <b>Start</b></div>
 <h2 class="rv">See your product in the studio <em>this <span class="ser">week.</span></em></h2>
 <div class="row rv"><button class="btn lg" data-open>Get 3 Free Custom Studio Ads of Your Product →</button><span>Paste your store URL. No card needed.</span></div>
@@ -382,5 +397,6 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 <script src="ScrollTrigger.min.js"></script>
 <script src="CustomEase.min.js"></script>
 <script src="floating-navbar.js"></script>
+<script src="elastic-divider.js"></script>
 </body>
 </html>
