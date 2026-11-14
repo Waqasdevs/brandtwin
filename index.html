@@ -69,7 +69,7 @@ section{padding:80px 0}
 .pair .frame .tag{color:#fff}
 /* solution */
 .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px}
-.sol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
+.sol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px 32px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
 .sol h3{font-size:26px;letter-spacing:-.03em;margin-bottom:12px;line-height:1.1}
 .sol p{color:#58585a;font-size:15.5px}
 .price{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
@@ -86,7 +86,7 @@ section{padding:80px 0}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:80px 0}
 .steps-rail{column-gap:40px}
 .step{padding-top:8px;cursor:pointer}
-.step h3{font-size:30px;letter-spacing:-.03em;margin:44px 0 14px}
+.step h3{font-size:30px;letter-spacing:-.03em;margin:32px 0 14px}
 .step p{color:#58585a;max-width:360px}
 .dash{border-radius:var(--r);background:var(--card);border:1px solid var(--line);overflow:hidden;display:grid;grid-template-columns:220px 1fr;min-height:520px}
 .dash aside{border-right:1px solid var(--line);padding:28px 24px;font-size:14px;display:flex;flex-direction:column;gap:14px;color:var(--mute)}
@@ -177,7 +177,7 @@ h2 em .ser,h1 em .ser{color:inherit}
 .idx a{display:grid;grid-template-columns:80px 1fr 1fr 40px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);font-size:clamp(24px,3vw,44px);letter-spacing:-.04em;transition:padding .35s,color .35s}
 .idx a span{font-size:14px;color:var(--mute);letter-spacing:0}
 .idx a:hover{padding-left:20px;color:var(--accent)}
-.sheet{margin:0 0 110px;background:#E8E5DE;border-radius:var(--r);padding:56px 48px 40px}
+.sheet{margin:80px 0 110px;background:#E8E5DE;border-radius:var(--r);padding:56px 48px 40px}
 .sheet-row{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .cs{position:relative;padding:14px}
 .cs::before,.cs::after,.cs i::before,.cs i::after{content:"";position:absolute;width:12px;height:12px;border:0 solid var(--ink)}
@@ -186,7 +186,7 @@ h2 em .ser,h1 em .ser{color:inherit}
 .cs img{aspect-ratio:1;object-fit:cover;width:100%;border-radius:4px}
 .cs figcaption{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:10px}
 .sheet-top{display:flex;justify-content:space-between;margin-bottom:28px}
-.team{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:110px;align-items:start}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:80px;align-items:start}
 .team .quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(30px,3.6vw,52px);line-height:1.08;letter-spacing:-.03em}
 .ppl{border-top:1px solid var(--ink)}
 .ppl div{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line);font-size:19px;letter-spacing:-.02em}
@@ -296,12 +296,14 @@ h2 em .ser,h1 em .ser{color:inherit}
 </div>
 </div></section>
 
-<section id="solution"><div class="wrap">
-<div class="eldv_block rv"><div class="cap">[ 03 ] <b>The solution</b></div></div>
-<div class="eldv_divider" data-anm-elastic-divider data-anm-color="#1D1D1F" data-anm-weight="1.5" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div>
-<h2 class="rv" style="max-width:1100px">A studio trained on your pack. <em>Finished by people who care about <span class="ser">type.</span></em></h2>
-<div class="prl_wrap" data-anm-process-rail data-anm-scrub="0.6" data-anm-bead-size="10" data-anm-sticky="false" data-anm-stagger="0.08" style="margin-top:80px">
+<section id="solution" style="padding-top:0"><div class="wrap">
+<div class="prl_wrap" data-anm-process-rail data-anm-scrub="0.6" data-anm-bead-size="10" data-anm-sticky="true" data-anm-stagger="0.08">
   <div class="prl_stage">
+    <div>
+      <div class="eldv_block rv"><div class="cap">[ 03 ] <b>The solution</b></div></div>
+      <div class="eldv_divider" data-anm-elastic-divider data-anm-color="#1D1D1F" data-anm-weight="1.5" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div>
+      <h2 class="rv" style="max-width:1100px">A studio trained on your pack. <em>Finished by people who care about <span class="ser">type.</span></em></h2>
+    </div>
     <div class="prl_rail" data-anm-prl-rail>
       <svg class="prl_svg prl_svg_desktop" viewBox="0 0 1200 40" aria-hidden="true" focusable="false">
         <path class="prl_path" data-anm-prl-path="desktop" d="M 20 20 L 1180 20" />
@@ -339,12 +341,14 @@ h2 em .ser,h1 em .ser{color:inherit}
 </div>
 </div></section>
 
-<section id="how"><div class="wrap">
-<div class="eldv_block rv"><div class="cap">[ 04 ] <b>How it works</b></div></div>
-<div class="eldv_divider" data-anm-elastic-divider data-anm-color="#1D1D1F" data-anm-weight="1.5" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div>
-<h2 class="rv">Service-as-a-software, <em>in three <span class="ser">steps.</span></em></h2>
-<div class="prl_wrap" data-anm-process-rail data-anm-scrub="0.6" data-anm-bead-size="10" data-anm-sticky="false" data-anm-stagger="0.08" style="margin:80px 0">
+<section id="how" style="padding-top:0"><div class="wrap">
+<div class="prl_wrap" data-anm-process-rail data-anm-scrub="0.6" data-anm-bead-size="10" data-anm-sticky="true" data-anm-stagger="0.08">
   <div class="prl_stage">
+    <div>
+      <div class="eldv_block rv"><div class="cap">[ 04 ] <b>How it works</b></div></div>
+      <div class="eldv_divider" data-anm-elastic-divider data-anm-color="#1D1D1F" data-anm-weight="1.5" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div>
+      <h2 class="rv">Service-as-a-software, <em>in three <span class="ser">steps.</span></em></h2>
+    </div>
     <div class="prl_rail" data-anm-prl-rail>
       <svg class="prl_svg prl_svg_desktop" viewBox="0 0 1200 40" aria-hidden="true" focusable="false">
         <path class="prl_path" data-anm-prl-path="desktop" d="M 20 20 L 1180 20" />

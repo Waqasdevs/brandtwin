@@ -18,7 +18,7 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 .prl_wrap[data-anm-sticky="false"] .prl_stage {
@@ -32,7 +32,7 @@
   align-self: center;
   width: 100%;
   max-width: 1360px;
-  margin: 0 auto;
+  margin: 48px auto 0;
 }
 
 /* JS fits the line to the steps; the svg is a fixed-height strip above them */
