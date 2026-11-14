@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="floating-navbar.css">
 <link rel="stylesheet" href="elastic-divider.css">
+<link rel="stylesheet" href="process-rail.css">
 <style>
 :root{--bg:#F2F0EB;--ink:#1D1D1F;--mute:#8A8883;--line:rgba(29,29,31,.12);--card:#FAF9F6;--accent:#CC5500;--r:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -68,7 +69,7 @@ section{padding:80px 0}
 .pair .frame .tag{color:#fff}
 /* solution */
 .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px}
-.sol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.sol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
 .sol h3{font-size:26px;letter-spacing:-.03em;margin-bottom:12px;line-height:1.1}
 .sol p{color:#58585a;font-size:15.5px}
 .price{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
@@ -83,7 +84,8 @@ section{padding:80px 0}
 .tier.dark .btn:hover{background:var(--accent);color:#fff}
 /* how */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:80px 0}
-.step{border-top:1px solid var(--ink);padding-top:20px}
+.steps-rail{column-gap:40px}
+.step{padding-top:8px;cursor:pointer}
 .step h3{font-size:30px;letter-spacing:-.03em;margin:44px 0 14px}
 .step p{color:#58585a;max-width:360px}
 .dash{border-radius:var(--r);background:var(--card);border:1px solid var(--line);overflow:hidden;display:grid;grid-template-columns:220px 1fr;min-height:520px}
@@ -298,10 +300,32 @@ h2 em .ser,h1 em .ser{color:inherit}
 <div class="eldv_block rv"><div class="cap">[ 03 ] <b>The solution</b></div></div>
 <div class="eldv_divider" data-anm-elastic-divider data-anm-color="#1D1D1F" data-anm-weight="1.5" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div>
 <h2 class="rv" style="max-width:1100px">A studio trained on your pack. <em>Finished by people who care about <span class="ser">type.</span></em></h2>
-<div class="sol-grid rv">
-<div class="sol"><span class="cap">01</span><div><h3>100% pixel-perfect labels</h3><p>Built from your dielines, so every logo, claim and cap is exact.</p></div></div>
-<div class="sol"><span class="cap">02</span><div><h3>Real studio lighting</h3><p>Glass, foil and board render with believable depth—not plastic.</p></div></div>
-<div class="sol"><span class="cap">03</span><div><h3>Senior human polish, in 48 hours</h3><p>A packaging designer signs off on every asset before it reaches you.</p></div></div>
+<div class="prl_wrap" data-anm-process-rail data-anm-scrub="0.6" data-anm-bead-size="10" data-anm-sticky="false" data-anm-stagger="0.08" style="margin-top:80px">
+  <div class="prl_stage">
+    <div class="prl_rail" data-anm-prl-rail>
+      <svg class="prl_svg prl_svg_desktop" viewBox="0 0 1200 40" aria-hidden="true" focusable="false">
+        <path class="prl_path" data-anm-prl-path="desktop" d="M 20 20 L 1180 20" />
+      </svg>
+      <svg class="prl_svg prl_svg_mobile" viewBox="0 0 80 560" aria-hidden="true" focusable="false">
+        <path class="prl_path" data-anm-prl-path="mobile" d="M 40 16 L 40 544" />
+      </svg>
+      <span class="prl_bead" data-anm-prl-bead></span>
+      <ol class="prl_steps">
+        <li class="prl_step sol" data-anm-prl-step>
+          <span class="cap prl_step_num" data-anm-prl-num aria-hidden="true">01</span>
+          <div><h3>100% pixel-perfect labels</h3><p>Built from your dielines, so every logo, claim and cap is exact.</p></div>
+        </li>
+        <li class="prl_step sol" data-anm-prl-step>
+          <span class="cap prl_step_num" data-anm-prl-num aria-hidden="true">02</span>
+          <div><h3>Real studio lighting</h3><p>Glass, foil and board render with believable depth—not plastic.</p></div>
+        </li>
+        <li class="prl_step sol" data-anm-prl-step>
+          <span class="cap prl_step_num" data-anm-prl-num aria-hidden="true">03</span>
+          <div><h3>Senior human polish, in 48 hours</h3><p>A packaging designer signs off on every asset before it reaches you.</p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>
 <div class="team rv"><div class="quote">“The machine does the heavy lifting. A person always has the last look.”</div>
 <div class="ppl"><div>Amira Hale<span>Creative Director</span></div><div>Jonas Weber<span>Packaging Designer</span></div><div>Priya Nair<span>Senior Art Director</span></div></div></div>
@@ -319,10 +343,35 @@ h2 em .ser,h1 em .ser{color:inherit}
 <div class="eldv_block rv"><div class="cap">[ 04 ] <b>How it works</b></div></div>
 <div class="eldv_divider" data-anm-elastic-divider data-anm-color="#1D1D1F" data-anm-weight="1.5" data-anm-frequency="2.6" data-anm-damping="0.72" data-anm-sensitivity="1" data-anm-max-amplitude="38"><svg class="eldv_svg" data-anm-elastic-divider-svg aria-hidden="true" focusable="false"><path class="eldv_path" data-anm-elastic-divider-path fill="none" stroke-linecap="round"></path></svg></div>
 <h2 class="rv">Service-as-a-software, <em>in three <span class="ser">steps.</span></em></h2>
-<div class="steps rv">
-<div class="step"><span class="cap">Step 01</span><h3>Lock in your Twin</h3><p>Send us your dielines or 5 product photos. Our creative director builds your master 3D/AI Brand Twin.</p></div>
-<div class="step"><span class="cap">Step 02</span><h3>Weekly creative drops</h3><p>Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.</p></div>
-<div class="step"><span class="cap">Step 03</span><h3>Senior human polish</h3><p>Every asset passes through an experienced packaging &amp; brand designer for typography, color accuracy and print/ad compliance.</p></div>
+<div class="prl_wrap" data-anm-process-rail data-anm-scrub="0.6" data-anm-bead-size="10" data-anm-sticky="false" data-anm-stagger="0.08" style="margin:80px 0">
+  <div class="prl_stage">
+    <div class="prl_rail" data-anm-prl-rail>
+      <svg class="prl_svg prl_svg_desktop" viewBox="0 0 1200 40" aria-hidden="true" focusable="false">
+        <path class="prl_path" data-anm-prl-path="desktop" d="M 20 20 L 1180 20" />
+      </svg>
+      <svg class="prl_svg prl_svg_mobile" viewBox="0 0 80 560" aria-hidden="true" focusable="false">
+        <path class="prl_path" data-anm-prl-path="mobile" d="M 40 16 L 40 544" />
+      </svg>
+      <span class="prl_bead" data-anm-prl-bead></span>
+      <ol class="prl_steps steps-rail">
+        <li class="prl_step step" data-anm-prl-step>
+          <span class="cap prl_step_num" data-anm-prl-num aria-hidden="true">Step 01</span>
+          <h3>Lock in your Twin</h3>
+          <p>Send us your dielines or 5 product photos. Our creative director builds your master 3D/AI Brand Twin.</p>
+        </li>
+        <li class="prl_step step" data-anm-prl-step>
+          <span class="cap prl_step_num" data-anm-prl-num aria-hidden="true">Step 02</span>
+          <h3>Weekly creative drops</h3>
+          <p>Request seasonal campaigns in your dashboard—or let our team pitch and produce your weekly Meta/TikTok ad packs automatically.</p>
+        </li>
+        <li class="prl_step step" data-anm-prl-step>
+          <span class="cap prl_step_num" data-anm-prl-num aria-hidden="true">Step 03</span>
+          <h3>Senior human polish</h3>
+          <p>Every asset passes through an experienced packaging &amp; brand designer for typography, color accuracy and print/ad compliance.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>
 <div class="sheet rv">
 <div class="sheet-top"><span class="cap">[ Contact sheet ] <b>One pack, four outputs</b></span><span class="cap">Roll 12 / Frames 01–04</span></div>
@@ -397,7 +446,10 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 <script src="gsap.min.js"></script>
 <script src="ScrollTrigger.min.js"></script>
 <script src="CustomEase.min.js"></script>
+<script src="MotionPathPlugin.min.js"></script>
+<script src="DrawSVGPlugin.min.js"></script>
 <script src="floating-navbar.js"></script>
 <script src="elastic-divider.js"></script>
+<script src="process-rail.js"></script>
 </body>
 </html>
