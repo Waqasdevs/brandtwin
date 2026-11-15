@@ -18,7 +18,16 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  padding: 40px 0;
+  padding: 28px 0;
+}
+
+.prl_stage .eldv_block {
+  margin-bottom: -16px;
+}
+
+.prl_stage .eldv_divider {
+  height: 76px;
+  margin-bottom: -8px;
 }
 
 .prl_wrap[data-anm-sticky="false"] .prl_stage {
@@ -32,7 +41,7 @@
   align-self: center;
   width: 100%;
   max-width: 1360px;
-  margin: 48px auto 0;
+  margin: 32px auto 0;
 }
 
 /* JS fits the line to the steps; the svg is a fixed-height strip above them */
@@ -85,8 +94,8 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
-  column-gap: 16px;
-  margin: 24px 0 0;
+  column-gap: 24px;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -98,7 +107,9 @@
 }
 
 .prl_step_btn {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -120,11 +131,12 @@
 .prl_step_num {
   display: block;
   height: 1em;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.01em;
-  color: rgba(16, 16, 16, 0.62);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute, #8A8883);
   font-variant-numeric: tabular-nums;
 }
 
@@ -162,28 +174,30 @@
 
 .prl_step_title {
   display: block;
-  margin-top: 12px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  margin-top: 14px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--ink, #1D1D1F);
 }
 
 .prl_step_text {
   display: block;
-  margin-top: 6px;
-  font-size: 13px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  color: rgba(16, 16, 16, 0.62);
+  margin-top: 8px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  line-height: 1.48;
+  color: #58585a;
 }
 
 /* the active step's image; its space is reserved so a card never changes height */
 .prl_step_media {
   display: block;
   width: 100%;
-  margin-top: 16px;
-  aspect-ratio: 4 / 3;
+  margin-top: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
   overflow: hidden;
   transform-origin: 50% 0;
   will-change: transform, opacity;
