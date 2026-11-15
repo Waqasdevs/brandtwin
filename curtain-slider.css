@@ -1,0 +1,337 @@
+/* Curtain Slider - full-bleed drop-in video/image slider. Advancing runs a
+   direction-aware 12-column clip-path curtain wipe on the outgoing layer
+   while the incoming layer zoom-settles and brightens beneath. */
+
+.cs_wrap {
+  --cs-bg:      #101010;
+  --cs-fg:      rgba(255, 250, 242, 0.94);
+  --cs-fg-soft: rgba(255, 250, 242, 0.78);
+  --cs-fg-dim:  rgba(255, 250, 242, 0.72);
+  --cs-line:    rgba(255, 255, 255, 0.22);
+  --cs-line-on: rgba(255, 250, 242, 0.92);
+  --cs-pill-bg: rgba(20, 20, 20, 0.42);
+  --cs-circle:  rgba(255, 255, 255, 0.12);
+  --cs-circle-hover: rgba(204, 85, 0, 0.88);
+  --cs-margin:  40px;
+  --cs-sans:    'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.cs_wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--cs-bg);
+  font-family: var(--cs-sans);
+  -webkit-font-smoothing: antialiased;
+  touch-action: pan-y;
+  outline: none;
+  cursor: grab;
+}
+
+.cs_wrap:active {
+  cursor: grabbing;
+}
+
+.cs_slides {
+  display: none;
+}
+
+.cs_stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Media layers: each layer is N column strips. ---- */
+.cs_layers {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cs_layer {
+  position: absolute;
+  inset: 0;
+}
+
+.cs_strip {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cs_strip_inner {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.cs_layer_img,
+.cs_strip_canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: 50% 50%;
+  display: block;
+}
+
+/* Per-strip darkening overlay - dimming tweens THIS element's opacity
+   (GPU-composited) instead of filter: brightness on the media. */
+.cs_shade {
+  position: absolute;
+  inset: 0;
+  background: #0a0a0a;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Scrim for text legibility ---- */
+.cs_scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to bottom, rgba(12, 12, 12, 0.62) 0%, rgba(12, 12, 12, 0.34) 45%, rgba(12, 12, 12, 0.72) 100%),
+    radial-gradient(circle at 24% 42%, rgba(12, 12, 12, 0.42) 0%, rgba(12, 12, 12, 0) 65%);
+  pointer-events: none;
+}
+
+/* ---- Label, bottom-right above title ---- */
+.cs_label {
+  position: absolute;
+  right: var(--cs-margin);
+  bottom: 112px;
+  z-index: 4;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cs-fg-soft);
+  pointer-events: none;
+  text-align: right;
+}
+
+.cs_label_line {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  width: max-content;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+/* ---- Display title, bottom-right ---- */
+.cs_title {
+  position: absolute;
+  right: var(--cs-margin);
+  bottom: 66px;
+  z-index: 4;
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--cs-fg);
+  width: max-content;
+  max-width: calc(100% - var(--cs-margin) * 2);
+  pointer-events: none;
+  text-align: right;
+}
+
+.cs_title_line {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  width: max-content;
+  margin-left: auto;
+  overflow-x: visible;
+  overflow-y: hidden;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.cs_title_char {
+  position: relative;
+  display: inline-block;
+}
+
+/* ---- Index roller, bottom-right ---- */
+.cs_index {
+  position: absolute;
+  right: var(--cs-margin);
+  bottom: 38px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--cs-fg-dim);
+  pointer-events: none;
+}
+
+.cs_digit_wrap {
+  position: relative;
+  display: inline-block;
+  overflow-x: visible;
+  overflow-y: hidden;
+  height: 1em;
+  width: 0.62em;
+  vertical-align: top;
+}
+
+.cs_digit_roller {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs_digit_roller span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
+.cs_index_divider {
+  display: inline-block;
+  margin: 0 0.3em;
+  color: var(--cs-line);
+  line-height: 1;
+}
+
+.cs_index_total {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* ---- Progress hairline, below top navbar ---- */
+.cs_progress {
+  position: absolute;
+  left: var(--cs-margin);
+  right: var(--cs-margin);
+  top: 82px;
+  z-index: 4;
+  height: 1px;
+  background: var(--cs-line);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cs_progress_fill {
+  position: absolute;
+  inset: 0;
+  background: var(--cs-line-on);
+  transform: scaleX(0);
+}
+
+/* ---- Control pill, bottom center ---- */
+.cs_pill {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--cs-pill-bg);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transform: translateX(-50%);
+  cursor: default;
+}
+
+.cs_arrow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  border: none;
+  background: var(--cs-circle);
+  color: var(--cs-fg);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cs_arrow:hover {
+  background: var(--cs-circle-hover);
+}
+
+.cs_arrow:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.cs_arrow_icon {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+/* ---- Screen-reader-only live region ---- */
+.cs_live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Outgoing text lines get lifted onto an absolute overlay inside the same
+   element so the exit tween keeps running while the new line animates in. */
+.cs_line_out {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: max-content;
+  min-width: 100%;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 900px) {
+  .cs_wrap {
+    --cs-margin: 20px;
+  }
+
+  .cs_progress {
+    top: 70px;
+  }
+
+  .cs_label {
+    bottom: 84px;
+    font-size: 11px;
+  }
+
+  .cs_title {
+    bottom: 52px;
+    font-size: clamp(20px, 5.5vw, 28px);
+  }
+
+  .cs_index {
+    bottom: 28px;
+  }
+
+  .cs_pill {
+    left: 20px;
+    bottom: 22px;
+    transform: none;
+  }
+}

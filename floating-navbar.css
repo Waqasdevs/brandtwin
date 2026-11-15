@@ -7,9 +7,9 @@
 
 .fnb_wrap {
   --fnb-margin: 40px;
-  --fnb-bar-h: 88px;
-  --fnb-fg: #1D1D1F;
-  --fnb-ring: rgba(29, 29, 31, 0.35);
+  --fnb-bar-h: 82px;
+  --fnb-fg: rgba(255, 250, 242, 0.94);
+  --fnb-ring: rgba(255, 250, 242, 0.45);
   --fnb-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 
   position: fixed;
