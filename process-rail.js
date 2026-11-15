@@ -23,7 +23,7 @@
 
     const EASE = 'annnimate';
     // extra scroll the sticky stage holds for, in viewport heights
-    const TRACK_VH = 200;
+    const TRACK_VH = 48;
     // a click scrolls just past the step's anchor, so the step is reached
     const ARRIVE = 0.02;
     // only the bead and the line are scrubbed; a step's arrival plays in seconds
