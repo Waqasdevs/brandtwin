@@ -1,0 +1,128 @@
+/* Accordion — smooth GSAP height + rotating/fading icon + SplitText line-by-line reveal */
+
+.accordion_section {
+  width: 100%;
+}
+
+.accordion_item {
+  border-top: 1px solid var(--line, rgba(29, 29, 31, 0.12));
+}
+
+.accordion_item:first-child {
+  border-top: 0;
+}
+
+.accordion_item:last-child {
+  border-bottom: 1px solid var(--line, rgba(29, 29, 31, 0.12));
+}
+
+.accordion_trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 0;
+  background: none;
+  border: 0;
+  color: var(--ink, #1D1D1F);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.accordion_item:first-child .accordion_trigger {
+  padding-top: 6px;
+}
+
+.accordion_trigger:hover {
+  color: var(--accent, #CC5500);
+}
+
+.accordion_trigger:focus-visible {
+  outline: 1px solid var(--ink, #1D1D1F);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.accordion_title {
+  flex: 1;
+}
+
+.accordion_icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mute, #8A8883);
+  transform-origin: 50% 50%;
+  transition: color 0.25s ease;
+}
+
+.accordion_trigger:hover .accordion_icon {
+  color: var(--accent, #CC5500);
+}
+
+.accordion_icon_bar {
+  position: absolute;
+  background-color: currentColor;
+  border-radius: 1px;
+}
+
+.accordion_icon_h {
+  width: 14px;
+  height: 1.5px;
+}
+
+.accordion_icon_v {
+  width: 1.5px;
+  height: 14px;
+}
+
+.accordion_content {
+  overflow: hidden;
+  will-change: height;
+}
+
+.accordion_inner {
+  padding-bottom: 26px;
+}
+
+.accordion_text {
+  margin: 0;
+  color: #58585a;
+  max-width: 620px;
+  font-size: 16.5px;
+  line-height: 1.55;
+}
+
+.accordion_split_line-mask {
+  overflow: hidden;
+  display: block;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.accordion_split_line {
+  display: block;
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .accordion_trigger {
+    font-size: 20px;
+    padding: 22px 0;
+  }
+
+  .accordion_inner {
+    padding-bottom: 22px;
+  }
+}
