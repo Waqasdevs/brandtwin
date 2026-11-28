@@ -53,11 +53,13 @@ section{padding:80px 0}
 .stat.dark p{color:#9b9a96}
 .brands{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-top:64px;padding-top:28px;border-top:1px solid var(--line);font-size:22px;letter-spacing:-.03em;color:#9a9893}
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.case{display:block}
 .case .frame{aspect-ratio:4/5;border-radius:var(--r)}
 .case .ph{display:flex;justify-content:space-between;padding:16px 2px;font-size:15px}
-.case .ph span{color:var(--mute)}
+.case .ph span{color:var(--mute);transition:color .25s}
 .case .frame img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .case:hover .frame img{transform:scale(1.04)}
+.case:hover .ph b:nth-child(2),.case:hover .ph span{color:var(--accent)}
 /* problem */
 .prob-top{display:grid;grid-template-columns:1fr 2fr;gap:60px}
 .cost{display:grid;grid-template-columns:repeat(3,1fr);margin-top:90px;border-top:1px solid var(--ink)}
@@ -298,16 +300,16 @@ h2 em .ser,h1 em .ser{color:inherit}
 <div class="stat"><span class="cap">Turnaround</span><div><strong>48h</strong><p>From request to polished, approved asset.</p></div></div>
 <div class="stat"><span class="cap">Every week</span><div><strong>20</strong><p>Static and motion ads, in your inbox.</p></div></div>
 </div>
-<div class="brands rv"><span>Ember &amp; Oak</span><span>Maison Crumb</span><span>Dewlight</span><span>Fieldhand</span><span>Saltwork</span></div>
+<div class="brands rv"><span>Herb, Roots &amp; Co.</span><span>Asa Cha</span><span>Calibré</span><span>Ember &amp; Oak</span><span>Saltwork</span></div>
 <div class="cases rv">
-<div class="case"><div class="frame"><img src="sauce_studio.jpg" alt="Craft sauce studio shot"></div><div class="ph"><b class="num">01</b><b style="font-weight:400;margin-right:auto">Craft sauce</b><span>Static + Meta ad</span></div></div>
-<div class="case"><div class="frame"><img src="bakery_studio.jpg" alt="Bakery box studio shot"></div><div class="ph"><b class="num">02</b><b style="font-weight:400;margin-right:auto">Boutique bakery</b><span>Static + Meta ad</span></div></div>
-<div class="case"><div class="frame"><img src="cosmetics_studio.jpg" alt="Skincare jar studio shot"></div><div class="ph"><b class="num">03</b><b style="font-weight:400;margin-right:auto">Skincare jar</b><span>Static + Meta ad</span></div></div>
+<a class="case" href="work/herb-roots-co.html"><div class="frame"><img src="assets/work/herb-roots/01-spice-flatlay.jpg" alt="Herb, Roots &amp; Co. herbal cider pouch studio flatlay"></div><div class="ph"><b class="num">01</b><b style="font-weight:400;margin-right:auto">Herb, Roots &amp; Co.</b><span>Case study ↗</span></div></a>
+<a class="case" href="work/asa-cha.html"><div class="frame"><img src="assets/work/asa-cha/03-tin-in-hands.jpg" alt="Asa Cha Ceremonial Matcha tin studio shot"></div><div class="ph"><b class="num">02</b><b style="font-weight:400;margin-right:auto">Asa Cha</b><span>Case study ↗</span></div></a>
+<a class="case" href="work/calibre.html"><div class="frame"><img src="assets/work/calibre/05-travertine-jar.jpg" alt="Calibré Botanical Tallow Balm amber jar on travertine"></div><div class="ph"><b class="num">03</b><b style="font-weight:400;margin-right:auto">Calibré</b><span>Case study ↗</span></div></a>
 </div>
 <div class="idx rv">
-<a href="#proof"><span>01</span>Kaizen Hot Sauce<span>Craft beverage &amp; sauce</span><span>↗</span></a>
-<a href="#proof"><span>02</span>Maison Crumb<span>Boutique bakery</span><span>↗</span></a>
-<a href="#proof"><span>03</span>Dewlight<span>Skincare</span><span>↗</span></a>
+<a href="work/herb-roots-co.html"><span>01</span>Herb, Roots &amp; Co.<span>Herbal cider &amp; spiced beverage</span><span>↗</span></a>
+<a href="work/asa-cha.html"><span>02</span>Asa Cha<span>Ceremonial matcha</span><span>↗</span></a>
+<a href="work/calibre.html"><span>03</span>Calibré<span>Botanical skincare</span><span>↗</span></a>
 </div>
 </div></section>
 
